@@ -1,8 +1,8 @@
 ---
-name: react-composition-refactor
-description: Guide React or Next.js feature composition upfront and during refactors. Use when designing or reshaping feature structure, route/runtime boundaries, controller hooks, presentation models, layout/view ownership, typed view variants, focused effects, or large UI surfaces with prop soup and hidden dependencies.
+name: react-feature-composition
+description: Guide React or Next.js feature composition before implementation and during reshaping. Use when designing feature structure, route/runtime boundaries, controller hooks, presentation models, layout/view ownership, typed view variants, focused effects, or large UI surfaces with prop soup and hidden dependencies.
 ---
-# React Composition Refactor
+# React Feature Composition
 
 Design the feature toward idiomatic React first. When refactoring, do not let the incumbent mess define the target shape.
 

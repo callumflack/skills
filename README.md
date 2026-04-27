@@ -26,10 +26,10 @@ npx skills@latest add callumflack/skills/claim-rubric
 npx skills@latest add callumflack/skills/cognitive-load
 ```
 
-- `react-composition-refactor` — Guide React/Next feature composition upfront and during refactors: route/runtime boundaries, controller hooks, presentation models, layout/view ownership, and focused effects.
+- `react-feature-composition` — Guide React/Next feature composition before implementation and during reshaping: route/runtime boundaries, controller hooks, presentation models, layout/view ownership, and focused effects.
 
 ```sh
-npx skills@latest add callumflack/skills/react-composition-refactor
+npx skills@latest add callumflack/skills/react-feature-composition
 ```
 
 ## Skills
@@ -37,7 +37,7 @@ npx skills@latest add callumflack/skills/react-composition-refactor
 - [`claim-rubric`](claim-rubric/SKILL.md)
 - [`cognitive-load`](cognitive-load/SKILL.md)
 - [`note-interrogation`](note-interrogation/SKILL.md)
-- [`react-composition-refactor`](react-composition-refactor/SKILL.md)
+- [`react-feature-composition`](react-feature-composition/SKILL.md)
 
 ## License
 
