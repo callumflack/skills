@@ -1,6 +1,6 @@
 ---
 name: cognitive-load
-description: Review code for cognitive load: complex conditionals, shallow abstractions, needless indirection, poor naming, and working-memory overload. Use when simplifying code for readability, maintainability, or human comprehension.
+description: "Review code for cognitive load: complex conditionals, shallow abstractions, needless indirection, poor naming, and working-memory overload. Use when simplifying code for readability, maintainability, or human comprehension."
 license: CC-BY-4.0 attribution to Artem Zakirullin
 ---
 
