@@ -1,0 +1,4 @@
+interface:
+  display_name: "React Composition Refactor"
+  short_description: "React feature composition guide"
+  default_prompt: "Use $react-composition-refactor to design or refactor this React or Next.js feature into an idiomatic, maintainable composition."
