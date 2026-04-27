@@ -1,13 +1,18 @@
 ---
 name: claim-rubric
-description: Evaluate and improve note titles and implicit claims. First decide claim vs resource, then apply the appropriate rubric. Use when naming or renaming notes, identifying the claim inside a note, or checking whether a title captures the real assertion.
+description: Locate the claim inside a note and turn it into a stronger title. First decide claim vs resource, then apply the appropriate rubric. Use when naming or renaming notes, identifying the real assertion, or checking whether a title captures the note.
 ---
 
 # Claim Rubric
 
-Use this rubric when titling any note. The first question is always: **is this a claim or a resource?**
+Use this rubric when titling any note. The core job is: **find the claim so the file can be named correctly.**
 
-Use it before or alongside `note-interrogation` when the claim is fuzzy. `claim-rubric` identifies and names the assertion; `note-interrogation` reconstructs the argument before critique.
+Use it before or alongside `note-interrogation` when the claim is fuzzy.
+
+`claim-rubric` = locate/name the assertion.  
+`note-interrogation` = reconstruct/test the argument.
+
+The first question is always: **is this a claim or a resource?**
 
 ## Step 1: Claim or Resource?
 

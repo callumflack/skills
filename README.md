@@ -12,7 +12,7 @@ Private source of truth: my KB. Public shape: curated installable exports.
 npx skills@latest add callumflack/skills/note-interrogation
 ```
 
-- `claim-rubric` — Evaluate note titles and implicit claims. Useful before `note-interrogation` when the real assertion is fuzzy.
+- `claim-rubric` — Locate the claim inside a note and turn it into a stronger title.
 
 ```sh
 npx skills@latest add callumflack/skills/claim-rubric
