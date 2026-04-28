@@ -2,8 +2,6 @@
 
 Portable agent skills I actually use.
 
-Private source of truth: my KB. Public shape: curated installable exports.
-
 ## Knowledge workflow
 
 - **`claim-rubric`**. Locate the claim inside a note and turn it into a stronger title.
