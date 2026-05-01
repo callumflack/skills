@@ -1,4 +1,4 @@
 interface:
   display_name: "React Feature Composition"
-  short_description: "React feature composition guide"
-  default_prompt: "Use $react-feature-composition to design or reshape this React or Next.js feature into an idiomatic, maintainable composition."
+  short_description: "React feature composition and ownership guide"
+  default_prompt: "Use $react-feature-composition to design or reshape this React or Next.js feature around clear route, controller, service, selector, model, and view ownership."

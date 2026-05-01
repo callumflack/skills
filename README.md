@@ -23,7 +23,7 @@ Portable agent skills I actually use.
   ```sh
   npx skills@latest add callumflack/skills/cognitive-load
   ```
-- **`react-feature-composition`**. Guide React/Next feature composition before implementation and during reshaping: route/runtime boundaries, controller hooks, presentation models, layout/view ownership, and focused effects.
+- **`react-feature-composition`**. Guide React/Next feature composition before implementation and during reshaping: route/runtime boundaries, services, selectors, controller hooks, presentation models, layout/view ownership, and focused effects.
   ```sh
   npx skills@latest add callumflack/skills/react-feature-composition
   ```

@@ -1,83 +1,61 @@
 ---
 name: react-feature-composition
-description: Guide React or Next.js feature composition before implementation and during reshaping. Use when designing feature structure, route/runtime boundaries, controller hooks, presentation models, layout/view ownership, typed view variants, focused effects, or large UI surfaces with prop soup and hidden dependencies.
+description: Guide React or Next.js feature composition before implementation and during reshaping. Use when designing feature structure, route/runtime boundaries, services, selectors, controller hooks, presentation models, layout/view ownership, typed view variants, focused effects, or large UI surfaces with prop soup and hidden dependencies.
 ---
 # React Feature Composition
 
-Design the feature toward idiomatic React first. When refactoring, do not let the incumbent mess define the target shape.
+Shape React features around explicit ownership and small renderable models.
+
+Core contract:
+
+- Controllers derive models. Views render models.
+- Services transform. Selectors query. Controllers coordinate.
+- Preserve behavior unless the task explicitly includes UX change.
 
 ## Read First
 
-Read the language contract and both references before planning the refactor:
+Always read `LANGUAGE.md`. It is the vocabulary contract.
 
-- `LANGUAGE.md`
-- `references/ui-react-best-practices.md`
-- `references/ui-composition-patterns.md`
+Load focused refs by need:
 
-These are mandatory. `LANGUAGE.md` defines the ownership vocabulary. The references define the React doctrine.
+- `references/refactor-candidates.md` for smells, candidate output, and deepening checks.
+- `references/model-interface-design.md` for large controller/model design choices.
+- `references/validation.md` before calling implementation done.
 
-## Use Related Skills
+## Related Skills
 
-If these skills are available in the environment, invoke them early:
+Invoke these upstream skills. If one is missing, ask the user before running the exact install command shown. Do not search for substitutes.
 
 - `vercel-react-best-practices`
+  ```sh
+  npx skills add https://github.com/vercel-labs/agent-skills --skill vercel-react-best-practices
+  ```
 - `vercel-composition-patterns`
+  ```sh
+  npx skills add https://github.com/vercel-labs/agent-skills --skill vercel-composition-patterns
+  ```
+- `next-best-practices`
+  ```sh
+  npx skills add https://github.com/vercel-labs/next-skills --skill next-best-practices
+  ```
+- `web-design-guidelines`
+  ```sh
+  npx skills add https://github.com/vercel-labs/agent-skills --skill web-design-guidelines
+  ```
 
-Invoke when relevant:
+Use local `ui-text` when semantic text, copy, typography, or token hygiene matter:
 
-- `nextjs` for App Router, route/controller boundaries, rendering, metadata, and data flow
-- `ui-text` for semantic text, copy, typography, and token hygiene
-- `web-design-guidelines` for a UI review pass
-
-If they are not already installed locally, look them up on `skills.sh` first instead of guessing package names.
-
-Published skill pages:
-
-- `vercel-react-best-practices`: `https://skills.sh/vercel-labs/agent-skills/vercel-react-best-practices`
-- `vercel-composition-patterns`: `https://skills.sh/vercel-labs/agent-skills/vercel-composition-patterns`
-- `nextjs`: `https://skills.sh/teachingai/full-stack-skills/nextjs`
-- `web-design-guidelines`: `https://skills.sh/ehmo/platform-design-skills/web-design-guidelines`
-
-To avoid manual lookup tedium, prefer a finder flow when possible:
-
-- use the `find-skills` skill if it is installed
-- or run `npx skills find <query>`
-
-Useful searches:
-
-- `npx skills find react performance`
-- `npx skills find react composition`
-- `npx skills find nextjs`
-- `npx skills find web design guidelines`
-
-## Core Principles
-
-- Prefer explicit ownership over convenience.
-- Controllers derive models. Views render models.
-- Prefer composition over boolean prop growth.
-- Prefer render-time derivation over syncing derived state in effects.
-- Prefer discriminated unions over optional props that only make sense for one variant.
-- Prefer narrow side-effect hooks over one mega-hook or mega-component.
-- Prefer file and folder names that reveal ownership at a glance.
-- Use the container/presentational split as ancestry, not naming doctrine.
-- Preserve behavior unless the task explicitly includes UX change.
+```text
+/Users/cflack/Repos/callumflack/ds-kit/skills/ui-text
+```
 
 ## Target Shape
 
+Many features do not need a Controller. Static lists, one-submit forms, obvious leaf extractions, and already-separated behavior may only need a rename, a leaf split, or no refactor.
+
+The tree below is an upper-bound shape, not a checklist.
+
 When a feature has route gating, host chrome, and multiple runtime views, prefer:
-
-1. Route Entry
-2. Route Controller
-3. Feature Entry
-4. Controller hook
-5. Presentation Model
-6. Layout View
-7. View Switch
-8. Runtime Views
-9. Pure Helpers in `lib/`
-10. Effect Hooks in `hooks/`
-
-Prefer a shape like:
 
 ```text
 feature/
@@ -101,87 +79,57 @@ feature/
       success-view.tsx
 ```
 
-## Ownership Rules
+Ownership rules:
 
-Use names that encode ownership. Use `LANGUAGE.md` terms when explaining moves.
+- `page.tsx`: Route Entry only.
+- `controller.tsx`: Route Controller only.
+- `feature.tsx`: Feature Entry only.
+- `use-*-controller.ts`: Controller and Presentation Model derivation.
+- `types.ts` or `*-model.ts`: Model types and pure model shape.
+- `*-layout.tsx`: Layout View.
+- `*-view.tsx`: View Switch only.
+- `views/*`: Runtime Views.
+- `lib/*`: Services, Selectors, and Pure Helpers.
+- `hooks/*`: Effect Hooks and focused subscriptions.
 
-- `page.tsx`: Route Entry only
-- `controller.tsx`: Route Controller only
-- `feature.tsx`: Feature Entry only
-- `use-*-controller.ts`: Controller and Presentation Model derivation
-- `types.ts` or `*-model.ts`: Model types and pure model shape
-- `*-layout.tsx`: Layout View
-- `*-view.tsx`: View Switch only
-- `views/*`: Runtime Views
-- `lib/*`: Pure Helpers
-- `hooks/*`: Effect Hooks and focused subscriptions
+## Workflow
 
-If a file name hides ownership, rename it.
+1. Explore the feature and name the current ownership shape using `LANGUAGE.md`.
+2. Load `references/refactor-candidates.md`, then identify the dominant smell.
+3. Apply the deletion test: if deleting the extraction just moves equal complexity back into callers, it is shallow.
+4. Use this recommendation ladder:
+   1. Rename for ownership if behavior is already separated.
+   2. Extract a Controller when behavior and rendering are mixed.
+   3. Extract Services or Selectors when pure logic is repeated, hard to name, or worth testing through a stable seam.
+   4. Extract Effect Hooks only when external synchronization has a clear single concern.
+   5. Introduce context only when data is ambient and deeply shared.
+5. Present candidates using the output contract below. Do not jump straight to file moves when the model interface is still unclear.
+6. Choose the smallest shape that gives better locality. Explicitly say when the correct outcome is no Controller.
+7. For large model choices, run `references/model-interface-design.md` before editing.
+8. Implement in small behavior-preserving steps.
+9. Validate with `references/validation.md` and use its done checklist.
 
-## Refactor Workflow
+## Output Contract
 
-1. Identify the real seams.
-   - route-owned entry state
-   - runtime interactive state
-   - host/layout presentation
-   - pure derivation
-   - side effects
-   - field normalization and validation
+For planning or review, present each candidate as:
 
-2. Find the dominant smell.
-   - prop bag threaded through many layers
-   - component doing route gate, orchestration, layout, and rendering
-   - boolean variant explosion
-   - effect used to mirror derived state
-   - view-specific props exposed everywhere
-   - dynamic form logic mixed with field rendering
+- **Files**: current files/modules involved.
+- **Problem**: the ownership or locality problem.
+- **Proposed shape**: route/controller/model/view/service/selector split.
+- **Why**: how this reduces caller knowledge, prop threading, or effect coupling.
+- **Test seam**: where behavior should be verified.
+- **Risks**: behavior, routing, rendering, or type risks.
 
-3. Extract the behavioral core.
-   - Move orchestration into one controller hook.
-   - Keep it responsible for deriving a stable presentation model.
-   - Keep runtime views presentational.
+For implementation, report:
 
-4. Replace prop soup with models.
-   - Build a presentation model, usually `{ layout, view }`.
-   - Build a `layout` model for shell concerns.
-   - Build a discriminated `view` model for runtime variants.
-   - Expose only the data and actions each view kind actually needs.
+- changed files
+- final ownership shape
+- validation run
+- remaining risk
 
-5. Split effects by concern.
-   - bootstrap
-   - completion
-   - host notifications
-   - embed sizing and presentation
-   - polling or subscription
+## Patterns
 
-6. Move pure logic out of render components.
-   - state derivation
-   - normalization
-   - validation
-   - density and layout calculations
-   - completion helpers
-
-7. Rename and move files to match the final ownership model.
-
-## Preferred Patterns
-
-### Controller
-
-Use a controller hook when a component is mixing behavior and rendering.
-
-The controller's job is to derive the presentation model. It is the modern React version of the old container/presentational split, without naming files `Container.tsx`.
-
-Good output:
-
-- refs needed by layout
-- `layout`
-- `view`
-
-Do not return a grab bag of unrelated loose props.
-
-### Presentation Model
-
-Prefer:
+Controller output should be a Presentation Model, usually:
 
 ```ts
 type PresentationModel = {
@@ -190,115 +138,12 @@ type PresentationModel = {
 };
 ```
 
-The model is renderable UI state, not domain data.
+`ViewModel` should be a discriminated union. Each view kind carries only the data and actions that view can use.
 
-### Discriminated View Model
+Effects are for external synchronization only. Derive renderable model state during render.
 
-Prefer:
+Context is for ambient, deeply shared data. Do not use context to hide prop soup that should be solved by a better model.
 
-```ts
-type View =
-  | { kind: "intro"; onStart: () => void }
-  | {
-      kind: "input";
-      inputRequest: InputRequest;
-      onSubmit: SubmitFn;
-      onCancel: () => void;
-    }
-  | { kind: "processing"; statusLabel: string }
-  | { kind: "success"; result: Data; onDone: () => void }
-  | { kind: "error"; error?: string; onRetry: () => void; onCancel: () => void };
-```
+## Finish
 
-Avoid:
-
-- giant shared interfaces
-- many optional props
-- fake generic `content props`
-- passing success-only props to intro views
-
-### Layout Model
-
-Use `layout` for:
-
-- host mode
-- shell variant
-- density
-- outer refs
-- overflow treatment
-- header and footer visibility
-- provider or host metadata used by shell chrome
-
-Do not put view-only actions into `layout`.
-
-### Effect Discipline
-
-Effects are for external synchronization, not for bookkeeping that can be derived during render.
-
-Bad:
-
-- syncing `viewModel.state` into another `status` state just to read it later
-
-Good:
-
-- derive the presentation model during render
-- keep only truly local transition state when needed for async control flow
-
-### Context Discipline
-
-Do not default to feature context.
-
-Use context only when data is truly ambient and deeply shared.
-
-Do not use context as a substitute for:
-
-- better file boundaries
-- a controller hook
-- explicit presentation models
-
-## Dynamic Form Guidance
-
-When forms are dynamic:
-
-- normalize schema into typed descriptors first
-- validate against normalized descriptors
-- render fields through focused field components or a typed registry
-- keep field rendering separate from normalization and validation
-
-## Anti-Patterns
-
-Avoid these unless there is a strong reason:
-
-- one 1000+ line feature component
-- boolean props that multiply variants
-- route gating inside leaf components
-- one shared props interface for mutually exclusive states
-- wide context providers for one feature subtree
-- effect-driven derived state syncing
-- naming files after implementation accidents instead of responsibility
-
-## Validation
-
-Run targeted validation on touched files, then run the doctrine review pass over the refactor.
-
-- formatter on touched UI files
-- lint on touched files
-- typecheck when types, boundaries, or call sites changed
-- focused tests when behavior changed
-- run `vercel-react-best-practices` against the work before calling it done
-- run `vercel-composition-patterns` against the work before calling it done
-
-If a commit hook reformats files, inspect the post-hook diff before finishing.
-
-## Done When
-
-The refactor is done when all of this is true:
-
-- route gating is separate from runtime views
-- file names match ownership
-- layout concerns are separate from view concerns
-- view variants are explicit and typed
-- side effects are narrow and named
-- pure logic lives outside presentational components
-- prop threading is reduced because the model is better, not because context hid it
-- the resulting tree is easier to explain in one diagram
+Before calling implementation done, load `references/validation.md` and use its done checklist.

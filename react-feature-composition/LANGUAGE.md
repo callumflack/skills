@@ -17,8 +17,16 @@ The thin component that starts the feature after route concerns are settled.
 _Avoid_: app, root, main component.
 
 **Controller**
-The orchestration layer that turns runtime inputs, side effects, and domain data into a stable model for views.
+The React-facing orchestration hook that turns runtime inputs, side effects, selectors, and services into a stable model for views.
 _Avoid_: container, manager, orchestrator component.
+
+**Service**
+A framework-agnostic pure function for domain transformation or business logic. It does not know React, component props, or store shape.
+_Avoid_: hook, controller, store method.
+
+**Selector**
+A pure query over state or already-shaped data. It derives a read model and performs no writes or side effects.
+_Avoid_: service, controller, computed component prop.
 
 **Model**
 Renderable UI state. Not domain data. A model is the shaped data and actions the UI can render without knowing orchestration.
@@ -56,19 +64,34 @@ _Avoid_: lifecycle hook, side-effect bucket.
 A pure function for derivation, normalization, validation, or calculation.
 _Avoid_: util dump, helpers bucket.
 
+Pure-logic discriminator: a **Service** owns domain transformation, a **Selector** reads existing state or shaped data, and a **Pure Helper** is a local calculation without domain ownership.
+
 ## Principles
 
 - **Controllers derive models. Views render models.**
+- **Services transform. Selectors query. Controllers coordinate.**
 - The container/presentational split is ancestry, not naming doctrine. Use **Controller** and **View**; do not introduce `Container.tsx`.
 - File names should reveal ownership before implementation detail.
 - `View` means runtime presentation, not a route screen.
 - `Model` means renderable UI shape, not backend/domain persistence.
+- A **Controller** may be implemented as a hook. A hook is not automatically a controller.
 
 ## Relationships
 
 - A **Route Entry** delegates to a **Route Controller** or **Feature Entry**.
-- A **Controller** derives a **Presentation Model**.
+- A **Service** transforms domain inputs without React.
+- A **Selector** queries state or shaped data without side effects.
+- A **Controller** coordinates React state, actions, effects, services, and selectors to derive a **Presentation Model**.
 - A **Presentation Model** contains a **Layout Model** and **View Model**.
 - A **Layout View** renders the shell around a **View Switch**.
 - A **View Switch** renders one **Runtime View** from the **View Model**.
 - **Effect Hooks** and **Pure Helpers** serve the **Controller**; they should not leak orchestration into views.
+
+## Rejected Framings
+
+- **"Hook" as a synonym for Controller**: too broad. A Controller may be a hook, but many hooks are focused effects, subscriptions, or local helpers.
+- **"Service" as a fetch wrapper**: too vague. A Service is a pure domain transform here. Network clients belong at an integration boundary or inside a focused effect/adapter.
+- **"Selector" as business logic**: too broad. A Selector queries existing state or shaped data. Domain transformation belongs in a Service or Pure Helper.
+- **"Model" as backend or persisted data**: wrong layer. Model means renderable UI shape in this vocabulary.
+- **"View" as route screen**: wrong ownership. A Runtime View is one presentational variant selected by a View Model.
+- **"Container" as the target name**: legacy framing. Use Controller, Route Controller, Feature Entry, Layout View, and Runtime View.
