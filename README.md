@@ -27,6 +27,10 @@ Portable agent skills I actually use.
   ```sh
   npx skills@latest add callumflack/skills/react-feature-composition
   ```
+- **`react-build-lens`**. Select the smallest React web lens when multiple React/Next.js/TanStack Start skills or oracles could apply; classify diff-scoped findings as PR risk/follow-up/noise, use React Doctor as high-signal evidence, and skip React Native/Expo.
+  ```sh
+  npx skills@latest add callumflack/skills/react-build-lens
+  ```
 
 ## Skills
 
@@ -34,6 +38,7 @@ Portable agent skills I actually use.
 - [`cognitive-load`](cognitive-load/SKILL.md)
 - [`interrogate-claim`](interrogate-claim/SKILL.md)
 - [`interrogate-idiom`](interrogate-idiom/SKILL.md)
+- [`react-build-lens`](react-build-lens/SKILL.md)
 - [`react-feature-composition`](react-feature-composition/SKILL.md)
 
 ## License
