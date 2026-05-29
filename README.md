@@ -21,6 +21,13 @@ Portable agent skills I actually use.
   npx skills@latest add callumflack/skills/interrogate-idiom
   ```
 
+## Planning and execution
+
+- **`ralph-loop`**. Run one Ralph planning or build iteration from project prompts, requirements, plans, and backpressure files.
+  ```sh
+  npx skills@latest add callumflack/skills/ralph-loop
+  ```
+
 ## Code quality
 
 - **`cognitive-load`**. Review code for working-memory overload: complex conditionals, shallow abstractions, needless indirection, poor naming, and over-compressed DRY.
@@ -43,6 +50,7 @@ Portable agent skills I actually use.
 - [`cognitive-load`](cognitive-load/SKILL.md)
 - [`interrogate-claim`](interrogate-claim/SKILL.md)
 - [`interrogate-idiom`](interrogate-idiom/SKILL.md)
+- [`ralph-loop`](ralph-loop/SKILL.md)
 - [`react-build-lens`](react-build-lens/SKILL.md)
 - [`react-feature-composition`](react-feature-composition/SKILL.md)
 
