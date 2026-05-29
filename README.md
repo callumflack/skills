@@ -4,6 +4,10 @@ Portable agent skills I actually use.
 
 ## Knowledge workflow
 
+- **`claim-diagram-card`**. Create mnemonic diagram cards for KB Claim notes: simple ASCII plus a rough handwritten illustration embedded at width 600 and kept under 1MB.
+  ```sh
+  npx skills@latest add callumflack/skills/claim-diagram-card
+  ```
 - **`claim-rubric`**. Locate the claim inside a note and turn it into a stronger title.
   ```sh
   npx skills@latest add callumflack/skills/claim-rubric
@@ -34,6 +38,7 @@ Portable agent skills I actually use.
 
 ## Skills
 
+- [`claim-diagram-card`](claim-diagram-card/SKILL.md)
 - [`claim-rubric`](claim-rubric/SKILL.md)
 - [`cognitive-load`](cognitive-load/SKILL.md)
 - [`interrogate-claim`](interrogate-claim/SKILL.md)
