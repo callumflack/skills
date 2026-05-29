@@ -7,10 +7,10 @@ description: Locate the claim inside a note and turn it into a stronger title. F
 
 Use this rubric when titling any note. The core job is: **find the claim so the file can be named correctly.**
 
-Use it before or alongside `note-interrogation` when the claim is fuzzy.
+Use it before or alongside `interrogate-claim` when the claim is fuzzy.
 
 `claim-rubric` = locate/name the assertion.  
-`note-interrogation` = reconstruct/test the argument.
+`interrogate-claim` = reconstruct/test the argument.
 
 The first question is always: **is this a claim or a resource?**
 
