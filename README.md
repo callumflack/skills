@@ -4,14 +4,6 @@ Portable agent skills I actually use.
 
 ## Knowledge workflow
 
-- **`claim-diagram-card`**. Create mnemonic diagram cards for KB Claim notes: simple ASCII plus a rough handwritten illustration embedded at width 600 and kept under 1MB.
-  ```sh
-  npx skills@latest add callumflack/skills/claim-diagram-card
-  ```
-- **`claim-rubric`**. Locate the claim inside a note and turn it into a stronger title.
-  ```sh
-  npx skills@latest add callumflack/skills/claim-rubric
-  ```
 - **`interrogate-claim`**. Pressure-test a strategy note by locating its claim, level, burden, objection, and next question before responding.
   ```sh
   npx skills@latest add callumflack/skills/interrogate-claim
@@ -20,9 +12,21 @@ Portable agent skills I actually use.
   ```sh
   npx skills@latest add callumflack/skills/interrogate-idiom
   ```
+- **`claim-rubric`**. Locate the claim inside a note and turn it into a stronger title.
+  ```sh
+  npx skills@latest add callumflack/skills/claim-rubric
+  ```
+- **`claim-diagram-card`**. Create mnemonic diagram cards for KB Claim notes: simple ASCII plus a rough handwritten illustration embedded at width 600 and kept under 1MB.
+  ```sh
+  npx skills@latest add callumflack/skills/claim-diagram-card
+  ```
 
 ## Planning and execution
 
+- **`build-loop-plan`**. Turn a spec or PRD into a local `.scratch` implementation plan with executable slices, evidence gates, and closeout rules.
+  ```sh
+  npx skills@latest add callumflack/skills/build-loop-plan
+  ```
 - **`ralph-loop`**. Run one Ralph planning or build iteration from project prompts, requirements, plans, and backpressure files.
   ```sh
   npx skills@latest add callumflack/skills/ralph-loop
@@ -30,6 +34,10 @@ Portable agent skills I actually use.
 
 ## Code quality
 
+- **`bug-repro-test-first`**. Start bug work by writing a failing regression test before changing production code.
+  ```sh
+  npx skills@latest add callumflack/skills/bug-repro-test-first
+  ```
 - **`cognitive-load`**. Review code for working-memory overload: complex conditionals, shallow abstractions, needless indirection, poor naming, and over-compressed DRY.
   ```sh
   npx skills@latest add callumflack/skills/cognitive-load
@@ -45,6 +53,8 @@ Portable agent skills I actually use.
 
 ## Skills
 
+- [`bug-repro-test-first`](bug-repro-test-first/SKILL.md)
+- [`build-loop-plan`](build-loop-plan/SKILL.md)
 - [`claim-diagram-card`](claim-diagram-card/SKILL.md)
 - [`claim-rubric`](claim-rubric/SKILL.md)
 - [`cognitive-load`](cognitive-load/SKILL.md)
