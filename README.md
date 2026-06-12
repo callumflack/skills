@@ -2,6 +2,10 @@
 
 Portable agent skills I actually use.
 
+## Agent defaults
+
+- [`AGENTS-SEED.md`](AGENTS-SEED.md) is the portable personalization block: owner surface, allowed writes, forbidden surfaces, done gate, nearest oracle, source pressure, and friction-as-signal.
+
 ## Knowledge workflow
 
 - **`interrogate-claim`**. Pressure-test a strategy note by locating its claim, level, burden, objection, and next question before responding.
@@ -20,9 +24,21 @@ Portable agent skills I actually use.
   ```sh
   npx skills@latest add callumflack/skills/claim-diagram-card
   ```
+- **`knowledge-handoff`**. Capture durable knowledge from long chats, sources, and knowledge-work threads into the owning KB surface.
+  ```sh
+  npx skills@latest add callumflack/skills/knowledge-handoff
+  ```
 
 ## Planning and execution
 
+- **`code-stacks`**. Draft code-shaped planning notes from types, interfaces, boundaries, composition points, call stacks, and proof oracles.
+  ```sh
+  npx skills@latest add callumflack/skills/code-stacks
+  ```
+- **`plan-optimizer`**. Harden a plan with one rubric, one adversarial critique, and one rewrite that fixes the top weaknesses.
+  ```sh
+  npx skills@latest add callumflack/skills/plan-optimizer
+  ```
 - **`build-loop-plan`**. Turn a spec or PRD into a local `.scratch` implementation plan with executable slices, evidence gates, and closeout rules.
   ```sh
   npx skills@latest add callumflack/skills/build-loop-plan
@@ -57,9 +73,12 @@ Portable agent skills I actually use.
 - [`build-loop-plan`](build-loop-plan/SKILL.md)
 - [`claim-diagram-card`](claim-diagram-card/SKILL.md)
 - [`claim-rubric`](claim-rubric/SKILL.md)
+- [`code-stacks`](code-stacks/SKILL.md)
 - [`cognitive-load`](cognitive-load/SKILL.md)
 - [`interrogate-claim`](interrogate-claim/SKILL.md)
 - [`interrogate-idiom`](interrogate-idiom/SKILL.md)
+- [`knowledge-handoff`](knowledge-handoff/SKILL.md)
+- [`plan-optimizer`](plan-optimizer/SKILL.md)
 - [`ralph-loop`](ralph-loop/SKILL.md)
 - [`react-build-lens`](react-build-lens/SKILL.md)
 - [`react-feature-composition`](react-feature-composition/SKILL.md)
