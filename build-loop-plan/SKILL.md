@@ -43,10 +43,18 @@ Do not hook up Linear, GitHub Issues, or another tracker by default.
    must literally land first.
 6. Translate formal spec labels into executor language:
    `Real input`, `Limit`, `Fixture rule`, `Follow-up ask`.
-7. Ask before writing if the local folder, target path, tracker policy, owner,
+7. Ground the draft before writing:
+   - verify each `Real input` against the codebase at a named symbol; a claimed
+     producer that does not exist is a finding, not a detail;
+   - account for every user story as covered by a slice or explicitly deferred
+     with a reason;
+   - for substantial plans, run `plan-optimizer` in a fresh agent context (the
+     author must not grade its own draft), then verify the critique's
+     load-bearing claims before merging fixes.
+8. Ask before writing if the local folder, target path, tracker policy, owner,
    or artifact convention is uncertain. Recommend `.scratch/<slug>/` when the
    repo has no obvious convention.
-8. Write the plan to the target path.
+9. Write the plan to the target path.
 
 ## During Execution
 

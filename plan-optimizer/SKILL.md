@@ -93,3 +93,16 @@ you don't have (ask), or the framing is wrong (offer Step 0).
 - **A rubric that can't see the problem.** If the plan satisfies the rubric
   but still feels off, fix the rubric: add the missing criterion, then
   re-critique once.
+
+## Amplifiers
+
+Two things multiply this skill's yield; both proven in field use:
+
+- **Don't let the author grade its own draft.** Run the critique — or a
+  from-scratch redo for comparison — in a fresh agent context that did not
+  produce the artifact under test. Same-context self-critique anchors on
+  the draft and performs improvement rather than finding it.
+- **Verify, don't trust, the critique.** For implementation plans, check
+  every "this input/producer exists" claim — in the draft and in the
+  critique — against the named code symbol before merging fixes. A claimed
+  producer that doesn't exist is the highest-value find.
