@@ -2,6 +2,12 @@
 
 Portable agent skills I actually use.
 
+Install all active public skills:
+
+```sh
+npx skills@latest add callumflack/skills
+```
+
 ## Agent defaults
 
 - [`AGENTS-SEED.md`](AGENTS-SEED.md) is the portable personalization block: owner surface, allowed writes, forbidden surfaces, done gate, nearest oracle, source pressure, and friction-as-signal.
@@ -82,6 +88,10 @@ Portable agent skills I actually use.
 - [`ralph-loop`](ralph-loop/SKILL.md)
 - [`react-build-lens`](react-build-lens/SKILL.md)
 - [`react-feature-composition`](react-feature-composition/SKILL.md)
+
+## Archive
+
+Retired or uncertain bodies live in [`archive`](archive/README.md). They are retained for review, not published as active skills.
 
 ## License
 
