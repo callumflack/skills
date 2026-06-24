@@ -68,7 +68,7 @@ npx skills@latest add callumflack/skills
   ```sh
   npx skills@latest add callumflack/skills/react-feature-composition
   ```
-- **`react-build-lens`**. Select the smallest React web lens when multiple React/Next.js/TanStack Start skills or oracles could apply; classify diff-scoped findings as PR risk/follow-up/noise, use React Doctor as high-signal evidence, and skip React Native/Expo.
+- **`react-build-lens`**. Select the smallest React lens when multiple React/framework/data skills or oracles could apply; classify diff-scoped findings as PR risk/follow-up/noise, use React Doctor as high-signal evidence, and skip React Native/Expo.
   ```sh
   npx skills@latest add callumflack/skills/react-build-lens
   ```

@@ -1,6 +1,6 @@
 ---
 name: react-build-lens
-description: "Meta skill for React web build work when multiple React/Next.js/TanStack Start skills or evidence oracles could apply. Use to select the smallest relevant lens, classify diff-scoped findings as PR risk/follow-up/noise, and choose the proof oracle. Do not use for obvious single-skill React tasks, React Native, or Expo."
+description: "Meta skill for React build work when multiple React/framework/data skills or evidence oracles could apply. Use to select the smallest relevant lens, classify diff-scoped findings as PR risk/follow-up/noise, and choose the proof oracle. Do not use for obvious single-skill React tasks, React Native, or Expo."
 ---
 
 # React Build Lens
@@ -9,8 +9,12 @@ Choose the smallest useful React build lens for the current task.
 
 ## Rule
 
-Pick the smallest lens set that fits the touched React web surface. Do not run
-every React skill by default. Do not fix all warnings by default.
+Pick the smallest lens set that fits the touched React surface. Do not run every
+React skill by default. Do not fix all warnings by default.
+
+This lens is runtime-agnostic. Do not designate runtimes, apps, or frameworks
+as skills. Choose framework-specific lenses only from evidence in the touched
+surface.
 
 Use this only when more than one React skill or evidence oracle could apply.
 For obvious single-skill work, use that skill directly.
@@ -22,7 +26,7 @@ Cold-agent guardrails:
 - Before loading a lens, name the touched file or observed smell that makes it
   relevant.
 - If only one lens applies, use that skill directly and stop.
-- If no React web surface changed, do not use this skill.
+- If no React surface changed, do not use this skill.
 - If a selected lens is missing, ask the user before installing it. If install is
   declined or unavailable, keep working from local files and available oracles,
   and name the missing lens as a limitation.
@@ -178,7 +182,7 @@ blocked locally; the repo's own lint command remains the lint oracle.
 Review mode:
 
 ```text
-Use the React build lens on the current React web diff only if multiple lenses
+Use the React build lens on the current React diff only if multiple lenses
 or evidence oracles could apply. Pick only the relevant skills, classify
 findings as PR risk / follow-up / noise, and recommend the smallest
 branch-specific fix set. Do not fix all warnings.
