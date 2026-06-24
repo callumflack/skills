@@ -34,6 +34,10 @@ npx skills@latest add callumflack/skills
   ```sh
   npx skills@latest add callumflack/skills/knowledge-handoff
   ```
+- **`friction-to-proof`**. Convert high-friction objections into visible proof objects and decision-change asks.
+  ```sh
+  npx skills@latest add callumflack/skills/friction-to-proof
+  ```
 
 ## Planning and execution
 
@@ -81,6 +85,7 @@ npx skills@latest add callumflack/skills
 - [`claim-rubric`](claim-rubric/SKILL.md)
 - [`code-stacks`](code-stacks/SKILL.md)
 - [`cognitive-load`](cognitive-load/SKILL.md)
+- [`friction-to-proof`](friction-to-proof/SKILL.md)
 - [`interrogate-claim`](interrogate-claim/SKILL.md)
 - [`interrogate-idiom`](interrogate-idiom/SKILL.md)
 - [`knowledge-handoff`](knowledge-handoff/SKILL.md)
