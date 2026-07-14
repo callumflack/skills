@@ -24,6 +24,12 @@ Boolean variants:
 - `isEditing`, `isEmbedded`, `isSuccess`, `showHeader`, `isCompact`, or similar booleans multiply possible states
 - branch logic is spread across parent, layout, and leaves
 
+Hand-maintained variant axis:
+
+- the same state union, options list, or scenario set is re-listed across consumer files
+- adding one variant forces coordinated edits in route helpers, catalogs, panels, capture registries, parsers, or fixtures
+- variant unions are hand-typed in several places instead of derived from one row table
+
 Effect-driven derived state:
 
 - an effect mirrors data into another state variable just so render can read it
@@ -59,6 +65,7 @@ Good React feature extractions concentrate:
 - read-model queries in Selectors
 - host synchronization in Effect Hooks
 - rendering in Runtime Views
+- variant axes in one registry-owned module (rows as data, unions derived)
 
 Avoid seams with only one reason to exist. One caller plus no test or runtime variation is usually just indirection.
 
