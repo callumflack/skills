@@ -41,6 +41,14 @@ npx skills@latest add callumflack/skills
 
 ## Planning and execution
 
+- **`atomic-commit-slicing`**. Isolate one approved change from a dirty Git worktree without absorbing unrelated staged, unstaged, or untracked work.
+  ```sh
+  npx skills@latest add callumflack/skills/atomic-commit-slicing
+  ```
+- **`human-first-linear`**. Explain, draft, or rewrite Linear issues so the human problem and solution come first without turning read-only requests into edits or deleting unique operational detail.
+  ```sh
+  npx skills@latest add callumflack/skills/human-first-linear
+  ```
 - **`code-stacks`**. Draft code-shaped planning notes from types, interfaces, boundaries, composition points, call stacks, and proof oracles.
   ```sh
   npx skills@latest add callumflack/skills/code-stacks
@@ -79,6 +87,7 @@ npx skills@latest add callumflack/skills
 
 ## Skills
 
+- [`atomic-commit-slicing`](atomic-commit-slicing/SKILL.md)
 - [`bug-repro-test-first`](bug-repro-test-first/SKILL.md)
 - [`build-loop-plan`](build-loop-plan/SKILL.md)
 - [`claim-diagram-card`](claim-diagram-card/SKILL.md)
@@ -86,6 +95,7 @@ npx skills@latest add callumflack/skills
 - [`code-stacks`](code-stacks/SKILL.md)
 - [`cognitive-load`](cognitive-load/SKILL.md)
 - [`friction-to-proof`](friction-to-proof/SKILL.md)
+- [`human-first-linear`](human-first-linear/SKILL.md)
 - [`interrogate-claim`](interrogate-claim/SKILL.md)
 - [`interrogate-idiom`](interrogate-idiom/SKILL.md)
 - [`knowledge-handoff`](knowledge-handoff/SKILL.md)
