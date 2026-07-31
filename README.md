@@ -61,9 +61,9 @@ npx skills@latest add callumflack/skills
   ```sh
   npx skills@latest add callumflack/skills/build-loop-plan
   ```
-- **`ralph-loop`**. Run one Ralph planning or build iteration from project prompts, requirements, plans, and backpressure files.
+- **`ralph-iteration`**. Run one Ralph planning or build iteration from project prompts, requirements, plans, and backpressure files.
   ```sh
-  npx skills@latest add callumflack/skills/ralph-loop
+  npx skills@latest add callumflack/skills/ralph-iteration
   ```
 
 ## Code quality
@@ -100,7 +100,7 @@ npx skills@latest add callumflack/skills
 - [`interrogate-idiom`](interrogate-idiom/SKILL.md)
 - [`knowledge-handoff`](knowledge-handoff/SKILL.md)
 - [`plan-optimizer`](plan-optimizer/SKILL.md)
-- [`ralph-loop`](ralph-loop/SKILL.md)
+- [`ralph-iteration`](ralph-iteration/SKILL.md)
 - [`react-build-lens`](react-build-lens/SKILL.md)
 - [`react-feature-composition`](react-feature-composition/SKILL.md)
 

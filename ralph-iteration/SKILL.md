@@ -1,5 +1,5 @@
 ---
-name: ralph-loop
+name: ralph-iteration
 description: Run one Ralph-style planning or build iteration from project-supplied prompts, plans, specs, and backpressure files. Use when the user asks to Ralph, run a Ralph loop, bootstrap Ralph files, create/update an implementation plan, or execute the next item from an existing Ralph plan.
 ---
 
