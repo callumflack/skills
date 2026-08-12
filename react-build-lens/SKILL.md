@@ -13,8 +13,8 @@ Pick the smallest lens set that fits the touched React surface. Do not run every
 React skill by default. Do not fix all warnings by default.
 
 Framework knowledge comes from the installed framework, not a generic skill.
-For Next.js 16.3+, read the relevant guide under
-`node_modules/next/dist/docs/` before choosing any additional lens. Resolve the
+When the installed Next.js package includes `node_modules/next/dist/docs/`, read
+the relevant guide there before choosing any additional lens. Resolve the
 package from the owning app when working in a monorepo. Use Next DevTools MCP
 when the repo configures it.
 
@@ -57,13 +57,17 @@ Definitions:
 
 Before selecting a lens, inspect the owning package.
 
-- If `next/package.json` resolves, read the relevant guide under the installed
-  package's `dist/docs/` directory and heed the repo's Next-managed `AGENTS.md`
+- If `next/package.json` resolves and its `dist/docs/` directory exists, read
+  the relevant bundled guide and heed the repo's Next-managed `AGENTS.md`
   block. For Next framework conventions, route boundaries, feature structure,
   metadata, data fetching, rendering, and runtime behavior, stop there unless
   an observed problem requires a narrower non-framework lens.
-- Do not install or load `next-best-practices` for a Next.js 16.3+ app. The
-  bundled docs are version matched and authoritative.
+- `next-best-practices` is an optional review checklist, not the normal Next.js
+  setup path or a substitute for version-matched bundled docs. Do not install
+  or load it by default for framework knowledge.
+- The former `vercel-labs/next-skills` install route is deprecated. If the user
+  explicitly asks for the optional skill, use the current OpenReview route
+  listed under Related Skills.
 - Do not load `react-feature-composition` for a Next.js app. Use the bundled
   docs plus the app's existing ownership patterns.
 
@@ -113,10 +117,22 @@ then stop.
 ## Related Skills
 
 If a selected lens is missing, ask the user before installing it. Use the exact
-command shown only after approval. If the target install scope is unclear, ask
-first. If a repo contains multiple skills, keep the `--skill` selector. For
-project installs, run the command from the target project root. For global
-installs, add `--global`.
+command shown only after approval. These commands install optional lenses; they
+are not the setup path for Next.js framework knowledge, which comes from the
+owning app's installed docs. If the target install scope is unclear, ask first.
+If a repo contains multiple skills, keep the `--skill` selector. For project
+installs, run the command from the target project root. For global installs,
+add `--global`.
+
+- `next-best-practices` (optional review checklist)
+  - Current listing:
+    <https://www.skills.sh/vercel-labs/openreview/next-best-practices>
+  - Install only when explicitly requested:
+    ```sh
+    npx skills add https://github.com/vercel-labs/openreview --skill next-best-practices
+    ```
+  - Do not use the deprecated source:
+    `npx skills add vercel-labs/next-skills --skill next-best-practices`.
 
 - `react-feature-composition`
   ```sh
