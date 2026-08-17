@@ -66,6 +66,13 @@ npx skills@latest add callumflack/skills
   npx skills@latest add callumflack/skills/ralph-iteration
   ```
 
+## Interface design
+
+- **`ui-grammar`**. Scan React surfaces into observed component facts, combine them with declared product rules and witnesses, and compile semantic requests into proof-carrying UI stacks without design-system drift.
+  ```sh
+  npx skills@latest add callumflack/skills/ui-grammar
+  ```
+
 ## Code quality
 
 - **`bug-repro-test-first`**. Start bug work by writing a failing regression test before changing production code.
@@ -103,6 +110,7 @@ npx skills@latest add callumflack/skills
 - [`ralph-iteration`](ralph-iteration/SKILL.md)
 - [`react-build-lens`](react-build-lens/SKILL.md)
 - [`react-feature-composition`](react-feature-composition/SKILL.md)
+- [`ui-grammar`](ui-grammar/SKILL.md)
 
 ## Archive
 
