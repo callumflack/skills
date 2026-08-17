@@ -194,7 +194,7 @@ Use JSON for canonical machine inputs. The tools emit JSON observations and Mark
 
 Static scanning can observe imports, JSX relations, props, slots, conditions, and source locations. It cannot prove runtime branches, state authority, effects, navigation, accessibility, responsive geometry, visual quality, or product meaning.
 
-Witness-anchor validation proves that a configured file and anchor resolve. It does not execute the witness. Runtime tests, traces, browser checks, and rendered specimens remain the appropriate evidence for claims that require them.
+Witness-anchor validation proves that a configured file and anchor resolve. It does not execute the witness. When a registry case names rendered-evidence IDs, the target must opt into a no-shell argv adapter which returns a versioned JSON inventory; the registry checks those IDs against that inventory. The adapter is repository-owned, and the portable skill knows neither its tool nor its capture system. Runtime tests, traces, browser checks, and rendered specimens remain the appropriate evidence for claims that require them.
 
 The compiler does not generate React. It produces a constrained, traceable stack that an agent or developer can implement and then verify.
 

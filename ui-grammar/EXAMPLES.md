@@ -14,15 +14,15 @@ Row
 
 ## Inputs
 
-| Input | Meaning | Visual consequence |
-| --- | --- | --- |
-| `media.iconName` | Provider identity | Resolves controlled provider media through the product asset owner. |
-| `title` | Primary identity | Renders the primary line. |
-| `description?` | Supporting information | Adds the second line and derives the detailed internal geometry. |
-| `metadata?` | Trailing display information | Renders the non-interactive trailing role. |
-| `action?` | Trailing semantic action | Renders the action as a sibling of the primary region. |
-| `tone?` | Default or attention meaning | Determines attention presentation. |
-| `primaryAction?` | Primary-region interaction | Makes only provider media and content interactive. |
+| Input            | Meaning                      | Visual consequence                                                  |
+| ---------------- | ---------------------------- | ------------------------------------------------------------------- |
+| `media.iconName` | Provider identity            | Resolves controlled provider media through the product asset owner. |
+| `title`          | Primary identity             | Renders the primary line.                                           |
+| `description?`   | Supporting information       | Adds the second line and derives the detailed internal geometry.    |
+| `metadata?`      | Trailing display information | Renders the non-interactive trailing role.                          |
+| `action?`        | Trailing semantic action     | Renders the action as a sibling of the primary region.              |
+| `tone?`          | Default or attention meaning | Determines attention presentation.                                  |
+| `primaryAction?` | Primary-region interaction   | Makes only provider media and content interactive.                  |
 
 ## Invariants
 
@@ -64,6 +64,7 @@ them with a small JSON registry:
   "evidenceTargets": {
     "visual-catalog": {
       "source": "tooling/catalog/registry.ts",
+      "evidenceIdsCommand": ["node", "tooling/catalog-evidence-ids.mjs"],
       "ownerAnchorTemplate": "id: \"{{id}}\"",
       "ownerCommandTemplate": "npm run catalog -- --surface {{id}}",
       "caseCommandTemplate": "npm run catalog -- --only {{id}}"
@@ -94,8 +95,20 @@ them with a small JSON registry:
 }
 ```
 
-The evidence bridge is optional. Its source path, anchor, IDs, and commands are
-repository configuration, never skill defaults.
+The evidence bridge is optional. When a case names `renderEvidenceIds`, its
+target must also declare `evidenceIdsCommand`: a non-empty argv array executed
+from the repository root without a shell. The command must write exactly one
+JSON document to stdout:
+
+```json
+{ "version": 1, "ids": ["profile.complete"] }
+```
+
+IDs must be non-empty and unique. This makes a configured evidence ID a checked
+foreign key into the repository's own render-proof system. Its source path,
+anchor, IDs, and commands are repository configuration, never skill defaults.
+Configure only trusted repository-owned adapter commands: registry validation
+executes the argv directly, with no shell, to read that inventory.
 
 ```sh
 node .agents/skills/ui-grammar/scripts/ui-grammar-registry.mjs \
