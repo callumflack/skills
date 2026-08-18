@@ -11,26 +11,21 @@ Decision at stake:
 
 Current decision:
 
-Alarm:
-I think this fails on...
+Alarm: I think this fails on...
 
-Expert cue:
-The thing I am noticing is...
+Expert cue: The thing I am noticing is...
 
 Smallest proof:
 
 Current decision only works if:
 
-Recommended change:
-Change [X] to [Y].
+Recommended change: Change [X] to [Y].
 
-Acceptance test:
-We accept this when...
+Acceptance test: We accept this when...
 
 Owner / deadline:
 
-Signal check:
-What would make me downgrade or change this read?
+Signal check: What would make me downgrade or change this read?
 ```
 
 ## 10-Minute Card
@@ -38,8 +33,7 @@ What would make me downgrade or change this read?
 ```markdown
 Decision:
 
-Alarm:
-This is fucked because...
+Alarm: This is fucked because...
 
 Cue:
 

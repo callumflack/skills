@@ -9,130 +9,79 @@ Choose the smallest useful React build lens for the current task.
 
 ## Rule
 
-Pick the smallest lens set that fits the touched React surface. Do not run every
-React skill by default. Do not fix all warnings by default.
+Pick the smallest lens set that fits the touched React surface. Do not run every React skill by default. Do not fix all warnings by default.
 
-Framework knowledge comes from the installed framework, not a generic skill.
-When the installed Next.js package includes `node_modules/next/dist/docs/`, read
-the relevant guide there before choosing any additional lens. Resolve the
-package from the owning app when working in a monorepo. Use Next DevTools MCP
-when the repo configures it.
+Framework knowledge comes from the installed framework, not a generic skill. When the installed Next.js package includes `node_modules/next/dist/docs/`, read the relevant guide there before choosing any additional lens. Resolve the package from the owning app when working in a monorepo. Use Next DevTools MCP when the repo configures it.
 
-Use this only when more than one React skill or evidence oracle could apply.
-For obvious single-skill work, use that skill directly.
-Do not use this for React Native or Expo.
+Use this only when more than one React skill or evidence oracle could apply. For obvious single-skill work, use that skill directly. Do not use this for React Native or Expo.
 
 Cold-agent guardrails:
 
 - Name the owner surface before choosing lenses.
-- If the owner is a Next.js app, resolve its installed `next` package and read
-  the relevant bundled docs first. Do not substitute `next-best-practices`,
-  `react-feature-composition`, or training knowledge for those docs.
-- Before loading a lens, name the touched file or observed smell that makes it
-  relevant.
+- If the owner is a Next.js app, resolve its installed `next` package and read the relevant bundled docs first. Do not substitute `next-best-practices`, `react-feature-composition`, or training knowledge for those docs.
+- Before loading a lens, name the touched file or observed smell that makes it relevant.
 - If only one lens applies, use that skill directly and stop.
 - If no React surface changed, do not use this skill.
-- If a selected lens is missing, ask the user before installing it. If install is
-  declined or unavailable, keep working from local files and available oracles,
-  and name the missing lens as a limitation.
+- If a selected lens is missing, ask the user before installing it. If install is declined or unavailable, keep working from local files and available oracles, and name the missing lens as a limitation.
 
 Definitions:
 
-- `Owner surface`: the route, package, component, hook, service, or module that
-  owns the behavior being changed.
+- `Owner surface`: the route, package, component, hook, service, or module that owns the behavior being changed.
 - `Browser truth`: inspected rendered DOM, CSS, interaction, or runtime behavior.
 - `Smell`: a concrete observed problem in the touched code or rendered UI.
 
 ## Risk Rubric
 
-- `PR risk`: issue introduced or exposed by this branch that is likely to break
-  shipped behavior, build, types, route/runtime boundaries, data flow,
-  hydration, accessibility, acceptance criteria, or reviewed user-visible UI.
-- `Follow-up`: a real issue outside branch scope, pre-existing, cross-cutting,
-  or requiring product/design choice.
-- `Noise`: preference, score-only warning, unreproduced issue, unrelated file,
-  or repo-nonstandard advice.
+- `PR risk`: issue introduced or exposed by this branch that is likely to break shipped behavior, build, types, route/runtime boundaries, data flow, hydration, accessibility, acceptance criteria, or reviewed user-visible UI.
+- `Follow-up`: a real issue outside branch scope, pre-existing, cross-cutting, or requiring product/design choice.
+- `Noise`: preference, score-only warning, unreproduced issue, unrelated file, or repo-nonstandard advice.
 
 ## Framework Check
 
 Before selecting a lens, inspect the owning package.
 
-- If `next/package.json` resolves and its `dist/docs/` directory exists, read
-  the relevant bundled guide and heed the repo's Next-managed `AGENTS.md`
-  block. For Next framework conventions, route boundaries, feature structure,
-  metadata, data fetching, rendering, and runtime behavior, stop there unless
-  an observed problem requires a narrower non-framework lens.
-- `next-best-practices` is an optional review checklist, not the normal Next.js
-  setup path or a substitute for version-matched bundled docs. Do not install
-  or load it by default for framework knowledge.
-- The former `vercel-labs/next-skills` install route is deprecated. If the user
-  explicitly asks for the optional skill, use the current OpenReview route
-  listed under Related Skills.
-- Do not load `react-feature-composition` for a Next.js app. Use the bundled
-  docs plus the app's existing ownership patterns.
+- If `next/package.json` resolves and its `dist/docs/` directory exists, read the relevant bundled guide and heed the repo's Next-managed `AGENTS.md` block. For Next framework conventions, route boundaries, feature structure, metadata, data fetching, rendering, and runtime behavior, stop there unless an observed problem requires a narrower non-framework lens.
+- `next-best-practices` is an optional review checklist, not the normal Next.js setup path or a substitute for version-matched bundled docs. Do not install or load it by default for framework knowledge.
+- The former `vercel-labs/next-skills` install route is deprecated. If the user explicitly asks for the optional skill, use the current OpenReview route listed under Related Skills.
+- Do not load `react-feature-composition` for a Next.js app. Use the bundled docs plus the app's existing ownership patterns.
 
 ## Lens Selector
 
-This is a selector, not a sequence. Pick only lenses with an observed trigger,
-then stop.
+This is a selector, not a sequence. Pick only lenses with an observed trigger, then stop.
 
 1. `react-feature-composition` (non-Next React only)
-   - Use for ownership, file naming, controller/model/view boundaries,
-     effects, selectors, services, and large UI surfaces.
-   - Read `LANGUAGE.md` from that skill when naming ownership is part of the
-     task.
+   - Use for ownership, file naming, controller/model/view boundaries, effects, selectors, services, and large UI surfaces.
+   - Read `LANGUAGE.md` from that skill when naming ownership is part of the task.
 
 2. `vercel-react-best-practices`
-   - Use for observed or plausible React performance/data-flow risk:
-     waterfalls, server/client data boundaries, bundle size, render churn,
-     effect misuse that changes behavior or performance, hydration mismatch, or
-     JavaScript payload.
+   - Use for observed or plausible React performance/data-flow risk: waterfalls, server/client data boundaries, bundle size, render churn, effect misuse that changes behavior or performance, hydration mismatch, or JavaScript payload.
    - Prefer the specific rule file that matches the smell.
 
 3. `tanstack-start`
    - Use only after repo evidence confirms a TanStack Start codebase.
-   - Use when the branch touches SSR, streaming, server functions, API routes,
-     middleware, Start config, route/runtime boundaries, or Start-specific
-     Router/Query integration.
-   - Treat it as a TanStack Start framework lens, not as a general TanStack
-     ecosystem trigger. TanStack Router or Query alone is not enough.
+   - Use when the branch touches SSR, streaming, server functions, API routes, middleware, Start config, route/runtime boundaries, or Start-specific Router/Query integration.
+   - Treat it as a TanStack Start framework lens, not as a general TanStack ecosystem trigger. TanStack Router or Query alone is not enough.
 
 4. `vercel-composition-patterns`
-   - Use when the problem is reusable component API shape, not feature file
-     ownership: boolean prop proliferation, slotting, compound components,
-     render props, controlled/uncontrolled APIs, context/provider interfaces, or
-     explicit variant components.
-   - This is the lens for preventing prop-matrix and caller-ergonomics dead
-     ends. Do not replace it with `react-feature-composition` when consumer API
-     shape is the risk.
+   - Use when the problem is reusable component API shape, not feature file ownership: boolean prop proliferation, slotting, compound components, render props, controlled/uncontrolled APIs, context/provider interfaces, or explicit variant components.
+   - This is the lens for preventing prop-matrix and caller-ergonomics dead ends. Do not replace it with `react-feature-composition` when consumer API shape is the risk.
    - Do not apply it to every route-local component.
 
 5. `web-design-guidelines`
-   - Use when the user asks for UI/design review, or when the branch's main
-     risk is visible layout, interaction, accessibility, visual hierarchy, or
-     copy presentation.
-   - Do not use it for routine JSX/CSS touches, headless logic, data plumbing,
-     or invisible refactors.
+   - Use when the user asks for UI/design review, or when the branch's main risk is visible layout, interaction, accessibility, visual hierarchy, or copy presentation.
+   - Do not use it for routine JSX/CSS touches, headless logic, data plumbing, or invisible refactors.
 
 ## Related Skills
 
-If a selected lens is missing, ask the user before installing it. Use the exact
-command shown only after approval. These commands install optional lenses; they
-are not the setup path for Next.js framework knowledge, which comes from the
-owning app's installed docs. If the target install scope is unclear, ask first.
-If a repo contains multiple skills, keep the `--skill` selector. For project
-installs, run the command from the target project root. For global installs,
-add `--global`.
+If a selected lens is missing, ask the user before installing it. Use the exact command shown only after approval. These commands install optional lenses; they are not the setup path for Next.js framework knowledge, which comes from the owning app's installed docs. If the target install scope is unclear, ask first. If a repo contains multiple skills, keep the `--skill` selector. For project installs, run the command from the target project root. For global installs, add `--global`.
 
 - `next-best-practices` (optional review checklist)
-  - Current listing:
-    <https://www.skills.sh/vercel-labs/openreview/next-best-practices>
+  - Current listing: <https://www.skills.sh/vercel-labs/openreview/next-best-practices>
   - Install only when explicitly requested:
     ```sh
     npx skills add https://github.com/vercel-labs/openreview --skill next-best-practices
     ```
-  - Do not use the deprecated source:
-    `npx skills add vercel-labs/next-skills --skill next-best-practices`.
+  - Do not use the deprecated source: `npx skills add vercel-labs/next-skills --skill next-best-practices`.
 
 - `react-feature-composition`
   ```sh
@@ -166,15 +115,9 @@ Use the narrowest real oracle that matches the touched surface:
 - exact file inspection for documentation or config-only changes;
 - React Doctor for high-signal React diff evidence and prioritization.
 
-React Doctor is advisory evidence, not the owner surface. Use it seriously: run
-the diff scan when it can cheaply inspect the branch, inspect or reproduce
-high-signal findings against the touched files, and fix branch-caused PR risks.
-Do not chase score-only findings, but do not dismiss warnings without
-classifying them with the risk rubric.
+React Doctor is advisory evidence, not the owner surface. Use it seriously: run the diff scan when it can cheaply inspect the branch, inspect or reproduce high-signal findings against the touched files, and fix branch-caused PR risks. Do not chase score-only findings, but do not dismiss warnings without classifying them with the risk rubric.
 
-React Doctor can be the best discovery oracle. It is not a replacement for the
-repo's typecheck, lint, focused tests, or browser truth when those are the real
-proof for the changed surface.
+React Doctor can be the best discovery oracle. It is not a replacement for the repo's typecheck, lint, focused tests, or browser truth when those are the real proof for the changed surface.
 
 Prefer diff-scoped runs:
 
@@ -182,24 +125,19 @@ Prefer diff-scoped runs:
 npx react-doctor@latest . --diff <base> --offline --fail-on none --json
 ```
 
-Add `--project <workspace-or-app>` only after inspecting the repo's package or
-workspace shape. Use `--no-lint` when React Doctor's bundled lint backend is
-blocked locally; the repo's own lint command remains the lint oracle.
+Add `--project <workspace-or-app>` only after inspecting the repo's package or workspace shape. Use `--no-lint` when React Doctor's bundled lint backend is blocked locally; the repo's own lint command remains the lint oracle.
 
 ## Workflow
 
 1. Inspect the touched files or diff and name the owner surface.
-2. Run the framework check. For Next.js, read the installed bundled docs before
-   making framework claims or choosing another lens.
+2. Run the framework check. For Next.js, read the installed bundled docs before making framework claims or choosing another lens.
 3. If only one lens or oracle applies, use it directly and exit this skill.
 4. Choose the relevant lenses and say why each applies.
-5. Read only the focused skill refs needed for the observed smells. Skip lens
-   docs when file inspection already answers the question.
+5. Read only the focused skill refs needed for the observed smells. Skip lens docs when file inspection already answers the question.
 6. Classify findings into `PR risk`, `Follow-up`, and `Noise`.
 7. Recommend the smallest fix set for this branch.
 8. If implementing, patch only that agreed or requested fix set.
-9. Prove done with the narrowest real oracle: typecheck, lint, focused test,
-   React Doctor-backed inspection, browser truth, or exact file inspection.
+9. Prove done with the narrowest real oracle: typecheck, lint, focused test, React Doctor-backed inspection, browser truth, or exact file inspection.
 
 ## Prompt Templates
 

@@ -26,15 +26,13 @@ Conversation context counts as authorization. When the mode remains unclear, use
    - **The solution** — the smallest accepted approach, or the decision still required.
    - **Current status** — only a blocker, dependency, or abandoned path that changes the next action.
    - **Done when** — short, observable outcomes.
-   - **Necessary boundaries** — constraints that prevent likely scope drift; keep them last.
-   Completion: every retained section helps explain the problem, solution, next action, completion, or a necessary boundary.
+   - **Necessary boundaries** — constraints that prevent likely scope drift; keep them last. Completion: every retained section helps explain the problem, solution, next action, completion, or a necessary boundary.
 5. Preserve accepted architecture. If the rewrite exposes duplicate ownership or a new management surface, flag it separately; change the decision only after the user agrees. Completion: accepted decisions remain unchanged unless the user authorized the change.
 6. Prune copied mechanics only after locating their canonical owner in a repository, PR, plan, or gate. Link that owner. If no owner can be verified, retain the information or ask the user. Completion: every removed operational detail is either user-authorized or recoverable from its verified link.
 7. Complete the selected mode:
    - Explain: return the human explanation without an external write.
    - Draft: return the proposed issue text.
-   - Live edit: save only authorized fields, re-read the issue, and verify every **keep** section is exact, every **rewrite** preserves its original claims unless change was authorized, every **move** has a verified destination, and every **remove** was explicitly authorized. Verify status, relationships, and attachments are unchanged unless authorized.
-   Completion: the selected mode's output and verification are complete.
+   - Live edit: save only authorized fields, re-read the issue, and verify every **keep** section is exact, every **rewrite** preserves its original claims unless change was authorized, every **move** has a verified destination, and every **remove** was explicitly authorized. Verify status, relationships, and attachments are unchanged unless authorized. Completion: the selected mode's output and verification are complete.
 
 ## Editing Rules
 

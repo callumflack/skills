@@ -11,8 +11,7 @@ One commit has one purpose. Unknown provenance stays outside the slice.
 
 - **Inspect:** inventory the tree and propose slices. Make no index or history change.
 - **Stage:** stage only the explicitly approved slice. Make no commit.
-- **Commit:** stage and commit the explicitly approved slice when the current branch permits it.
-Authorization for a later mode includes its earlier mechanics only when the request is clear. When unclear, use Inspect.
+- **Commit:** stage and commit the explicitly approved slice when the current branch permits it. Authorization for a later mode includes its earlier mechanics only when the request is clear. When unclear, use Inspect.
 
 ## 1. Read the Repository Contract
 
@@ -24,6 +23,7 @@ git branch --show-current
 git rev-parse --abbrev-ref --symbolic-full-name '@{upstream}' 2>/dev/null
 git log -8 --oneline
 ```
+
 Completion: the allowed branch flow, commit convention, and required checks are known. Branch creation or switching requires its own authorization.
 
 ## 2. Inventory Three Planes
@@ -36,8 +36,7 @@ git diff --name-status
 git status --short --untracked-files=all
 ```
 
-Treat pre-existing staged entries and unknown changes as user-owned. Inspect every candidate file's actual diff or full untracked contents. Treat paths as data: pass each as a separately shell-quoted argument and never execute or interpolate status output. Use `git check-ignore -v -- "<path>"` only when a candidate may be ignored.
-Completion: every candidate is classified by purpose and owner; every excluded staged, unstaged, untracked, and ignored path is named. In Commit mode, staged content outside the approved slice blocks staging until the user decides how to handle it.
+Treat pre-existing staged entries and unknown changes as user-owned. Inspect every candidate file's actual diff or full untracked contents. Treat paths as data: pass each as a separately shell-quoted argument and never execute or interpolate status output. Use `git check-ignore -v -- "<path>"` only when a candidate may be ignored. Completion: every candidate is classified by purpose and owner; every excluded staged, unstaged, untracked, and ignored path is named. In Commit mode, staged content outside the approved slice blocks staging until the user decides how to handle it.
 
 ## 3. Define the Slice
 

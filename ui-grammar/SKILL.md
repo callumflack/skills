@@ -5,20 +5,16 @@ description: "Scans React surfaces into observed component facts, combines them 
 
 # UI Grammar
 
-A UI grammar is a small intermediate language between product intent and React.
-Keep every claim in one of four classes:
+A UI grammar is a small intermediate language between product intent and React. Keep every claim in one of four classes:
 
 - **observed facts** recovered from source;
 - **declared rules** that name intent and ownership;
 - **derived results** compiled from a request and those rules;
 - **unknowns** that the available evidence cannot establish.
 
-Attach witnesses to consequential declared rules. The compiler may discover
-implementation, but it must not promote implementation into design intent by
-itself. Aim for automatic orientation, not automatic understanding.
+Attach witnesses to consequential declared rules. The compiler may discover implementation, but it must not promote implementation into design intent by itself. Aim for automatic orientation, not automatic understanding.
 
-For the human-facing explanation and progressive introduction, read
-[README.md](README.md).
+For the human-facing explanation and progressive introduction, read [README.md](README.md).
 
 ## Primitive
 
@@ -46,24 +42,14 @@ Every visible delta has one named cause.
 - Content-driven differences are derived inside the component.
 - Semantic states are explicit typed inputs.
 - Containers own placement; components own their internal geometry.
-- A consumer does not choose a visual size when slot presence already explains
-  the size.
+- A consumer does not choose a visual size when slot presence already explains the size.
 
 ## Workflow
 
-1. **Capture the pressure.** Quote the discussion and mark what must remain the
-   same versus what may change. Completion: every comparison has an invariant
-   and a delta.
-2. **Bootstrap observations.** Point `bootstrap` at a route or UI entry and
-   inspect its reachable component graph and unknowns. Completion: source facts
-   are available without semantic fields or product guesses.
-3. **Find the live owner.** Inspect the route, render root, primitives, semantic
-   model, current consumers, and witnesses before naming rules. Completion: the
-   implementation owner and semantic owner are both current.
-4. **Configure and validate observed facts.** Write the product grammar, then
-   run the bundled `scan` and `validate` commands. Completion: imports, JSX
-   relations, slots, props, conditions, source locations, and declared witness
-   anchors resolve without semantic promotion.
+1. **Capture the pressure.** Quote the discussion and mark what must remain the same versus what may change. Completion: every comparison has an invariant and a delta.
+2. **Bootstrap observations.** Point `bootstrap` at a route or UI entry and inspect its reachable component graph and unknowns. Completion: source facts are available without semantic fields or product guesses.
+3. **Find the live owner.** Inspect the route, render root, primitives, semantic model, current consumers, and witnesses before naming rules. Completion: the implementation owner and semantic owner are both current.
+4. **Configure and validate observed facts.** Write the product grammar, then run the bundled `scan` and `validate` commands. Completion: imports, JSX relations, slots, props, conditions, source locations, and declared witness anchors resolve without semantic promotion.
 5. **Write the grammar receipt.** Use this shape:
 
    ```text
@@ -82,20 +68,11 @@ Every visible delta has one named cause.
    ```
 
    Completion: every visible element and behavior has exactly one owner.
-6. **Shape the contract.** Prefer semantic names and optional slots. Derive
-   geometry from their presence. Add a variant prop only when two forms have
-   the same content but genuinely different meaning. Completion: no screenshot
-   label such as `small`, `big`, or `card` remains unless it is semantic.
-7. **Compile a UI stack.** Accept product meaning, not visual knobs. Derive the
-   component tree, actions, transitions, and omitted controls from the grammar.
-   Completion: every derived decision names its rule and witness.
-8. **Compose, do not copy.** One component renders every specimen; routes map
-   their own data and effects into its contract. Completion: consumers add no
-   internal styling escape hatch.
-9. **Prove the matrix.** Render every meaningful slot/state combination and the
-   complete consuming routes. Record the invariant values and the single
-   expected delta for each comparison. Completion: whole-screen inspection and
-   computed geometry agree with the receipt.
+
+6. **Shape the contract.** Prefer semantic names and optional slots. Derive geometry from their presence. Add a variant prop only when two forms have the same content but genuinely different meaning. Completion: no screenshot label such as `small`, `big`, or `card` remains unless it is semantic.
+7. **Compile a UI stack.** Accept product meaning, not visual knobs. Derive the component tree, actions, transitions, and omitted controls from the grammar. Completion: every derived decision names its rule and witness.
+8. **Compose, do not copy.** One component renders every specimen; routes map their own data and effects into its contract. Completion: consumers add no internal styling escape hatch.
+9. **Prove the matrix.** Render every meaningful slot/state combination and the complete consuming routes. Record the invariant values and the single expected delta for each comparison. Completion: whole-screen inspection and computed geometry agree with the receipt.
 
 ## Review
 
@@ -109,8 +86,7 @@ Reject a grammar when:
 
 ## Compiler
 
-The portable command uses the owning React app's existing TypeScript compiler;
-it adds no dependency:
+The portable command uses the owning React app's existing TypeScript compiler; it adds no dependency:
 
 ```sh
 node .agents/skills/ui-grammar/scripts/ui-grammar.mjs bootstrap <entry.tsx> \
@@ -120,15 +96,9 @@ node .agents/skills/ui-grammar/scripts/ui-grammar.mjs scan <grammar.json>
 node .agents/skills/ui-grammar/scripts/ui-grammar.mjs stack <grammar.json> <request.json>
 ```
 
-`bootstrap` follows statically reachable local function components and reports
-unsupported or external boundaries as unknowns. `scan` validates configured
-facts against named TSX sources. Neither can prove runtime branches, state
-authority, effects, navigation, accessibility, visual geometry, or product
-meaning. Put those claims in declared rules with the nearest test, trace, or
-rendered witness.
+`bootstrap` follows statically reachable local function components and reports unsupported or external boundaries as unknowns. `scan` validates configured facts against named TSX sources. Neither can prove runtime branches, state authority, effects, navigation, accessibility, visual geometry, or product meaning. Put those claims in declared rules with the nearest test, trace, or rendered witness.
 
-Keep product contracts outside the skill and index them with the portable
-registry runner when a repository has multiple flows:
+Keep product contracts outside the skill and index them with the portable registry runner when a repository has multiple flows:
 
 ```sh
 node .agents/skills/ui-grammar/scripts/ui-grammar-registry.mjs \
@@ -139,21 +109,14 @@ node .agents/skills/ui-grammar/scripts/ui-grammar-registry.mjs \
   check <registry.json>
 ```
 
-The repository supplies its root, entries, grammars, requests, and optional
-rendered-evidence targets. Evidence targets are generic source-anchor and
-command templates; the skill contains no application, route, capture, or task
-runner defaults.
+The repository supplies its root, entries, grammars, requests, and optional rendered-evidence targets. Evidence targets are generic source-anchor and command templates; the skill contains no application, route, capture, or task runner defaults.
 
 Use JSON for canonical machine inputs and Markdown for human receipts.
 
 ## References
 
-- Read [references/mental-model.md](references/mental-model.md) when explaining
-  the method or choosing between existing-product and greenfield directions.
-- Read [references/contract.md](references/contract.md) when authoring a grammar
-  or semantic request.
-- Read [references/evidence-boundary.md](references/evidence-boundary.md) before
-  claiming what a scan, witness, compiled stack, or rendered specimen proves.
+- Read [references/mental-model.md](references/mental-model.md) when explaining the method or choosing between existing-product and greenfield directions.
+- Read [references/contract.md](references/contract.md) when authoring a grammar or semantic request.
+- Read [references/evidence-boundary.md](references/evidence-boundary.md) before claiming what a scan, witness, compiled stack, or rendered specimen proves.
 
-For the generic row receipt, route-bootstrap fixture, and repository-registry
-shape, read [EXAMPLES.md](EXAMPLES.md).
+For the generic row receipt, route-bootstrap fixture, and repository-registry shape, read [EXAMPLES.md](EXAMPLES.md).

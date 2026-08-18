@@ -146,4 +146,3 @@ Do not create additional schema fields to represent state.
 - [ ] Title mode chosen correctly (raw or claim)
 - [ ] File renamed if title changed
 - [ ] State folder updated only if user wants state transition
-

@@ -1,8 +1,6 @@
 ---
 name: doc-creation
-description:
-  Define doc naming and placement conventions. Use when creating or moving
-  documentation files or when asked where docs should live.
+description: Define doc naming and placement conventions. Use when creating or moving documentation files or when asked where docs should live.
 ---
 
 # Doc creation conventions

@@ -22,12 +22,12 @@ A request contains facts such as the job, state, capabilities, authority, and de
 
 Four views make a UI flow discussable and traceable. They are views of one contract, not four separate systems.
 
-| Graph     | What it describes                                      | Questions it answers                                    |
-| --------- | ------------------------------------------------------ | ------------------------------------------------------- |
-| Product   | Jobs, states, actions, transitions, and effects        | What is happening, what can happen next, and why?       |
-| Component | Design-system components, slots, and allowed relations | Which UI pieces form this surface?                      |
-| Rule      | Conditions and the relations they require or forbid    | Why does this state produce this action or composition? |
-| Evidence  | Code, tests, traces, and rendered specimens            | What supports each consequential claim?                 |
+| Graph | What it describes | Questions it answers |
+| --- | --- | --- |
+| Product | Jobs, states, actions, transitions, and effects | What is happening, what can happen next, and why? |
+| Component | Design-system components, slots, and allowed relations | Which UI pieces form this surface? |
+| Rule | Conditions and the relations they require or forbid | Why does this state produce this action or composition? |
+| Evidence | Code, tests, traces, and rendered specimens | What supports each consequential claim? |
 
 Every visible difference should have one named cause. Product state may select actions, content presence may derive internal geometry, containers own placement, and components own their internal geometry.
 

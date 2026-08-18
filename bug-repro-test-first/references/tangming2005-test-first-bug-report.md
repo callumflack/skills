@@ -1,7 +1,6 @@
 # Tangming2005 Test-First Bug Report Source
 
-Source note:
-`raw/_@tangming2005 — When I report a bug, don't start by trying to fix it. Instead, start by writing a test that reproduces the bug.md`
+Source note: `raw/_@tangming2005 — When I report a bug, don't start by trying to fix it. Instead, start by writing a test that reproduces the bug.md`
 
 Published: 2026-03-10
 

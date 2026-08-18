@@ -34,6 +34,7 @@ A strong claim title should pass at least 4/5.
 ### Rewrite pattern
 
 When a title fails 4/5:
+
 - Replace broad labels (`Thoughts on X`, `X notes`, `X system`) with a testable statement.
 - Keep the shortest phrasing that preserves the claim.
 - Prefer active wording over abstract nouns.
@@ -61,4 +62,5 @@ Use the pattern `Thing — What it does` or just the proper name.
 ## Exceptions
 
 Use question titles when uncertainty is the point:
+
 - `What would falsify X?`

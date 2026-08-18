@@ -14,15 +14,15 @@ Row
 
 ## Inputs
 
-| Input            | Meaning                      | Visual consequence                                                  |
-| ---------------- | ---------------------------- | ------------------------------------------------------------------- |
-| `media.iconName` | Provider identity            | Resolves controlled provider media through the product asset owner. |
-| `title`          | Primary identity             | Renders the primary line.                                           |
-| `description?`   | Supporting information       | Adds the second line and derives the detailed internal geometry.    |
-| `metadata?`      | Trailing display information | Renders the non-interactive trailing role.                          |
-| `action?`        | Trailing semantic action     | Renders the action as a sibling of the primary region.              |
-| `tone?`          | Default or attention meaning | Determines attention presentation.                                  |
-| `primaryAction?` | Primary-region interaction   | Makes only provider media and content interactive.                  |
+| Input | Meaning | Visual consequence |
+| --- | --- | --- |
+| `media.iconName` | Provider identity | Resolves controlled provider media through the product asset owner. |
+| `title` | Primary identity | Renders the primary line. |
+| `description?` | Supporting information | Adds the second line and derives the detailed internal geometry. |
+| `metadata?` | Trailing display information | Renders the non-interactive trailing role. |
+| `action?` | Trailing semantic action | Renders the action as a sibling of the primary region. |
+| `tone?` | Default or attention meaning | Determines attention presentation. |
+| `primaryAction?` | Primary-region interaction | Makes only provider media and content interactive. |
 
 ## Invariants
 
@@ -31,15 +31,11 @@ Row
 - Primary-region and trailing actions remain sibling interaction targets.
 - `metadata` and `action` are mutually exclusive.
 
-The only compact-to-detailed cause is `description` presence. Do not add a
-parallel compact component or public size variant. Feature adapters map their
-own product states into this grammar; those states do not belong in the generic
-row component.
+The only compact-to-detailed cause is `description` presence. Do not add a parallel compact component or public size variant. Feature adapters map their own product states into this grammar; those states do not belong in the generic row component.
 
 # Route Bootstrap Fixture
 
-The skill includes a synthetic React fixture. Supply a package in the adopting
-repository that already provides TypeScript:
+The skill includes a synthetic React fixture. Supply a package in the adopting repository that already provides TypeScript:
 
 ```sh
 node .agents/skills/ui-grammar/scripts/ui-grammar.mjs bootstrap \
@@ -47,15 +43,11 @@ node .agents/skills/ui-grammar/scripts/ui-grammar.mjs bootstrap \
   --package-json <owning-react-package/package.json>
 ```
 
-The traversal reaches `SyntheticRoute -> LocalPanel` and reports the imported
-design-system `Button` as an external boundary. This is the intended result:
-bootstrap provides deterministic orientation and names what it cannot follow;
-it does not infer semantic rules or pretend to understand the surface.
+The traversal reaches `SyntheticRoute -> LocalPanel` and reports the imported design-system `Button` as an external boundary. This is the intended result: bootstrap provides deterministic orientation and names what it cannot follow; it does not infer semantic rules or pretend to understand the surface.
 
 # Repository Registry
 
-Keep product grammars and requests outside the skill. A repository can index
-them with a small JSON registry:
+Keep product grammars and requests outside the skill. A repository can index them with a small JSON registry:
 
 ```json
 {
@@ -95,20 +87,13 @@ them with a small JSON registry:
 }
 ```
 
-The evidence bridge is optional. When a case names `renderEvidenceIds`, its
-target must also declare `evidenceIdsCommand`: a non-empty argv array executed
-from the repository root without a shell. The command must write exactly one
-JSON document to stdout:
+The evidence bridge is optional. When a case names `renderEvidenceIds`, its target must also declare `evidenceIdsCommand`: a non-empty argv array executed from the repository root without a shell. The command must write exactly one JSON document to stdout:
 
 ```json
 { "version": 1, "ids": ["profile.complete"] }
 ```
 
-IDs must be non-empty and unique. This makes a configured evidence ID a checked
-foreign key into the repository's own render-proof system. Its source path,
-anchor, IDs, and commands are repository configuration, never skill defaults.
-Configure only trusted repository-owned adapter commands: registry validation
-executes the argv directly, with no shell, to read that inventory.
+IDs must be non-empty and unique. This makes a configured evidence ID a checked foreign key into the repository's own render-proof system. Its source path, anchor, IDs, and commands are repository configuration, never skill defaults. Configure only trusted repository-owned adapter commands: registry validation executes the argv directly, with no shell, to read that inventory.
 
 ```sh
 node .agents/skills/ui-grammar/scripts/ui-grammar-registry.mjs \

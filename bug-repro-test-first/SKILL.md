@@ -16,12 +16,9 @@ Read `references/tangming2005-test-first-bug-report.md` if you need the source n
 
 Do not start by fixing the code.
 
-First write or adapt a test that fails for the reported bug. The test is the
-definition of the bug.
+First write or adapt a test that fails for the reported bug. The test is the definition of the bug.
 
-If there is no useful test surface, create the narrowest reproducible check
-available instead, then state why a regression test was not practical before
-fixing production code.
+If there is no useful test surface, create the narrowest reproducible check available instead, then state why a regression test was not practical before fixing production code.
 
 ## Workflow
 

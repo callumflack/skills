@@ -4,65 +4,35 @@ Shared vocabulary for React refactors. Use these terms exactly when ownership is
 
 ## Terms
 
-**Route Entry**
-The framework-owned file that receives route params, search params, metadata, and request-time data, then delegates.
-_Avoid_: screen, page component, top-level component.
+**Route Entry** The framework-owned file that receives route params, search params, metadata, and request-time data, then delegates. _Avoid_: screen, page component, top-level component.
 
-**Route Controller**
-The route-owned gate for canonical URL state, auth/session/token branching, redirects, and route diagnostics.
-_Avoid_: container, manager, handler.
+**Route Controller** The route-owned gate for canonical URL state, auth/session/token branching, redirects, and route diagnostics. _Avoid_: container, manager, handler.
 
-**Feature Entry**
-The thin component that starts the feature after route concerns are settled.
-_Avoid_: app, root, main component.
+**Feature Entry** The thin component that starts the feature after route concerns are settled. _Avoid_: app, root, main component.
 
-**Controller**
-The React-facing orchestration hook that turns runtime inputs, side effects, selectors, and services into a stable model for views.
-_Avoid_: container, manager, orchestrator component.
+**Controller** The React-facing orchestration hook that turns runtime inputs, side effects, selectors, and services into a stable model for views. _Avoid_: container, manager, orchestrator component.
 
-**Service**
-A framework-agnostic pure function for domain transformation or business logic. It does not know React, component props, or store shape.
-_Avoid_: hook, controller, store method.
+**Service** A framework-agnostic pure function for domain transformation or business logic. It does not know React, component props, or store shape. _Avoid_: hook, controller, store method.
 
-**Selector**
-A pure query over state or already-shaped data. It derives a read model and performs no writes or side effects.
-_Avoid_: service, controller, computed component prop.
+**Selector** A pure query over state or already-shaped data. It derives a read model and performs no writes or side effects. _Avoid_: service, controller, computed component prop.
 
-**Model**
-Renderable UI state. Not domain data. A model is the shaped data and actions the UI can render without knowing orchestration.
-_Avoid_: props bag, render state, content props.
+**Model** Renderable UI state. Not domain data. A model is the shaped data and actions the UI can render without knowing orchestration. _Avoid_: props bag, render state, content props.
 
-**Presentation Model**
-The controller output consumed by presentation. Usually `{ layout, view }`.
-_Avoid_: controller props, component state.
+**Presentation Model** The controller output consumed by presentation. Usually `{ layout, view }`. _Avoid_: controller props, component state.
 
-**Layout Model**
-The shell/chrome part of the presentation model: host mode, density, refs, overflow, header/footer, frame metadata.
-_Avoid_: wrapper props, shell props.
+**Layout Model** The shell/chrome part of the presentation model: host mode, density, refs, overflow, header/footer, frame metadata. _Avoid_: wrapper props, shell props.
 
-**View Model**
-The discriminated runtime part of the presentation model. It selects what the user sees now and carries only that variant's data/actions.
-_Avoid_: optional mega-interface, state enum plus loose props.
+**View Model** The discriminated runtime part of the presentation model. It selects what the user sees now and carries only that variant's data/actions. _Avoid_: optional mega-interface, state enum plus loose props.
 
-**Layout View**
-The presentational shell that renders chrome and places the selected view.
-_Avoid_: wrapper, scaffold, frame component.
+**Layout View** The presentational shell that renders chrome and places the selected view. _Avoid_: wrapper, scaffold, frame component.
 
-**View Switch**
-The component that switches on the view model kind and delegates to runtime views.
-_Avoid_: screen switch, mode renderer.
+**View Switch** The component that switches on the view model kind and delegates to runtime views. _Avoid_: screen switch, mode renderer.
 
-**Runtime View**
-A focused presentational view for one `view.kind`.
-_Avoid_: screen, state component, case component.
+**Runtime View** A focused presentational view for one `view.kind`. _Avoid_: screen, state component, case component.
 
-**Effect Hook**
-A focused hook for one external synchronization concern.
-_Avoid_: lifecycle hook, side-effect bucket.
+**Effect Hook** A focused hook for one external synchronization concern. _Avoid_: lifecycle hook, side-effect bucket.
 
-**Pure Helper**
-A pure function for derivation, normalization, validation, or calculation.
-_Avoid_: util dump, helpers bucket.
+**Pure Helper** A pure function for derivation, normalization, validation, or calculation. _Avoid_: util dump, helpers bucket.
 
 Pure-logic discriminator: a **Service** owns domain transformation, a **Selector** reads existing state or shaped data, and a **Pure Helper** is a local calculation without domain ownership.
 

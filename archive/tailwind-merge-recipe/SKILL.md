@@ -1,25 +1,19 @@
 ---
 name: tailwind-merge-recipe
-description:
-  Extend tailwind-merge to recognize custom CSS variable tokens. Use when
-  merging Tailwind classes with custom CSS variables or class conflicts appear.
+description: Extend tailwind-merge to recognize custom CSS variable tokens. Use when merging Tailwind classes with custom CSS variables or class conflicts appear.
 ---
 
 # Custom Tailwind Merge Recipe for Custom CSS Variables
 
-This guide shows how to extend `tailwind-merge` to properly handle custom CSS
-variables and theme extensions in Tailwind CSS.
+This guide shows how to extend `tailwind-merge` to properly handle custom CSS variables and theme extensions in Tailwind CSS.
 
 ## Problem
 
-When using custom CSS variables in Tailwind (via `@theme inline`), the default
-`tailwind-merge` doesn't recognize these custom classes, causing class conflicts
-and improper merging.
+When using custom CSS variables in Tailwind (via `@theme inline`), the default `tailwind-merge` doesn't recognize these custom classes, causing class conflicts and improper merging.
 
 ## Solution
 
-Extend `tailwind-merge` with custom validators that match your CSS variable
-patterns.
+Extend `tailwind-merge` with custom validators that match your CSS variable patterns.
 
 ## Implementation
 

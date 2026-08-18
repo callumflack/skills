@@ -2,6 +2,7 @@
 name: react-feature-composition
 description: Guide React or Next.js feature composition before implementation and during reshaping. Use when designing feature structure, route/runtime boundaries, services, selectors, controller hooks, presentation models, layout/view ownership, typed view variants, focused effects, or large UI surfaces with prop soup and hidden dependencies.
 ---
+
 # React Feature Composition
 
 Shape React features around explicit ownership and small renderable models.

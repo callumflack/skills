@@ -1,14 +1,11 @@
 ---
 name: css-clamp-calculation
-description:
-  Explain and derive CSS clamp() values for linear scaling between viewports.
-  Use when calculating clamp values or creating responsive size tokens.
+description: Explain and derive CSS clamp() values for linear scaling between viewports. Use when calculating clamp values or creating responsive size tokens.
 ---
 
 # CSS Clamp Calculations
 
-Concise guide for deriving CSS `clamp()` that scales linearly between two
-viewport widths.
+Concise guide for deriving CSS `clamp()` that scales linearly between two viewport widths.
 
 ## Cheat sheet (linear 2-point clamp)
 
@@ -50,7 +47,7 @@ export function generateClampSize(
   minViewportWidth: number,
   maxViewportWidth: number,
   minFontSize: number,
-  maxFontSize: number
+  maxFontSize: number,
 ): string {
   const minClampValue = `${minFontSize}px`;
   const maxClampValue = `${maxFontSize}px`;

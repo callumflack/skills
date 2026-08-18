@@ -66,10 +66,20 @@ type PresentationModel = {
 
 type ViewModel =
   | { kind: "intro"; onStart: () => void }
-  | { kind: "input"; request: InputRequest; onSubmit: SubmitFn; onCancel: () => void }
+  | {
+      kind: "input";
+      request: InputRequest;
+      onSubmit: SubmitFn;
+      onCancel: () => void;
+    }
   | { kind: "processing"; statusLabel: string }
   | { kind: "success"; result: Result; onDone: () => void }
-  | { kind: "error"; message: string; onRetry: () => void; onCancel: () => void };
+  | {
+      kind: "error";
+      message: string;
+      onRetry: () => void;
+      onCancel: () => void;
+    };
 ```
 
 Risk:

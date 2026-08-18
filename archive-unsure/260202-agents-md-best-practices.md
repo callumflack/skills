@@ -20,9 +20,7 @@
 
 Use a pipe-delimited index to keep it compact:
 
-[Docs Index]|root: ./.next-docs
-|IMPORTANT: Prefer retrieval-led reasoning over pre-training-led reasoning
-|01-app/01-getting-started:{01-installation.mdx,02-project-structure.mdx,...}
+[Docs Index]|root: ./.next-docs |IMPORTANT: Prefer retrieval-led reasoning over pre-training-led reasoning |01-app/01-getting-started:{01-installation.mdx,02-project-structure.mdx,...}
 
 ## Notes on instruction wording
 
@@ -34,5 +32,4 @@ Use a pipe-delimited index to keep it compact:
 
 Use AGENTS.md as the always-on, compressed index of where truth lives, and guide the agent to retrieve specifics from the repo rather than rely on pre-training.
 
-Sources:
-https://vercel.com/blog/agents-md-outperforms-skills-in-our-agent-evals
+Sources: https://vercel.com/blog/agents-md-outperforms-skills-in-our-agent-evals

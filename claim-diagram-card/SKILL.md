@@ -20,9 +20,7 @@ Update the existing claim note in place. Add or replace one `## Diagram Card` se
 ![[image-name.jpg|600]]
 ```
 
-Do not create a separate wiki page unless Callum asks.
-Do not add front/back flash-card text unless Callum asks.
-Do not use Mermaid, Excalidraw, TLDraw, or living JSON diagrams unless Callum asks.
+Do not create a separate wiki page unless Callum asks. Do not add front/back flash-card text unless Callum asks. Do not use Mermaid, Excalidraw, TLDraw, or living JSON diagrams unless Callum asks.
 
 ## Read
 

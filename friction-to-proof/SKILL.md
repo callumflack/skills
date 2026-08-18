@@ -30,20 +30,15 @@ Use this when cognition is low or the user is still hot.
 ```markdown
 Decision:
 
-Alarm:
-This is fucked because...
+Alarm: This is fucked because...
 
-Cue:
-The thing my trained eye/body noticed is...
+Cue: The thing my trained eye/body noticed is...
 
-Proof:
-Screenshot / repro / diff / prototype / table / checklist / user path / trace / concrete example.
+Proof: Screenshot / repro / diff / prototype / table / checklist / user path / trace / concrete example.
 
-Ask:
-Change [X] to [Y].
+Ask: Change [X] to [Y].
 
-Close condition:
-We know it worked when...
+Close condition: We know it worked when...
 ```
 
 If the user gives only a rant, infer the draft yourself, then ask for correction.
@@ -71,26 +66,21 @@ Decision at stake:
 
 Current decision:
 
-Alarm:
-I think this fails on...
+Alarm: I think this fails on...
 
-Expert cue:
-The thing I am noticing is...
+Expert cue: The thing I am noticing is...
 
 Smallest proof:
 
 Current decision only works if:
 
-Recommended change:
-Change [X] to [Y].
+Recommended change: Change [X] to [Y].
 
-Acceptance test:
-We accept this when...
+Acceptance test: We accept this when...
 
 Owner / deadline:
 
-Signal check:
-What would make me downgrade or change this read?
+Signal check: What would make me downgrade or change this read?
 ```
 
 Keep each field short. If uncertain, say so.

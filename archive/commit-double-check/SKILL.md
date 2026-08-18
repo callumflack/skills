@@ -13,8 +13,7 @@ description: Review commit(s) for correctness, risk, and completeness. Use when 
 ## Default scope
 
 - If the user does not specify, review the last 3 commits on the current branch.
-- If there are uncommitted changes, call out that the review may be stale and
-  ask whether to include those diffs.
+- If there are uncommitted changes, call out that the review may be stale and ask whether to include those diffs.
 
 ## Scope parsing
 
@@ -34,8 +33,7 @@ Use shell commands to collect context (read-only):
 1. `git status -sb`
 2. `git log -n 3 --oneline` (or the user-provided count/range)
 3. For each commit: `git show --stat <sha>` then `git show <sha>`
-4. For a range: `git log --oneline <base>..<head>` then
-   `git diff <base>..<head>`
+4. For a range: `git log --oneline <base>..<head>` then `git diff <base>..<head>`
 
 ## Methodical review loop
 
@@ -50,8 +48,7 @@ For each commit (in order):
 When any `.tsx`, `.ts`, `.jsx`, or `.js` files are touched:
 
 - Load `vercel-react-best-practices` and apply relevant rules.
-- If unclear, read `vercel-react-best-practices/AGENTS.md` or specific
-  `vercel-react-best-practices/rules/*.md` entries that match the change.
+- If unclear, read `vercel-react-best-practices/AGENTS.md` or specific `vercel-react-best-practices/rules/*.md` entries that match the change.
 
 ## Review checklist
 

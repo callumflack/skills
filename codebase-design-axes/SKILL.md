@@ -65,13 +65,13 @@ Any of these means stop and route through the rule before continuing:
 
 When commissioning work on an axis, this paragraph is the whole contract:
 
-> Before writing code: name the variant axis and the one module that owns it. Show me the public interface (≤6 caller-facing functions) and state what adding the *next* variant touches — the answer must be "one row". Stop for my review before implementing. Proof is one pure contract test through that interface exercising the real consumers. Non-goals: no generic framework, this axis only.
+> Before writing code: name the variant axis and the one module that owns it. Show me the public interface (≤6 caller-facing functions) and state what adding the _next_ variant touches — the answer must be "one row". Stop for my review before implementing. Proof is one pure contract test through that interface exercising the real consumers. Non-goals: no generic framework, this axis only.
 
 The two load-bearing parts are the **checkpoint** (interface review before implementation) and the **delta criterion** in acceptance ("next variant = one row").
 
 ## Adjacent skills
 
-- **`codebase-design`** — vocabulary, deep/shallow, seam discipline. Design-time companion; this skill decides *when* a module must exist, that one decides *what makes it good*.
+- **`codebase-design`** — vocabulary, deep/shallow, seam discipline. Design-time companion; this skill decides _when_ a module must exist, that one decides _what makes it good_.
 - **`design-an-interface` / DESIGN-IT-TWICE** — when the owner module's interface deserves competing designs.
 - **`improve-codebase-architecture`** — the rescue mode: scanning an existing codebase for axes that already sprawled. If you're reaching for it on an axis younger than a month, this skill fired too late.
 - Repos may pin a local reference shape and enforcement gate (e.g. a registry exemplar named in the repo's own agent docs, plus a review gate asserting the next-variant delta). Keep repo-specific exemplar names there, not here.
