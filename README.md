@@ -39,6 +39,21 @@ npx skills@latest add callumflack/skills
   npx skills@latest add callumflack/skills/friction-to-proof
   ```
 
+## Specification
+
+These skills specify different layers of a change before implementation.
+
+- **`ui-grammar`**. Specify which React compositions are valid for product meaning, semantic state, and capability.
+  ```sh
+  npx skills@latest add callumflack/skills/ui-grammar
+  ```
+- **`code-stacks`**. Specify how a chosen change fits into live code through types, boundaries, call flow, composition, and proof oracles.
+  ```sh
+  npx skills@latest add callumflack/skills/code-stacks
+  ```
+
+For UI work, start with `ui-grammar`. Use `code-stacks` only when the implementation path still needs concrete structure. For non-UI work, use `code-stacks` directly.
+
 ## Planning and execution
 
 - **`atomic-commit-slicing`**. Isolate one approved change from a dirty Git worktree without absorbing unrelated staged, unstaged, or untracked work.
@@ -48,10 +63,6 @@ npx skills@latest add callumflack/skills
 - **`human-first-linear`**. Explain, draft, or rewrite Linear issues so the human problem and solution come first without turning read-only requests into edits or deleting unique operational detail.
   ```sh
   npx skills@latest add callumflack/skills/human-first-linear
-  ```
-- **`code-stacks`**. Draft code-shaped planning notes from types, interfaces, boundaries, composition points, call stacks, and proof oracles.
-  ```sh
-  npx skills@latest add callumflack/skills/code-stacks
   ```
 - **`plan-optimizer`**. Harden a plan with one rubric, one adversarial critique, and one rewrite that fixes the top weaknesses.
   ```sh
@@ -64,13 +75,6 @@ npx skills@latest add callumflack/skills
 - **`ralph-iteration`**. Run one Ralph planning or build iteration from project prompts, requirements, plans, and backpressure files.
   ```sh
   npx skills@latest add callumflack/skills/ralph-iteration
-  ```
-
-## Interface design
-
-- **`ui-grammar`**. Scan React surfaces into observed component facts, combine them with declared product rules and witnesses, and compile semantic requests into proof-carrying UI stacks without design-system drift.
-  ```sh
-  npx skills@latest add callumflack/skills/ui-grammar
   ```
 
 ## Code quality
