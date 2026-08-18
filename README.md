@@ -12,33 +12,6 @@ npx skills@latest add callumflack/skills
 
 - [`AGENTS-SEED.md`](AGENTS-SEED.md) is the portable personalization block: owner surface, allowed writes, forbidden surfaces, done gate, nearest oracle, source pressure, and friction-as-signal.
 
-## Knowledge workflow
-
-- **`interrogate-claim`**. Pressure-test a strategy note by locating its claim, level, burden, objection, and next question before responding.
-  ```sh
-  npx skills@latest add callumflack/skills/interrogate-claim
-  ```
-- **`interrogate-idiom`**. Mine a reusable idiom by locating the scene it organizes, the pressure it defers, and the exchange value it can carry.
-  ```sh
-  npx skills@latest add callumflack/skills/interrogate-idiom
-  ```
-- **`claim-rubric`**. Locate the claim inside a note and turn it into a stronger title.
-  ```sh
-  npx skills@latest add callumflack/skills/claim-rubric
-  ```
-- **`claim-diagram-card`**. Create mnemonic diagram cards for KB Claim notes: simple ASCII plus a rough handwritten illustration embedded at width 600 and kept under 1MB.
-  ```sh
-  npx skills@latest add callumflack/skills/claim-diagram-card
-  ```
-- **`knowledge-handoff`**. Capture durable knowledge from long chats, sources, and knowledge-work threads into its owning durable-knowledge surface.
-  ```sh
-  npx skills@latest add callumflack/skills/knowledge-handoff
-  ```
-- **`friction-to-proof`**. Convert high-friction objections into visible proof objects and decision-change asks.
-  ```sh
-  npx skills@latest add callumflack/skills/friction-to-proof
-  ```
-
 ## Specification
 
 These skills specify different layers of a change before implementation.
@@ -94,6 +67,33 @@ For UI work, start with `ui-grammar`. Use `code-stacks` only when the implementa
 - **`react-build-lens`**. Select the smallest React lens when multiple React/framework/data skills or oracles could apply; classify diff-scoped findings as PR risk/follow-up/noise, use React Doctor as high-signal evidence, and skip React Native/Expo.
   ```sh
   npx skills@latest add callumflack/skills/react-build-lens
+  ```
+
+## Knowledge workflow
+
+- **`interrogate-claim`**. Pressure-test a strategy note by locating its claim, level, burden, objection, and next question before responding.
+  ```sh
+  npx skills@latest add callumflack/skills/interrogate-claim
+  ```
+- **`interrogate-idiom`**. Mine a reusable idiom by locating the scene it organizes, the pressure it defers, and the exchange value it can carry.
+  ```sh
+  npx skills@latest add callumflack/skills/interrogate-idiom
+  ```
+- **`claim-rubric`**. Locate the claim inside a note and turn it into a stronger title.
+  ```sh
+  npx skills@latest add callumflack/skills/claim-rubric
+  ```
+- **`claim-diagram-card`**. Create mnemonic diagram cards for KB Claim notes: simple ASCII plus a rough handwritten illustration embedded at width 600 and kept under 1MB.
+  ```sh
+  npx skills@latest add callumflack/skills/claim-diagram-card
+  ```
+- **`knowledge-handoff`**. Capture durable knowledge from long chats, sources, and knowledge-work threads into its owning durable-knowledge surface.
+  ```sh
+  npx skills@latest add callumflack/skills/knowledge-handoff
+  ```
+- **`friction-to-proof`**. Convert high-friction objections into visible proof objects and decision-change asks.
+  ```sh
+  npx skills@latest add callumflack/skills/friction-to-proof
   ```
 
 ## Skills
