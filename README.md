@@ -30,7 +30,7 @@ npx skills@latest add callumflack/skills
   ```sh
   npx skills@latest add callumflack/skills/claim-diagram-card
   ```
-- **`knowledge-handoff`**. Capture durable knowledge from long chats, sources, and knowledge-work threads into the owning KB surface.
+- **`knowledge-handoff`**. Capture durable knowledge from long chats, sources, and knowledge-work threads into its owning durable-knowledge surface.
   ```sh
   npx skills@latest add callumflack/skills/knowledge-handoff
   ```

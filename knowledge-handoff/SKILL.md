@@ -1,13 +1,13 @@
 ---
 name: knowledge-handoff
-description: Capture durable knowledge from a Codex chat, external conversation, source reading, rough note, synthesis session, or long-running pinned thread into the KB owning surface. Use when the user wants to roll up, archive, unpin, distill, preserve, route, or make retrievable what matters from knowledge-work context, especially when long Codex chats are being used as memory. Do not use for ordinary code/workflow handoff unless the user asks for durable conceptual capture.
+description: Capture durable knowledge from a Codex chat, conversation, source, rough note, synthesis session, or long-running thread into its owning durable-knowledge surface. Use when the user wants to roll up, archive, unpin, distill, preserve, route, or make context retrievable. Do not use for ordinary code or workflow handoff.
 ---
 
 # Knowledge Handoff
 
-Long chats are caches. KB artifacts are memory.
+Long chats are caches. Durable artifacts are memory.
 
-Use this skill to compress what should survive, route it to the owning vault surface, and reduce dependence on pinned Codex history.
+Use this skill to compress what should survive, route it to its owning surface, and reduce dependence on conversation history.
 
 ## Owner And Oracle
 
@@ -20,19 +20,13 @@ Before writing, name:
 - done gate
 - first real check
 
-Ask only when the owner surface cannot be inferred safely. Otherwise state one concrete routing assumption and proceed.
+Ask only when the owner surface or write authorization cannot be inferred safely. Otherwise state one concrete routing assumption and proceed.
 
 ## Route
 
-Use the repo router before writing. Prefer the smallest owner:
+Read the owner's local instructions, router, schema, and completion gate before writing. Prefer an existing artifact that already owns the idea. Otherwise create the smallest durable artifact the owner accepts.
 
-- `raw/` for source capture, transcript, imported conversation, external text, or unprocessed material.
-- `wiki/` for durable claim, synthesis, inquiry, thread, distillation, or public-facing knowledge note.
-- Existing project, inquiry, thread, list, or distillation page when it already owns the idea.
-- `.agents/logs/` only for repo-operational context, repeated workflow friction, or future-agent orientation.
-- Notion or another external surface only when the user explicitly names it as owner.
-
-Never default to temp files. Temp handoffs are for workflow continuation, not KB memory.
+Use an external surface only when the user explicitly names it or the active workspace establishes it as owner. Do not make a temporary file the final capture.
 
 ## Preserve
 
@@ -43,14 +37,13 @@ Keep:
 - provenance: chat/source/file/link/date/path
 - live distinction: what this is not and what it must not collapse into
 - open questions
-- next retrieval hook: exact title, wikilink, index entry, or search phrase
-- next action if the user resumes
+- retrieval hook: exact title, link, index entry, or search phrase
 
 Drop:
 
 - generic chat summary
 - assistant self-narration
-- implementation minutiae unless they change the knowledge claim
+- details that only help another agent resume workflow
 - duplicate copies of PRDs, plans, notes, issues, commits, or diffs
 - secrets, credentials, and unnecessary personal data
 
@@ -58,15 +51,15 @@ Drop:
 
 Pick one shape.
 
-### Raw Capture
+### Source Capture
 
-Use when the source itself must survive before interpretation. Follow `.agents/resolvers/raw-processing.md`.
+Use when the source itself must survive before interpretation.
 
-Include source URL/path/date and minimal metadata. Do not rewrite the source body unless the resolver requires it.
+Preserve the required source body and provenance under the owner's schema.
 
-### Claim Note
+### Claim Or Insight
 
-Use when one strong idea should survive. Follow `.agents/resolvers/wiki-write.md`.
+Use when one strong idea should survive.
 
 Include:
 
@@ -75,12 +68,11 @@ Include:
 - provenance
 - evidence
 - counterpressure or caveat
-- adjacent wikilinks
 - open questions
 
 ### Synthesis Note
 
-Use when several sources or threads need integration. Follow `.agents/resolvers/wiki-write.md`.
+Use when several sources or threads need integration.
 
 Include:
 
@@ -89,35 +81,20 @@ Include:
 - important distinctions
 - tensions
 - implications
-- graph links
 
-### Thread Or Distillation Update
+### Existing Artifact Update
 
-Use when the idea belongs to an existing running inquiry.
+Use when an existing artifact already owns the idea.
 
-Update the existing note instead of creating a duplicate. Prefer current-compression or distillation pages for what matters now; preserve chronology in thread pages.
-
-### Repo-Operational Log
-
-Use `.agents/logs/` only when the durable thing is workflow context, repeated friction, repo-specific operating rule, or future-agent orientation.
+Update it instead of creating a duplicate.
 
 ## Long Codex Chat Compression
 
-When the user wants to archive, unpin, or stop relying on a long Codex chat:
-
-1. Extract what still matters.
-2. Split workflow continuation from durable knowledge.
-3. If workflow continuation is needed, create a separate handoff artifact.
-4. For knowledge, write the KB artifact.
-5. Add a short reactivation prompt when useful:
-
-```text
-We are continuing from this KB artifact. Read it first, inspect current repo state and adjacent notes, verify what still applies, and continue without assuming the old Codex chat is available.
-```
+When the user wants to archive, unpin, or stop relying on a long chat, capture durable knowledge only. Do not turn the artifact into a next-session briefing.
 
 ## Completion
 
-Before calling done, run the owning resolver gate and inspect the written surface.
+Before calling done, run the owner's required gate and inspect the written artifact.
 
 Report:
 
@@ -125,7 +102,7 @@ Report:
 - owner surface
 - what survived
 - what was intentionally not copied
-- index/log update, if required
+- registry or index update, if required
 - retrieval hook
 - whether the original chat can now be archived safely
 
@@ -133,11 +110,10 @@ Report:
 
 Do not:
 
-- dump a whole chat transcript into `wiki/`
+- dump a whole chat transcript into a synthesis artifact
 - create temp files as the final artifact
 - smooth away the user's sharp language or source pressure
-- create a new note when an existing thread, distillation, inquiry, or list owns it
-- treat code handoff and knowledge capture as the same operation
-- use `.agents/logs/` for conceptual knowledge
+- create a new artifact when an existing one owns the idea
+- treat workflow handoff and knowledge capture as the same operation
 - duplicate material already captured elsewhere
-- claim done without checking repo index/log conventions
+- claim done without checking the owner's conventions
