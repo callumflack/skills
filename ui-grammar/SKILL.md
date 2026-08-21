@@ -26,7 +26,7 @@ Choose the smallest mode that answers the request. Grammar is not required for e
 
 Check in a grammar only when it records durable, non-derivable, future-constraining law, has an owner and witness, and generates, validates, or rejects something useful. Otherwise prefer source types or props, colocated specimens or tests, a temporary conversation artifact, or regenerated bootstrap evidence. Code remains the master.
 
-A follow-up request to “document this” changes the storage medium, not the truth class. It does not promote recovered topology into current doctrine. Carry the persistence verdict forward: update an existing owner with only the qualifying law, or, when writing the recovery itself was explicitly requested, label it as non-authoritative evidence rather than indexing it as a current grammar.
+A follow-up request to “document this” changes the storage medium, not the truth class. It does not promote recovered topology into current doctrine. Carry the persistence verdict forward: update an existing owner with only the qualifying law, or, when writing the recovery itself was explicitly requested, label it as non-authoritative evidence rather than indexing it as a current grammar. `Persist` refers to grammar or declared law, not merely to a file: `Persist: none` may still retain explicitly requested recovery evidence. Record that separately as `Retain as requested evidence`, and reserve `Discard` for regenerable material that is not retained.
 
 ## Relationship
 
@@ -83,10 +83,11 @@ End every Recover result with this decision, including after a later request to 
 
 ```text
 Persistence verdict:
-  Persist: <only qualifying non-derivable laws, or none>
+  Persist as grammar/law: <only qualifying non-derivable laws, or none>
+  Retain as requested evidence: <non-authoritative recovery path, or none>
   Already owned by: <existing system, types, tests, specimens, or docs>
   Encode instead in: <nearest code/type/test/specimen owner, when applicable>
-  Discard: <regenerable topology and observations>
+  Discard: <regenerable topology and observations not retained>
 ```
 
 When a durable grammar is warranted, write the receipt in this shape:
