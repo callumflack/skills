@@ -20,11 +20,13 @@ Choose the smallest mode that answers the request. Grammar is not required for e
 
 - **System/default:** start from a visual reference and design system, name the React vocabulary and component family, describe the JSX tree, semantic props and slots, legal and forbidden compositions, ownership, specimens, and rendered proof. This is the primary mode for consistent visual outcomes.
 - **Flow/selective:** encode only consequential product state, actions, omissions, transitions, and effects that are not already obvious from code. Keep the grammar focused on the decisions that constrain future work.
-- **Recover/on-demand:** use `bootstrap` or `scan` to orient yourself in an existing source topology. Recovered topology is disposable evidence, not durable product truth; it does not require `calldiff` or another skill dependency.
+- **Recover/on-demand:** use `bootstrap` or `scan` to orient yourself in an existing source topology. For an unqualified request to describe an existing route without a new visual reference or unresolved product rule, return a disposable route sentence rather than authoring a route grammar. Recovered topology is evidence, not durable product truth; it does not require `calldiff` or another skill dependency.
 
 ### Persistence test
 
 Check in a grammar only when it records durable, non-derivable, future-constraining law, has an owner and witness, and generates, validates, or rejects something useful. Otherwise prefer source types or props, colocated specimens or tests, a temporary conversation artifact, or regenerated bootstrap evidence. Code remains the master.
+
+A follow-up request to “document this” changes the storage medium, not the truth class. It does not promote recovered topology into current doctrine. Carry the persistence verdict forward: update an existing owner with only the qualifying law, or, when writing the recovery itself was explicitly requested, label it as non-authoritative evidence rather than indexing it as a current grammar.
 
 ## Relationship
 
@@ -75,7 +77,17 @@ TypeScript can make some composition laws executable: discriminated unions and r
 
 3. **Flow/selective path.** Write and validate only consequential semantic rules. Compile actions, transitions, or omissions only when they are the unresolved question. Prove each result with its nearest runtime, test, trace, or rendered witness; do not require a route grammar or exhaustive action matrix when no such law is being recorded.
 
-4. **Recover/on-demand path.** Use `bootstrap` or `scan` to orient yourself in source topology and record unknowns without semantic promotion. Stop after disposable orientation unless a non-derivable, future-constraining law passes the persistence test.
+4. **Recover/on-demand path.** Use `bootstrap` or `scan` to orient yourself in source topology and record unknowns without semantic promotion. For `describe <existing route>`, name the system vocabulary the route uses, its observed composition tree, route-owned product inputs, candidate non-derivable laws, disposable topology, and unknowns. Do not title observed relationships “Derived rules”; derived results exist only when declared rules are compiled against a request. Stop after disposable orientation unless a non-derivable, future-constraining law passes the persistence test.
+
+End every Recover result with this decision, including after a later request to document it:
+
+```text
+Persistence verdict:
+  Persist: <only qualifying non-derivable laws, or none>
+  Already owned by: <existing system, types, tests, specimens, or docs>
+  Encode instead in: <nearest code/type/test/specimen owner, when applicable>
+  Discard: <regenerable topology and observations>
+```
 
 When a durable grammar is warranted, write the receipt in this shape:
 
@@ -85,7 +97,7 @@ Owner:
 Tree:
 Product inputs:
 Optional slots:
-Derived rules:
+Declared rules:
 Semantic states:
 Container-owned:
 Component-owned:
@@ -110,6 +122,7 @@ Reject a grammar when:
 - a semantic rule copies design-system, styling, directory-placement, or instrumentation doctrine instead of referencing its owner under `implementationConstraints`;
 - a narrow consumer-prop check is presented as a complete design-system inventory;
 - an action or transition matrix cites an implementation constraint as a semantic cause;
+- a recovery receipt promotes observed topology into declared or derived law, or becomes current doctrine merely because it was written to disk;
 - one prop changes unrelated visual dimensions;
 - component specimens pass while a complete route is incoherent.
 

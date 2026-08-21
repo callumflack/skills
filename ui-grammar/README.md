@@ -71,6 +71,8 @@ UI Grammar keeps every claim in one of four truth classes:
 
 The scanner provides automatic orientation, not automatic understanding. It can recover component structure, but it cannot infer why a product should behave that way.
 
+An instruction to store or document a recovery changes its medium, not its truth class. Recovered topology stays non-authoritative evidence unless a product-aware owner selects a non-derivable law, names its owner and witness, and the law passes the persistence test.
+
 ## Use UI Grammar in either direction
 
 Existing systems start with the visual result and implementation evidence, then recover only the durable composition law:
@@ -135,7 +137,8 @@ The method gives an agent a bounded sequence:
 4. Add colocated specimens and validate the machine contract; prove visual fidelity with a complete rendered surface.
 5. For Flow, declare only consequential state, action, omission, transition, or effect rules and attach their nearest witnesses.
 6. Register cases and compile stacks only for executable Flow grammars.
-7. Report unsupported boundaries as unknowns; regenerate disposable topology from code instead of persisting it as law.
+7. For an unqualified request to describe an existing route, return a disposable route sentence: system vocabulary used, observed composition tree, route-owned inputs, candidate non-derivable laws, recovered topology, and unknowns.
+8. End every Recover result with a persistence verdict: what qualifies for persistence, what an existing owner already records, what belongs in code/types/tests/specimens instead, and what should be discarded as regenerable topology. Carry that verdict through a later request to document the result.
 
 The resulting conversation stays at product level. A person can ask to change a state, capability, action, or effect, and the grammar identifies the affected composition and evidence without opening arbitrary styling escape hatches.
 

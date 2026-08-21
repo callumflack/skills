@@ -15,7 +15,7 @@ Keep every claim in one of four truth classes:
 - **Derived:** a tree, action, transition, omission, or presentation decision produced by applying declared rules to a semantic request.
 - **Unknown:** anything the available source and witnesses do not establish.
 
-Never silently promote an observed fact into a declared rule. Never present a derived result as observed runtime truth. Preserve unknowns instead of filling them with plausible design language.
+Never silently promote an observed fact into a declared rule. Never present a derived result as observed runtime truth. Preserve unknowns instead of filling them with plausible design language. Asking to store or document a recovery changes its medium, not its truth class; persistence requires a separate product-aware decision.
 
 Implementation constraints sit beside, not inside, the semantic rule graph. Reference the owning design-system or tooling doctrine under `implementationConstraints`; do not reproduce it. Observations and witnesses may record concrete rendering mechanisms because they are evidence. The compiler excludes implementation constraints from semantic action and transition derivation.
 
@@ -29,7 +29,7 @@ Implementation constraints sit beside, not inside, the semantic rule graph. Refe
 4. Add colocated specimens and distinguish declared or implemented status from rendered proof.
 5. Compare the contract with the complete rendered surface. Add Flow rules only for consequential behavior that code does not already explain.
 
-The scan accelerates orientation. It is disposable and cannot name design intent or promote current topology into durable law.
+The scan accelerates orientation. It is disposable and cannot name design intent or promote current topology into durable law. An unqualified route description should therefore end in a persistence verdict rather than becoming a new current route grammar by default.
 
 ### Greenfield system: reference to implementation
 
