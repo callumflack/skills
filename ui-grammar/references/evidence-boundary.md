@@ -6,14 +6,14 @@ UI Grammar separates evidence by what it can actually prove.
 
 The current static scanner can observe configured React/TSX source facts:
 
-- imports from the configured design-system module;
+- imports from configured React sources;
 - named render roots;
 - JSX components and ancestry;
 - literal and expression-shaped props;
 - simple surrounding conditional expressions;
 - configured slots;
 - source files and line numbers;
-- absence of configured forbidden props in scanned consumers.
+- absence of configured forbidden props on selected module/component bindings only when those JSX elements contain no unresolved prop spread.
 
 The route bootstrapper can additionally follow statically resolvable local function components through relative or TypeScript-configured imports. It emits explicit unknowns when traversal reaches external, unresolved, dynamic, or otherwise unsupported component boundaries.
 
@@ -36,7 +36,7 @@ A validator should reject a declared source relation when the scanner cannot obs
 
 ## Derived
 
-A compiled stack is derived from a semantic request, matching action rule, declared rules, state presentation, and templates. Its tree, action labels, transitions, effects, and omissions are compiler decisions. They become product truth only after the owning implementation and appropriate witnesses agree.
+A compiled stack is derived from a semantic request, matching action rules, declared rules, state presentation, and templates. Additive collection rules evaluate their declared `when` facts once per item; the compiler does not infer dependencies beyond each rule's explicit `dependsOn` list. Its tree, action labels, transitions, effects, and omissions are compiler decisions. They become product truth only after the owning implementation and appropriate witnesses agree.
 
 ## Unknown
 
@@ -55,4 +55,4 @@ Unknown is an honest result, not an invitation to infer a rule from visual simil
 
 Grammar and request JSON are canonical machine-readable inputs. Keep product contracts outside the portable skill; a repository registry may index them and link them to optional rendered-evidence targets. `scan` emits observed JSON. `validate` and `stack` emit Markdown receipts for human review. The receipts must preserve the truth class of each claim and must not imply that an anchor check executed a test or that a static scan observed runtime behavior.
 
-The executable format does not currently include separate formal schemas or generated React. Bootstrap traversal remains a static approximation; its unknowns are part of the result, not errors to guess away.
+System validation closes the component, slot, relation, specimen, and evidence envelope. Optional Flow validation additionally keeps product vocabulary inside states, actions, and conditions open before compilation. Neither mode includes generated React. Bootstrap traversal remains a static approximation; its unknowns are part of the result, not errors to guess away.

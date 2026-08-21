@@ -1,0 +1,69 @@
+{
+  "version": 2,
+  "mode": "system",
+  "visualReference": "reference.md",
+  "surface": {
+    "id": "system.action-row",
+    "renderRoot": "ActionRow",
+    "compositionOwner": "ActionRow"
+  },
+  "vocabulary": {
+    "name": "Product-neutral UI vocabulary",
+    "components": [
+      {
+        "name": "ActionRow",
+        "owner": "system",
+        "props": { "tone": "semantic emphasis" },
+        "slots": [
+          { "name": "leading", "owner": "ActionRow", "accepts": ["Icon"] },
+          { "name": "content", "owner": "ActionRow", "accepts": ["Label"] },
+          { "name": "trailing", "owner": "ActionRow", "accepts": ["Button"] }
+        ]
+      },
+      {
+        "name": "Icon",
+        "owner": "system",
+        "props": { "name": "semantic icon identity" },
+        "slots": []
+      },
+      {
+        "name": "Label",
+        "owner": "system",
+        "props": { "label": "semantic content" },
+        "slots": []
+      },
+      {
+        "name": "Button",
+        "owner": "system",
+        "props": { "action": "semantic action" },
+        "slots": [
+          { "name": "content", "owner": "Button", "accepts": ["Button"] }
+        ]
+      }
+    ],
+    "slots": ["leading", "content", "trailing"]
+  },
+  "composition": {
+    "owner": "ActionRow",
+    "root": "ActionRow",
+    "relations": [
+      { "parent": "ActionRow", "slot": "leading", "child": "Icon" },
+      { "parent": "ActionRow", "slot": "content", "child": "Label" },
+      { "parent": "ActionRow", "slot": "trailing", "child": "Button" }
+    ],
+    "forbidden": [{ "parent": "Button", "slot": "content", "child": "Button" }]
+  },
+  "specimens": [
+    {
+      "id": "action-row-default",
+      "component": "ActionRow",
+      "status": "declared",
+      "path": "specimens/action-row.tsx"
+    }
+  ],
+  "evidence": {
+    "kind": "specimen",
+    "target": "action-row-default",
+    "owner": "ui-grammar"
+  }
+}

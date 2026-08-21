@@ -1,6 +1,6 @@
 ---
 name: ui-grammar
-description: "Scans React surfaces into observed component facts, combines them with declared semantic rules and witnesses, and compiles product requests into proof-carrying UI stacks. Use when configuring, discussing, creating, or revising UI without drifting from a design system."
+description: "Turn a visual reference and design system into a precise React component vocabulary and witnessed UI grammar, with selective product-flow constraints when state or actions are consequential. Use for consistent, system-conforming UI and to avoid ad hoc visual execution; recover source topology on demand without treating scans as product truth."
 ---
 
 # UI Grammar
@@ -13,6 +13,26 @@ A UI grammar is a small intermediate language between product intent and React. 
 - **unknowns** that the available evidence cannot establish.
 
 Attach witnesses to consequential declared rules. The compiler may discover implementation, but it must not promote implementation into design intent by itself. Aim for automatic orientation, not automatic understanding.
+
+## Modes
+
+Choose the smallest mode that answers the request. Grammar is not required for every route.
+
+- **System/default:** start from a visual reference and design system, name the React vocabulary and component family, describe the JSX tree, semantic props and slots, legal and forbidden compositions, ownership, specimens, and rendered proof. This is the primary mode for consistent visual outcomes.
+- **Flow/selective:** encode only consequential product state, actions, omissions, transitions, and effects that are not already obvious from code. Keep the grammar focused on the decisions that constrain future work.
+- **Recover/on-demand:** use `bootstrap` or `scan` to orient yourself in an existing source topology. Recovered topology is disposable evidence, not durable product truth; it does not require `calldiff` or another skill dependency.
+
+### Persistence test
+
+Check in a grammar only when it records durable, non-derivable, future-constraining law, has an owner and witness, and generates, validates, or rejects something useful. Otherwise prefer source types or props, colocated specimens or tests, a temporary conversation artifact, or regenerated bootstrap evidence. Code remains the master.
+
+## Relationship
+
+`ui-grammar` and `code-stacks` are independent lenses. UI Grammar constrains user-visible composition and meaning; Code Stacks maps intended code wiring. Either may be used alone. Use the lens that matches the unresolved question rather than treating them as a required sequence.
+
+A product rule may name the semantic cause of a visual consequence and the component or container that owns it. It must not prescribe the rendering mechanism used to produce it. Tailwind utilities, CSS properties, classes, tokens, breakpoints, rendered dimensions, internal spacing, and filesystem placement belong to the owning design-system or tooling doctrine. A grammar may reference that doctrine under `implementationConstraints`; it must not copy it into semantic inputs or rules. Observations and witnesses may mention current mechanisms because they report implementation evidence.
+
+Effect is optional and outside UI Grammar's core. Record an effect only when the product flow needs it; do not add an Effect dependency or doctrine.
 
 For the human-facing explanation and progressive introduction, read [README.md](README.md).
 
@@ -43,36 +63,41 @@ Every visible delta has one named cause.
 - Semantic states are explicit typed inputs.
 - Containers own placement; components own their internal geometry.
 - A consumer does not choose a visual size when slot presence already explains the size.
+- Product meaning determines what is composed; the composition owner coordinates the surface, while each component owns its rendering.
+
+TypeScript can make some composition laws executable: discriminated unions and runtime tables declared with `as const` and `satisfies` can be exhaustive and can drive fixtures or tests. TypeScript cannot prove runtime effects, navigation, accessibility, or visual geometry; keep those claims in runtime or rendered evidence.
 
 ## Workflow
 
-1. **Capture the pressure.** Quote the discussion and mark what must remain the same versus what may change. Completion: every comparison has an invariant and a delta.
-2. **Bootstrap observations.** Point `bootstrap` at a route or UI entry and inspect its reachable component graph and unknowns. Completion: source facts are available without semantic fields or product guesses.
-3. **Find the live owner.** Inspect the route, render root, primitives, semantic model, current consumers, and witnesses before naming rules. Completion: the implementation owner and semantic owner are both current.
-4. **Configure and validate observed facts.** Write the product grammar, then run the bundled `scan` and `validate` commands. Completion: imports, JSX relations, slots, props, conditions, source locations, and declared witness anchors resolve without semantic promotion.
-5. **Write the grammar receipt.** Use this shape:
+1. **Start shared.** Capture the pressure: mark what must remain the same versus what may change. Find the live semantic and presentation owners before naming rules. Completion: every comparison has an invariant and delta, and each decision has a current owner.
 
-   ```text
-   Grammar:
-   Owner:
-   Tree:
-   Product inputs:
-   Optional slots:
-   Derived rules:
-   Semantic states:
-   Container-owned:
-   Component-owned:
-   Forbidden overrides:
-   Forbidden compositions:
-   Witnesses:
-   ```
+2. **System/default path.** Inventory the visual reference and design system, then name the React vocabulary, component tree, semantic contracts, legal and forbidden compositions, and ownership. Build colocated specimens and prove the full rendered surface. Bootstrap, scan, and the flow compiler are optional evidence, not prerequisites.
 
-   Completion: every visible element and behavior has exactly one owner.
+3. **Flow/selective path.** Write and validate only consequential semantic rules. Compile actions, transitions, or omissions only when they are the unresolved question. Prove each result with its nearest runtime, test, trace, or rendered witness; do not require a route grammar or exhaustive action matrix when no such law is being recorded.
 
-6. **Shape the contract.** Prefer semantic names and optional slots. Derive geometry from their presence. Add a variant prop only when two forms have the same content but genuinely different meaning. Completion: no screenshot label such as `small`, `big`, or `card` remains unless it is semantic.
-7. **Compile a UI stack.** Accept product meaning, not visual knobs. Derive the component tree, actions, transitions, and omitted controls from the grammar. Completion: every derived decision names its rule and witness.
-8. **Compose, do not copy.** One component renders every specimen; routes map their own data and effects into its contract. Completion: consumers add no internal styling escape hatch.
-9. **Prove the matrix.** Render every meaningful slot/state combination and the complete consuming routes. Record the invariant values and the single expected delta for each comparison. Completion: whole-screen inspection and computed geometry agree with the receipt.
+4. **Recover/on-demand path.** Use `bootstrap` or `scan` to orient yourself in source topology and record unknowns without semantic promotion. Stop after disposable orientation unless a non-derivable, future-constraining law passes the persistence test.
+
+When a durable grammar is warranted, write the receipt in this shape:
+
+```text
+Grammar:
+Owner:
+Tree:
+Product inputs:
+Optional slots:
+Derived rules:
+Semantic states:
+Container-owned:
+Component-owned:
+Forbidden overrides:
+Forbidden compositions:
+Inherited system constraints: <references only>
+Witnesses:
+```
+
+Completion: every visible element and behavior has exactly one owner, and system policy is referenced rather than restated.
+
+Shape contracts around semantic names and optional slots; derive geometry from their presence. Add a variant only when it carries independent product meaning. Keep one component responsible for its specimens and let consumers map product data into its contract without styling escape hatches.
 
 ## Review
 
@@ -80,11 +105,19 @@ Reject a grammar when:
 
 - two implementations represent one role;
 - a boolean or size prop restates information already present in content;
-- a consumer supplies internal classes;
+- an unexplained consumer override is treated as product truth rather than a review signal;
+- a semantic state, request, or `when` condition names a class, token, breakpoint, density, dimension, or internal-geometry mechanism;
+- a semantic rule copies design-system, styling, directory-placement, or instrumentation doctrine instead of referencing its owner under `implementationConstraints`;
+- a narrow consumer-prop check is presented as a complete design-system inventory;
+- an action or transition matrix cites an implementation constraint as a semantic cause;
 - one prop changes unrelated visual dimensions;
 - component specimens pass while a complete route is incoherent.
 
+Keep a version 2 grammar smaller than the implementation it explains. Name only consequential product causes, ownership, declared dependencies, and evidence. Use `reviewProps` for mechanisms such as `className` that deserve inspection but can be legitimate; reserve `forbiddenProps` for true repository invariants whose direct occurrence or possible presence through a JSX spread must fail validation. Use additive `forEach` rules when each item in a product collection independently contributes an action; do not enumerate debugger scenario combinations.
+
 ## Compiler
+
+The System grammar declares the deliberately small component vocabulary that its composition law constrains; it is not a second inventory of the whole design system. When scanning is useful, the scanner observes imports from configured sources and compares implementation evidence with that declared contract. Optional `consumerPropChecks` target selected module/component bindings only.
 
 The portable command uses the owning React app's existing TypeScript compiler; it adds no dependency:
 
@@ -96,9 +129,9 @@ node .agents/skills/ui-grammar/scripts/ui-grammar.mjs scan <grammar.json>
 node .agents/skills/ui-grammar/scripts/ui-grammar.mjs stack <grammar.json> <request.json>
 ```
 
-`bootstrap` follows statically reachable local function components and reports unsupported or external boundaries as unknowns. `scan` validates configured facts against named TSX sources. Neither can prove runtime branches, state authority, effects, navigation, accessibility, visual geometry, or product meaning. Put those claims in declared rules with the nearest test, trace, or rendered witness.
+`bootstrap` follows statically reachable local function components and reports unsupported or external boundaries as unknowns. `scan.sources` accepts unique, existing, repository-contained `.ts` and `.tsx` files only. CSS and other rendering artifacts may be witnesses, but never scanner inputs. Neither command can prove runtime branches, state authority, effects, navigation, accessibility, visual geometry, or product meaning. Put semantic claims in declared rules with the nearest test, trace, or rendered witness; keep rendering policy with its system owner.
 
-Keep product contracts outside the skill and index them with the portable registry runner when a repository has multiple flows:
+Keep product contracts outside the skill and index them with the portable registry runner when a repository has multiple System or Flow contracts:
 
 ```sh
 node .agents/skills/ui-grammar/scripts/ui-grammar-registry.mjs \

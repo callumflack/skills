@@ -1,26 +1,34 @@
 # Understand UI Grammar
 
-UI Grammar is a portable method for describing why a product state produces a particular React composition. It gives developers and large language models (LLMs) a shared language for discussing user interface (UI) flows through product meaning, actions, transitions, components, constraints, and evidence.
+UI Grammar is a portable method for describing a precise React component vocabulary and the product-visible compositions it permits. Its lightweight System mode is the default: it records visual reference, component contracts, JSX tree, semantic props/slots, ownership, specimens, and honest evidence. Optional Flow mode describes consequential product states and actions.
 
-Use it to understand an existing design system and product surface, or to define a new flow before implementation. The method keeps product intent connected to code without pretending that static analysis can recover intent automatically.
+Use it to understand an existing design system and product surface, or to define a new composition before implementation. UI Grammar and Code Stacks are independent lenses; neither is a required predecessor.
 
 ## The 30-second model
 
-A design system supplies the vocabulary. A UI grammar defines the valid sentences. A semantic request describes one product situation, and the compiler returns the permitted UI stack with the rules that caused it.
+A design system supplies the vocabulary and owns how it is rendered. A System grammar turns a visual or design reference into a checked component vocabulary, legal composition, and specimen contract. The React implementation and rendered evidence then prove how faithfully that contract was realised.
+
+Flow is an optional second mode. A semantic request describes one consequential product situation, and the Flow compiler returns the permitted UI stack with the rules that caused it. UI Grammar and Code Stacks remain independent lenses.
 
 ```text
-design-system vocabulary
-  + product facts
-  + guarded rules
-  + evidence
-  -> UI stack
+visual/design reference
+  -> System vocabulary + composition law
+  -> React components + colocated specimens
+  -> rendered evidence
+
+optional product facts + guarded rules
+  -> Flow UI stack
 ```
 
-A request contains facts such as the job, state, capabilities, authority, and desired effect. It does not contain visual knobs such as density, size, classes, token choices, or icon dimensions.
+A System contract names components, semantic props, slots, ownership, allowed relations, forbidden relations, and specimens. Scanning is optional evidence for existing code. Optional `consumerPropChecks` are narrow policy probes, not vocabulary declarations.
 
-## The four connected graphs
+A Flow request contains facts such as the job, state, capabilities, authority, and desired effect. It does not contain rendering knobs such as density, classes, styles, token choices, breakpoints, or icon dimensions. Generic domain names such as `size`, `color`, `width`, `height`, or `variant` remain valid when they carry independent product meaning rather than styling instructions.
 
-Four views make a UI flow discussable and traceable. They are views of one contract, not four separate systems.
+The grammar may say that description presence causes a detailed row and that the row owns the resulting presentation. It may not say which utility class, CSS property, spacing token, breakpoint, or directory produces that presentation. Current mechanisms can appear in observations and witnesses. System-wide presentation or tooling policy belongs under `implementationConstraints` as a reference to its owner and is never compiled as a product cause.
+
+## Four compatible views
+
+These views make a UI discussable and traceable without forcing every grammar to contain all four. System uses Component and Evidence. Flow adds Product and Rule where consequential behavior needs an explicit contract.
 
 | Graph | What it describes | Questions it answers |
 | --- | --- | --- |
@@ -29,7 +37,7 @@ Four views make a UI flow discussable and traceable. They are views of one contr
 | Rule | Conditions and the relations they require or forbid | Why does this state produce this action or composition? |
 | Evidence | Code, tests, traces, and rendered specimens | What supports each consequential claim? |
 
-Every visible difference should have one named cause. Product state may select actions, content presence may derive internal geometry, containers own placement, and components own their internal geometry.
+Every visible difference should have one named cause. Product state may select actions, content presence may derive internal geometry, the surface composition owner coordinates the tree, and components own their rendering.
 
 ## The lowest-level primitive
 
@@ -65,73 +73,69 @@ The scanner provides automatic orientation, not automatic understanding. It can 
 
 ## Use UI Grammar in either direction
 
-Existing products start with implementation evidence and work back toward intent:
+Existing systems start with the visual result and implementation evidence, then recover only the durable composition law:
 
 ```text
-React surface
-  -> observed component graph
-  -> declared product grammar
-  -> compiled requests
-  -> reviewed contract
+visual result + React implementation
+  -> observed component graph (optional)
+  -> declared System vocabulary + composition
+  -> specimens + rendered proof
 ```
 
-Greenfield products start with intent and work toward implementation:
+Greenfield systems start with visual intent and work toward implementation:
 
 ```text
-product job and state
-  -> declared grammar
-  -> permitted component stack
+visual reference
+  -> declared vocabulary, props, slots, and relations
+  -> specimen contract
   -> React implementation
-  -> observed and rendered proof
+  -> rendered proof
 ```
 
-The directions are deliberately asymmetric. A scanner can observe code, but a human or product-aware agent must declare its meaning. A greenfield grammar can constrain an implementation, but the implementation still needs runtime and rendered proof.
+Flow is separate and selective:
+
+```text
+consequential product state
+  -> guarded actions, omissions, transitions, or effects
+  -> compiled UI stack
+  -> runtime and rendered proof
+```
+
+The directions are deliberately asymmetric. A scanner can observe code but cannot infer design intent. A System grammar can constrain implementation but cannot prove visual fidelity; that still needs rendered evidence. Use Flow only when code alone does not make a consequential product law clear.
 
 ## A product-neutral example
 
-Suppose a person asks an LLM to design an access-review flow:
+The checked-in System example starts from an Action Row reference and declares this vocabulary:
 
 ```text
-Create an access review for Project Atlas.
-The request is pending.
-Approval authority is incomplete because identity verification is missing.
-Identity verification can be completed on the Web.
+ActionRow
+  leading: Icon
+  content: Label
+  trailing: Button
 ```
 
-The semantic request contains those facts, not instructions such as “use a compact card” or “make the button secondary.” The grammar may derive this receipt:
+The contract names each component's semantic props and slots, rejects undeclared children or slots, forbids a nested Button composition, links the declaration to a colocated specimen, and distinguishes that declaration from rendered proof. See [`examples/system-default/`](examples/system-default/).
+
+If the same product also has a consequential access-review flow, an optional Flow request might contain facts such as pending state and incomplete approval authority. The compiler may then derive:
 
 ```text
 Decision: Omit Approve until authority is complete
 Actions: Deny | Verify identity
-Visual overrides: none
-
-PageShell
-  PageHeader
-  AccessRequestPanel
-    DetailsCard
-      Identity
-      Requested access
-      Current state
-      ActionGroup: Deny | Verify identity
-
-Applied rules:
-  complete-authority-enables-approval
-  missing-identity-routes-to-verification
 ```
 
-The target design system determines the available component names. The product grammar determines whether those components and actions form a valid sentence for the request.
+System constrains which component sentences are valid. Flow selectively constrains what the product situation permits. Neither requires Code Stacks.
 
 ## How an LLM uses the method
 
 The method gives an agent a bounded sequence:
 
-1. Scan a route or UI block for observable React structure.
-2. Report unsupported boundaries as unknowns.
-3. Identify the implementation owner and semantic owner.
-4. Declare the smallest rules that explain states, actions, omissions, and allowed composition.
-5. Attach witnesses to consequential rules.
-6. Compile semantic requests into UI stacks.
-7. Compare the compiled result with focused tests, runtime traces, and complete rendered surfaces.
+1. Choose System composition or optional Flow analysis from the unresolved question.
+2. For System, inspect the visual/design reference and existing components; scan only when recovered topology helps orientation.
+3. Name the smallest component vocabulary, semantic props/slots, ownership, and legal or forbidden relations that future work must preserve.
+4. Add colocated specimens and validate the machine contract; prove visual fidelity with a complete rendered surface.
+5. For Flow, declare only consequential state, action, omission, transition, or effect rules and attach their nearest witnesses.
+6. Register cases and compile stacks only for executable Flow grammars.
+7. Report unsupported boundaries as unknowns; regenerate disposable topology from code instead of persisting it as law.
 
 The resulting conversation stays at product level. A person can ask to change a state, capability, action, or effect, and the grammar identifies the affected composition and evidence without opening arbitrary styling escape hatches.
 
@@ -139,8 +143,9 @@ The resulting conversation stays at product level. A person can ask to change a 
 
 The portable skill owns the method and its reusable machinery:
 
+- System vocabulary, composition, specimen, and evidence validation
 - React route bootstrapper and static scanner
-- Grammar validator and UI-stack compiler
+- Optional Flow validator and UI-stack compiler
 - Generic multi-flow registry runner
 - Evidence-target interface
 - Product-neutral examples and portability tests
@@ -148,9 +153,12 @@ The portable skill owns the method and its reusable machinery:
 
 The adopting repository owns all product truth:
 
+- Visual/design references and the real design-system vocabulary
+- Component props, slots, ownership, allowed relations, and specimens
 - Route, component, and package paths
-- Product grammars and representative requests
+- System grammars, optional Flow grammars, and representative Flow requests
 - State, authority, action, transition, and effect rules
+- References to inherited implementation constraints owned by the design system or tooling doctrine
 - Witness paths and anchors
 - Rendered-evidence identifiers and commands
 - Tests that assert consequential product decisions
@@ -192,11 +200,13 @@ Use JSON for canonical machine inputs. The tools emit JSON observations and Mark
 
 ## Evidence and limits
 
-Static scanning can observe imports, JSX relations, props, slots, conditions, and source locations. It cannot prove runtime branches, state authority, effects, navigation, accessibility, responsive geometry, visual quality, or product meaning.
+Static scanning accepts unique repository-contained TypeScript and TSX sources and can observe imports, JSX relations, props, slots, conditions, and source locations. CSS is witness material, not a scan source. Static evidence cannot prove runtime branches, state authority, effects, navigation, accessibility, responsive geometry, visual quality, or product meaning.
 
 Witness-anchor validation proves that a configured file and anchor resolve. It does not execute the witness. When a registry case names rendered-evidence IDs, the target must opt into a no-shell argv adapter which returns a versioned JSON inventory; the registry checks those IDs against that inventory. The adapter is repository-owned, and the portable skill knows neither its tool nor its capture system. Runtime tests, traces, browser checks, and rendered specimens remain the appropriate evidence for claims that require them.
 
 The compiler does not generate React. It produces a constrained, traceable stack that an agent or developer can implement and then verify.
+
+Keep a grammar minimal: System encodes visual reference, vocabulary, composition, specimens, and evidence. Optional Flow encodes consequential product causes and guarded actions; only executable Flow requires an action matrix, stack template, and registry cases. Code Stacks remains an independent lens.
 
 ## Read the detailed references
 

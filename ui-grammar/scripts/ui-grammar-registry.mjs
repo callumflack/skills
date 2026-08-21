@@ -9,6 +9,7 @@ import {
   compileStack,
   discoverComponentExports,
   formatStack,
+  isExecutableContract,
   validateContract,
 } from "./ui-grammar.mjs";
 
@@ -58,7 +59,7 @@ export function loadFlowRegistry(registryPath) {
     registryPath: absoluteRegistryPath,
     repositoryRoot: path.resolve(
       path.dirname(absoluteRegistryPath),
-      registry.repositoryRoot
+      registry.repositoryRoot,
     ),
   };
 }
@@ -78,7 +79,7 @@ function checkRequiredPath(checks, registry, label, relativePath) {
     checks,
     label,
     pass,
-    pass ? relativePath : `missing ${relativePath}`
+    pass ? relativePath : `missing ${relativePath}`,
   );
   return pass ? absolutePath : null;
 }
@@ -90,24 +91,24 @@ function checkFlowIdentity(checks, registry, flow, grammarPath) {
       checks,
       `${flow.id} grammar identity`,
       grammar.surface?.id === flow.id,
-      grammar.surface?.id ?? "grammar has no surface id"
+      grammar.surface?.id ?? "grammar has no surface id",
     );
     const grammarRoot = path.resolve(
       path.dirname(grammarPath),
-      grammar.repositoryRoot
+      grammar.repositoryRoot ?? ".",
     );
     addCheck(
       checks,
       `${flow.id} repository root`,
       grammarRoot === registry.repositoryRoot,
-      toPosix(path.relative(registry.repositoryRoot, grammarRoot)) || "."
+      toPosix(path.relative(registry.repositoryRoot, grammarRoot)) || ".",
     );
   } catch (error) {
     addCheck(
       checks,
       `${flow.id} grammar identity`,
       false,
-      failureDetail(error)
+      failureDetail(error),
     );
   }
 }
@@ -115,14 +116,23 @@ function checkFlowIdentity(checks, registry, flow, grammarPath) {
 function checkGrammar(checks, flow, grammarPath) {
   try {
     const validation = validateContract(grammarPath);
-    const failures = validation.checks.filter((check) => !check.pass);
+    const failures = validation.checks.filter(
+      (check) => !check.pass && check.severity !== "warning",
+    );
+    const warnings = validation.checks.filter(
+      (check) => check.severity === "warning",
+    );
     addCheck(
       checks,
       `${flow.id} grammar`,
       validation.passed,
       validation.passed
-        ? `${validation.checks.length} observed and declared checks passed`
-        : failures.map((check) => check.label).join(", ")
+        ? `${validation.checks.length - warnings.length} checks passed${
+            warnings.length > 0
+              ? `; ${warnings.length} review warning${warnings.length === 1 ? "" : "s"}`
+              : ""
+          }`
+        : failures.map((check) => check.label).join(", "),
     );
   } catch (error) {
     addCheck(checks, `${flow.id} grammar`, false, failureDetail(error));
@@ -253,13 +263,13 @@ function checkRenderedEvidenceBridge(checks, registry, flow) {
     checks,
     `${flow.id} evidence target`,
     Boolean(target),
-    target ? reference.target : `unknown target ${reference.target}`
+    target ? reference.target : `unknown target ${reference.target}`,
   );
   addCheck(
     checks,
     `${flow.id} evidence owner id`,
     typeof reference.ownerId === "string" && reference.ownerId.length > 0,
-    reference.ownerId ?? "missing owner id"
+    reference.ownerId ?? "missing owner id",
   );
   if (!target) {
     return;
@@ -270,7 +280,7 @@ function checkRenderedEvidenceBridge(checks, registry, flow) {
       checks,
       registry,
       `${flow.id} evidence source`,
-      target.source
+      target.source,
     );
   }
   addCheck(
@@ -279,25 +289,25 @@ function checkRenderedEvidenceBridge(checks, registry, flow) {
     !(target.ownerAnchorTemplate && !target.source),
     target.ownerAnchorTemplate
       ? (target.source ?? "anchor template requires a source")
-      : "not configured"
+      : "not configured",
   );
   checkEvidenceTemplate(
     checks,
     flow,
     "evidence owner anchor template",
-    target.ownerAnchorTemplate
+    target.ownerAnchorTemplate,
   );
   checkEvidenceTemplate(
     checks,
     flow,
     "evidence owner command template",
-    target.ownerCommandTemplate
+    target.ownerCommandTemplate,
   );
   checkEvidenceTemplate(
     checks,
     flow,
     "evidence case command template",
-    target.caseCommandTemplate
+    target.caseCommandTemplate,
   );
   if (target.ownerAnchorTemplate) {
     const registered = hasEvidenceOwner(registry, flow);
@@ -307,7 +317,7 @@ function checkRenderedEvidenceBridge(checks, registry, flow) {
       registered === true,
       registered
         ? `${reference.target}/${reference.ownerId}`
-        : `${reference.ownerId ?? "missing owner id"} is not registered`
+        : `${reference.ownerId ?? "missing owner id"} is not registered`,
     );
   }
 }
@@ -318,7 +328,7 @@ function checkCaseEvidence(
   flow,
   flowCase,
   caseLabel,
-  evidenceCache
+  evidenceCache,
 ) {
   const configuredEvidenceIds = flowCase.renderEvidenceIds ?? [];
   const evidenceIds = Array.isArray(configuredEvidenceIds)
@@ -352,7 +362,7 @@ function checkCaseEvidence(
     adapterPasses,
     evidenceIds.length === 0
       ? "not required"
-      : (inventory?.error ?? `${inventory.ids.size} available ids`)
+      : (inventory?.error ?? `${inventory.ids.size} available ids`),
   );
   addCheck(
     checks,
@@ -361,7 +371,7 @@ function checkCaseEvidence(
       (evidenceIds.length === 0 || Boolean(target?.caseCommandTemplate)) &&
       adapterPasses &&
       unknownIds.length === 0,
-    detail
+    detail,
   );
 }
 
@@ -375,13 +385,13 @@ function checkFlowCases(checks, registry, flow, grammarPath, evidenceCache) {
       checks,
       `${caseLabel} identity`,
       unique,
-      unique ? flowCase.id : "missing or duplicate case id"
+      unique ? flowCase.id : "missing or duplicate case id",
     );
     const requestPath = checkRequiredPath(
       checks,
       registry,
       `${caseLabel} request`,
-      flowCase.request
+      flowCase.request,
     );
     checkCaseEvidence(
       checks,
@@ -389,7 +399,7 @@ function checkFlowCases(checks, registry, flow, grammarPath, evidenceCache) {
       flow,
       flowCase,
       caseLabel,
-      evidenceCache
+      evidenceCache,
     );
     if (!requestPath) {
       continue;
@@ -400,7 +410,7 @@ function checkFlowCases(checks, registry, flow, grammarPath, evidenceCache) {
         checks,
         `${caseLabel} request identity`,
         request.surface === flow.id,
-        request.surface ?? "request has no surface id"
+        request.surface ?? "request has no surface id",
       );
       compileStack(grammarPath, requestPath);
       addCheck(checks, `${caseLabel} compile`, true, "derived a UI stack");
@@ -417,7 +427,7 @@ function checkEntryExport(checks, flow, entryPath, packagePath) {
         checks,
         `${flow.id} entry export`,
         false,
-        "entry and package paths must both resolve"
+        "entry and package paths must both resolve",
       );
     }
     return;
@@ -436,7 +446,7 @@ function checkEntryExport(checks, flow, entryPath, packagePath) {
       checks,
       `${flow.id} entry export`,
       Boolean(bootstrap.root),
-      bootstrap.root?.name ?? exportName
+      bootstrap.root?.name ?? exportName,
     );
   } catch (error) {
     addCheck(checks, `${flow.id} entry export`, false, failureDetail(error));
@@ -448,35 +458,41 @@ function checkFlow(checks, registry, flow, evidenceCache) {
     checks,
     registry,
     `${flow.id} entry`,
-    flow.entry?.file
+    flow.entry?.file,
   );
   const packagePath = checkRequiredPath(
     checks,
     registry,
     `${flow.id} package`,
-    flow.entry?.packageJson
+    flow.entry?.packageJson,
   );
   const grammarPath = checkRequiredPath(
     checks,
     registry,
     `${flow.id} grammar file`,
-    flow.grammar
+    flow.grammar,
   );
   checkEntryExport(checks, flow, entryPath, packagePath);
   checkRenderedEvidenceBridge(checks, registry, flow);
   if (grammarPath) {
     checkFlowIdentity(checks, registry, flow, grammarPath);
     checkGrammar(checks, flow, grammarPath);
+    const grammar = readJson(grammarPath);
+    const executable = isExecutableContract(grammar);
     const hasCases = Array.isArray(flow.cases) && flow.cases.length > 0;
     addCheck(
       checks,
       `${flow.id} cases`,
-      hasCases,
-      hasCases
+      executable ? hasCases : !hasCases,
+      executable && hasCases
         ? `${flow.cases.length} case${flow.cases.length === 1 ? "" : "s"}`
-        : "must be a non-empty array"
+        : executable
+          ? "executable grammars require a non-empty cases array"
+          : hasCases
+            ? "non-executable grammars cannot declare compile cases"
+            : "not required for a non-executable grammar",
     );
-    if (hasCases) {
+    if (executable && hasCases) {
       checkFlowCases(checks, registry, flow, grammarPath, evidenceCache);
     }
   }
@@ -505,14 +521,14 @@ export function checkFlowRegistry(registryPath) {
     checks,
     "registry version",
     registry.version === 1,
-    String(registry.version)
+    String(registry.version),
   );
   const flows = Array.isArray(registry.flows) ? registry.flows : [];
   addCheck(
     checks,
     "registered flows",
     flows.length > 0,
-    `${flows.length} flow${flows.length === 1 ? "" : "s"}`
+    `${flows.length} flow${flows.length === 1 ? "" : "s"}`,
   );
   const ids = new Set();
   for (const flow of flows) {
@@ -522,7 +538,7 @@ export function checkFlowRegistry(registryPath) {
       checks,
       `${flow.id ?? "unknown flow"} identity`,
       unique,
-      unique ? flow.id : "missing or duplicate flow id"
+      unique ? flow.id : "missing or duplicate flow id",
     );
     if (unique) {
       checkFlow(checks, registry, flow, evidenceCache);
@@ -575,7 +591,7 @@ export function findFlow(registry, query) {
     throw new Error(
       `Ambiguous UI Grammar flow for ${query}: ${matches
         .map((flow) => flow.id)
-        .join(", ")}`
+        .join(", ")}`,
     );
   }
   return matches[0] ?? null;
@@ -627,7 +643,7 @@ function inspectUnconfiguredEntry(registry, query) {
     if (!bootstrap.root) {
       candidateExports = discoverComponentExports(entryPath, { packageJson });
       const namedCandidates = candidateExports.filter(
-        (candidate) => candidate !== "default"
+        (candidate) => candidate !== "default",
       );
       if (namedCandidates.length === 1) {
         exportName = namedCandidates[0];
@@ -695,7 +711,7 @@ export function inspectFlow(query, options = {}) {
   });
   const renderEvidence = resolvedEvidence(registry, flow);
   const target = evidenceTarget(registry, flow);
-  const cases = flow.cases.map((flowCase) => {
+  const cases = (flow.cases ?? []).map((flowCase) => {
     const requestPath = repositoryPath(registry, flowCase.request);
     const evidenceIds = Array.isArray(flowCase.renderEvidenceIds)
       ? flowCase.renderEvidenceIds
@@ -704,7 +720,7 @@ export function inspectFlow(query, options = {}) {
       ...flowCase,
       renderEvidenceCommands: target?.caseCommandTemplate
         ? evidenceIds.map((id) =>
-            renderTemplate(target.caseCommandTemplate, { id })
+            renderTemplate(target.caseCommandTemplate, { id }),
           )
         : [],
       result: compileStack(grammarPath, requestPath),
@@ -726,7 +742,7 @@ export function formatRegistryCheck(result) {
   const lines = ["# UI Grammar Registry", ""];
   for (const check of result.checks) {
     lines.push(
-      `- ${check.pass ? "PASS" : "FAIL"} — ${check.label} (${check.detail})`
+      `- ${check.pass ? "PASS" : "FAIL"} — ${check.label} (${check.detail})`,
     );
   }
   lines.push("", result.passed ? "Result: PASS" : "Result: FAIL");
@@ -753,11 +769,11 @@ export function formatInspection(inspection) {
           ? [`Observed export: ${inspection.exportName}`]
           : []),
         `Reachable roots: ${inspection.bootstrap.traversedRoots.length}`,
-        `Unknown boundaries: ${inspection.bootstrap.unknowns.length}`
+        `Unknown boundaries: ${inspection.bootstrap.unknowns.length}`,
       );
       if (!root && inspection.candidateExports?.length > 0) {
         lines.push(
-          `Candidate exports: ${inspection.candidateExports.join(", ")}`
+          `Candidate exports: ${inspection.candidateExports.join(", ")}`,
         );
       }
     } else if (inspection.error) {
@@ -765,7 +781,7 @@ export function formatInspection(inspection) {
     }
     lines.push(
       "",
-      "No semantic rules were inferred. Configure a flow before compiling a UI stack."
+      "No semantic rules were inferred. Configure a flow before compiling a UI stack.",
     );
     return lines.join("\n");
   }
@@ -799,7 +815,7 @@ export function formatInspection(inspection) {
       "",
       "## Rendered evidence bridge",
       "",
-      `Evidence target: ${renderEvidence.target}/${renderEvidence.ownerId} (${registration})`
+      `Evidence target: ${renderEvidence.target}/${renderEvidence.ownerId} (${registration})`,
     );
     if (renderEvidence.ownerCommand) {
       lines.push(`Rendered evidence command: ${renderEvidence.ownerCommand}`);
@@ -812,10 +828,10 @@ export function formatInspection(inspection) {
       "",
       `Request: ${flowCase.request}`,
       ...flowCase.renderEvidenceCommands.map(
-        (command) => `Rendered evidence command: ${command}`
+        (command) => `Rendered evidence command: ${command}`,
       ),
       "",
-      formatStack(flowCase.result)
+      formatStack(flowCase.result),
     );
   }
   return lines.join("\n");
@@ -836,6 +852,7 @@ export function formatFlowList(registry) {
 function usage() {
   return [
     "Usage:",
+    "  ui-grammar-registry.mjs validate <grammar.json>",
     "  ui-grammar-registry.mjs list <registry.json>",
     "  ui-grammar-registry.mjs check <registry.json>",
     "  ui-grammar-registry.mjs inspect <registry.json> <flow-id|source-file>",
@@ -844,6 +861,12 @@ function usage() {
 
 function runCli() {
   const [command, registryPath, query] = process.argv.slice(2);
+  if (command === "validate" && registryPath && !query) {
+    const result = validateContract(registryPath);
+    console.log(JSON.stringify(result, null, 2));
+    if (!result.passed) process.exitCode = 1;
+    return;
+  }
   if (command === "list" && registryPath && !query) {
     console.log(formatFlowList(loadFlowRegistry(registryPath)));
     return;
