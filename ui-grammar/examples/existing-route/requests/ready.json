@@ -1,6 +1,0 @@
-{
-  "surface": "workspace.documents",
-  "job": "Open or create a document",
-  "state": "ready",
-  "documents": [{ "id": "guide", "title": "Guide" }]
-}

@@ -1,4 +1,4 @@
 interface:
   display_name: "UI Grammar"
-  short_description: "Compile product intent into witnessed React UI"
-  default_prompt: "Use $ui-grammar to turn semantic product intent into a witnessed React component stack without inventing visual knobs."
+  short_description: "Describe React UI systems and routes precisely"
+  default_prompt: "Use $ui-grammar to describe this UI as a source-grounded component system. Keep the result disposable unless durable law warrants persistence."
