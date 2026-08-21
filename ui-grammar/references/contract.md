@@ -19,7 +19,7 @@ A System grammar requires:
 
 An `implemented` specimen must resolve to an existing repository-contained path. `declared` and `implemented` are lifecycle states, not rendered-proof claims. Runtime behavior, accessibility, geometry, and visual fidelity require their own evidence.
 
-`scan`, implementation constraints, and consumer prop checks are optional. System never requires states, actions, an action matrix, a stack template, semantic requests, or registry cases.
+`scan`, implementation constraints, and consumer prop checks are optional. System never requires states, actions, an action matrix, a stack template, or semantic requests.
 
 ## Optional Flow request inputs
 
@@ -81,7 +81,7 @@ Each entry is partial, not a design-system vocabulary inventory. The scanner obs
 
 `reviewProps` emits nonblocking diagnostics with root and source location. Use it for mechanisms that need an ownership explanation but may be legitimate. `forbiddenProps` fails validation and is only for true invariants. A prop cannot be listed in both. A JSX spread on a checked consumer makes prop absence unprovable: it fails each hard forbidden-prop check and warns for each review-level prop.
 
-Grammar version 2 is canonical. It requires `surface.compositionOwner`; semantic `rule.owner` is unchanged. Version 1 inputs are normalized with warnings: `surface.visualOwner` or `surface.renderRoot` supplies missing composition ownership, the old `designSystem` consumer-check shape is translated when populated, and first-match action behavior is retained. Registry version 1 is a separate registry format and does not imply grammar version 1.
+Grammar version 2 is canonical. It requires `surface.compositionOwner`; semantic `rule.owner` is unchanged. Version 1 inputs are normalized with warnings: `surface.visualOwner` or `surface.renderRoot` supplies missing composition ownership, the old `designSystem` consumer-check shape is translated when populated, and first-match action behavior is retained.
 
 Version 2 action rules require a non-empty `dependsOn` list. Every listed fact must be an exact key in that rule's `when` object. This validates declared dependencies only; it does not infer dependencies from decision prose or interpolation. Version 1 keeps legacy action rules compatible and reports missing declared guards as review warnings only when `dependsOn` is present.
 
@@ -103,7 +103,7 @@ An additive rule may set `forEach` to a request collection path and guard agains
 
 Collections evaluate in request order within each rule. Action labels interpolate against each matching item, so distinct source actions remain distinct; identical labels, effects, decisions, and rule ids deduplicate first-seen. `forEach` with first-match resolution is invalid because silently selecting one item would be unsafe.
 
-System grammars never compile requests and do not require cases. Flow grammars opt into executable action/stack fields; observational Flow grammars may set `executable: false`. Registries require cases only for executable Flow grammars.
+System grammars never compile requests. Flow grammars opt into executable action/stack fields; observational Flow grammars may set `executable: false`.
 
 Each visible element, action, omission, transition, and effect must have one owner. Each visible delta must resolve to one named cause. Consequential rules must carry witnesses near the owning behavior.
 
@@ -123,6 +123,6 @@ The Markdown is a receipt of the canonical inputs and compiler result, not a sec
 
 ## Current Boundary
 
-The compiler can bootstrap a static component graph from a route entry, scan named functions in configured TypeScript and TSX sources, validate a limited set of observed facts and witness anchors, resolve first-match or additive semantic action rules, and interpolate a stack template. Scan nodes retain their configured render root, observed relations may be root-scoped, and scan output offers root-scoped relation candidates for review. `scan.sources` must be unique, existing, repository-contained `.ts` or `.tsx` files. CSS and other presentation artifacts are witness-only. A repository registry may index multiple product grammars and link them to optional rendered-evidence targets without placing those product bindings in the skill.
+The compiler can bootstrap a static component graph from a route entry, scan named functions in configured TypeScript and TSX sources, validate a limited set of observed facts and witness anchors, resolve first-match or additive semantic action rules, and interpolate a stack template. Scan nodes retain their configured render root, observed relations may be root-scoped, and scan output offers root-scoped relation candidates for review. `scan.sources` must be unique, existing, repository-contained `.ts` or `.tsx` files. CSS and other presentation artifacts are witness-only.
 
 Bootstrap output is orientation evidence, not a semantic grammar. A successful configuration does not prove runtime behavior, rendered truth, accessibility, geometry, or automatic semantic understanding. The compiler does not generate React.

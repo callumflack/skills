@@ -78,65 +78,6 @@ The traversal reaches `SyntheticRoute -> LocalPanel` and reports the imported de
 
 # Complete Existing-Route Example
 
-[`examples/existing-route`](examples/existing-route) contains a product-neutral route, presentation component, version 2 grammar, two requests, and registry. Its executable grammar uses `compositionOwner`, root-scoped relations, review-level and forbidden prop checks, additive global and per-document actions, explicit `dependsOn` facts, and registered compile cases. The portability test executes the registry and both requests.
+[`examples/existing-route`](examples/existing-route) contains a product-neutral route, presentation component, version 2 grammar, and two requests. Its executable grammar uses `compositionOwner`, root-scoped relations, review-level and forbidden prop checks, additive global and per-document actions, and explicit `dependsOn` facts. The portability test bootstraps the route and compiles both requests directly.
 
 [`examples/legacy-v1`](examples/legacy-v1) preserves the original committed version 1 grammar shape, including `designSystem` and no composition owner. The portability test proves that it normalizes with migration warnings and still compiles with first-match behavior.
-
-# Repository Registry
-
-Keep product grammars and requests outside the skill. A repository can index them with a small JSON registry:
-
-```json
-{
-  "version": 1,
-  "repositoryRoot": "..",
-  "evidenceTargets": {
-    "visual-catalog": {
-      "source": "tooling/catalog/registry.ts",
-      "evidenceIdsCommand": ["node", "tooling/catalog-evidence-ids.mjs"],
-      "ownerAnchorTemplate": "id: \"{{id}}\"",
-      "ownerCommandTemplate": "npm run catalog -- --surface {{id}}",
-      "caseCommandTemplate": "npm run catalog -- --only {{id}}"
-    }
-  },
-  "flows": [
-    {
-      "id": "account.profile",
-      "entry": {
-        "file": "src/routes/profile.tsx",
-        "export": "default",
-        "packageJson": "package.json"
-      },
-      "grammar": "ui-grammar/flows/account/profile/grammar.json",
-      "renderEvidence": {
-        "target": "visual-catalog",
-        "ownerId": "profile"
-      },
-      "cases": [
-        {
-          "id": "complete",
-          "request": "ui-grammar/flows/account/profile/requests/complete.json",
-          "renderEvidenceIds": ["profile.complete"]
-        }
-      ]
-    }
-  ]
-}
-```
-
-The evidence bridge is optional. When a case names `renderEvidenceIds`, its target must also declare `evidenceIdsCommand`: a non-empty argv array executed from the repository root without a shell. The command must write exactly one JSON document to stdout:
-
-```json
-{ "version": 1, "ids": ["profile.complete"] }
-```
-
-IDs must be non-empty and unique. This makes a configured evidence ID a checked foreign key into the repository's own render-proof system. Its source path, anchor, IDs, and commands are repository configuration, never skill defaults. Configure only trusted repository-owned adapter commands: registry validation executes the argv directly, with no shell, to read that inventory.
-
-```sh
-node .agents/skills/ui-grammar/scripts/ui-grammar-registry.mjs \
-  list ui-grammar/registry.json
-node .agents/skills/ui-grammar/scripts/ui-grammar-registry.mjs \
-  inspect ui-grammar/registry.json account.profile
-node .agents/skills/ui-grammar/scripts/ui-grammar-registry.mjs \
-  check ui-grammar/registry.json
-```

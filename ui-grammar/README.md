@@ -149,8 +149,6 @@ The portable skill owns the method and its reusable machinery:
 - System vocabulary, composition, specimen, and evidence validation
 - React route bootstrapper and static scanner
 - Optional Flow validator and UI-stack compiler
-- Generic multi-flow registry runner
-- Evidence-target interface
 - Product-neutral examples and portability tests
 - Documentation of evidence limits
 
@@ -163,7 +161,7 @@ The adopting repository owns all product truth:
 - State, authority, action, transition, and effect rules
 - References to inherited implementation constraints owned by the design system or tooling doctrine
 - Witness paths and anchors
-- Rendered-evidence identifiers and commands
+- Rendered evidence and witnesses
 - Tests that assert consequential product decisions
 
 A copied skill should run in another React repository without carrying application names, routes, commands, or semantic rules from its previous host.
@@ -188,28 +186,17 @@ node .agents/skills/ui-grammar/scripts/ui-grammar.mjs stack \
   grammar.json request.json
 ```
 
-Repositories with several flows can index them without changing the compiler:
-
-```sh
-node .agents/skills/ui-grammar/scripts/ui-grammar-registry.mjs \
-  list ui-grammar/registry.json
-node .agents/skills/ui-grammar/scripts/ui-grammar-registry.mjs \
-  inspect ui-grammar/registry.json account.profile
-node .agents/skills/ui-grammar/scripts/ui-grammar-registry.mjs \
-  check ui-grammar/registry.json
-```
-
 Use JSON for canonical machine inputs. The tools emit JSON observations and Markdown receipts for human and LLM review.
 
 ## Evidence and limits
 
 Static scanning accepts unique repository-contained TypeScript and TSX sources and can observe imports, JSX relations, props, slots, conditions, and source locations. CSS is witness material, not a scan source. Static evidence cannot prove runtime branches, state authority, effects, navigation, accessibility, responsive geometry, visual quality, or product meaning.
 
-Witness-anchor validation proves that a configured file and anchor resolve. It does not execute the witness. When a registry case names rendered-evidence IDs, the target must opt into a no-shell argv adapter which returns a versioned JSON inventory; the registry checks those IDs against that inventory. The adapter is repository-owned, and the portable skill knows neither its tool nor its capture system. Runtime tests, traces, browser checks, and rendered specimens remain the appropriate evidence for claims that require them.
+Witness-anchor validation proves that a configured file and anchor resolve. It does not execute the witness. Runtime tests, traces, browser checks, and rendered specimens remain the appropriate evidence for claims that require them.
 
 The compiler does not generate React. It produces a constrained, traceable stack that an agent or developer can implement and then verify.
 
-Keep a grammar minimal: System encodes visual reference, vocabulary, composition, specimens, and evidence. Optional Flow encodes consequential product causes and guarded actions; only executable Flow requires an action matrix, stack template, and registry cases. Code Stacks remains an independent lens.
+Keep a grammar minimal: System encodes visual reference, vocabulary, composition, specimens, and evidence. Optional Flow encodes consequential product causes and guarded actions; only executable Flow requires an action matrix, stack template, and representative semantic requests. Code Stacks remains an independent lens.
 
 ## Read the detailed references
 
@@ -219,4 +206,4 @@ Use the supporting documents when you need implementation detail:
 - [`references/mental-model.md`](references/mental-model.md): conceptual model and both working directions
 - [`references/contract.md`](references/contract.md): grammar and request contents
 - [`references/evidence-boundary.md`](references/evidence-boundary.md): what each evidence class proves
-- [`EXAMPLES.md`](EXAMPLES.md): generic row, bootstrap, and registry examples
+- [`EXAMPLES.md`](EXAMPLES.md): generic row, bootstrap, and complete existing-route examples

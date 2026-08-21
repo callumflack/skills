@@ -145,19 +145,6 @@ node .agents/skills/ui-grammar/scripts/ui-grammar.mjs stack <grammar.json> <requ
 
 `bootstrap` follows statically reachable local function components and reports unsupported or external boundaries as unknowns. `scan.sources` accepts unique, existing, repository-contained `.ts` and `.tsx` files only. CSS and other rendering artifacts may be witnesses, but never scanner inputs. Neither command can prove runtime branches, state authority, effects, navigation, accessibility, visual geometry, or product meaning. Put semantic claims in declared rules with the nearest test, trace, or rendered witness; keep rendering policy with its system owner.
 
-Keep product contracts outside the skill and index them with the portable registry runner when a repository has multiple System or Flow contracts:
-
-```sh
-node .agents/skills/ui-grammar/scripts/ui-grammar-registry.mjs \
-  list <registry.json>
-node .agents/skills/ui-grammar/scripts/ui-grammar-registry.mjs \
-  inspect <registry.json> <flow-id-or-source-file>
-node .agents/skills/ui-grammar/scripts/ui-grammar-registry.mjs \
-  check <registry.json>
-```
-
-The repository supplies its root, entries, grammars, requests, and optional rendered-evidence targets. Evidence targets are generic source-anchor and command templates; the skill contains no application, route, capture, or task runner defaults.
-
 Use JSON for canonical machine inputs and Markdown for human receipts.
 
 ## References
@@ -166,4 +153,4 @@ Use JSON for canonical machine inputs and Markdown for human receipts.
 - Read [references/contract.md](references/contract.md) when authoring a grammar or semantic request.
 - Read [references/evidence-boundary.md](references/evidence-boundary.md) before claiming what a scan, witness, compiled stack, or rendered specimen proves.
 
-For the generic row receipt, route-bootstrap fixture, and repository-registry shape, read [EXAMPLES.md](EXAMPLES.md).
+For the generic row receipt, route-bootstrap fixture, and complete existing-route example, read [EXAMPLES.md](EXAMPLES.md).

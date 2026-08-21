@@ -53,6 +53,6 @@ Unknown is an honest result, not an invitation to infer a rule from visual simil
 
 ## Receipt Boundary
 
-Grammar and request JSON are canonical machine-readable inputs. Keep product contracts outside the portable skill; a repository registry may index them and link them to optional rendered-evidence targets. `scan` emits observed JSON. `validate` and `stack` emit Markdown receipts for human review. The receipts must preserve the truth class of each claim and must not imply that an anchor check executed a test or that a static scan observed runtime behavior.
+Grammar and request JSON are canonical machine-readable inputs. Keep product contracts outside the portable skill. `scan` emits observed JSON. `validate` and `stack` emit Markdown receipts for human review. The receipts must preserve the truth class of each claim and must not imply that an anchor check executed a test or that a static scan observed runtime behavior.
 
 System validation closes the component, slot, relation, specimen, and evidence envelope. Optional Flow validation additionally keeps product vocabulary inside states, actions, and conditions open before compilation. Neither mode includes generated React. Bootstrap traversal remains a static approximation; its unknowns are part of the result, not errors to guess away.

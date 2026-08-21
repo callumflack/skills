@@ -1,5 +1,4 @@
 import assert from "node:assert/strict";
-import { spawnSync } from "node:child_process";
 import {
   cpSync,
   existsSync,
@@ -20,7 +19,6 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 const scriptDirectory = path.dirname(fileURLToPath(import.meta.url));
 const skillRoot = path.resolve(scriptDirectory, "..");
 const portableFilePattern = /\.(?:json|md|mjs|ts|tsx|yaml)$/;
-const observedRootPattern = /Observed root: Orientation/;
 const adoptingProductPatterns = [
   /\bUnity\b/i,
   /\bVana\b/i,
@@ -81,8 +79,7 @@ function copyPortableSkill(adopterRoot, typeScriptOwner) {
   mkdirSync(adopterModules, { recursive: true });
   symlinkSync(typeScriptDirectory, path.join(adopterModules, "typescript"));
   return import(
-    pathToFileURL(path.join(copiedSkillRoot, "scripts/ui-grammar-registry.mjs"))
-      .href
+    pathToFileURL(path.join(copiedSkillRoot, "scripts/ui-grammar.mjs")).href
   );
 }
 
@@ -235,22 +232,6 @@ function createGenericFixture(directory, packageJson) {
   };
   writeJson(path.join(directory, "grammar.json"), grammar);
   writeJson(path.join(directory, "request.json"), request);
-
-  return {
-    cases: [
-      {
-        id: "complete",
-        request: "request.json",
-      },
-    ],
-    entry: {
-      export: "Panel",
-      file: "src/panel.tsx",
-      packageJson,
-    },
-    grammar: "grammar.json",
-    id: "account.profile",
-  };
 }
 
 test("compiles product-neutral collections without a summary fallback", async () => {
@@ -268,16 +249,7 @@ test("compiles product-neutral collections without a summary fallback", async ()
     });
     createGenericFixture(packageRoot, packageJson);
     const { bootstrapEntry, compileStack, formatStack } =
-      await copyPortableSkill(packageRoot, typeScriptOwner).then(
-        async (registryModule) => ({
-          ...registryModule,
-          ...(await import(
-            pathToFileURL(
-              path.join(packageRoot, "tools/ui-grammar/scripts/ui-grammar.mjs"),
-            ).href
-          )),
-        }),
-      );
+      await copyPortableSkill(packageRoot, typeScriptOwner);
     const bootstrap = bootstrapEntry(
       path.join(packageRoot, "src/orientation.tsx"),
       {
@@ -865,344 +837,39 @@ test("executes the complete existing-route example", async () => {
     const typeScriptOwner = findTypeScriptOwner(
       findRepositoryRoot(scriptDirectory),
     );
-    const { checkFlowRegistry, inspectFlow } = await copyPortableSkill(
+    const { bootstrapEntry, compileStack } = await copyPortableSkill(
       adopterRoot,
       typeScriptOwner,
     );
-    const registryPath = path.join(
+    const exampleRoot = path.join(
       adopterRoot,
-      "tools/ui-grammar/examples/existing-route/registry.json",
+      "tools/ui-grammar/examples/existing-route",
     );
-    const check = checkFlowRegistry(registryPath);
-    assert.equal(
-      check.passed,
-      true,
-      check.checks
-        .filter((item) => !item.pass)
-        .map((item) => `${item.label}: ${item.detail}`)
-        .join("\n"),
+    const bootstrap = bootstrapEntry(
+      path.join(exampleRoot, "src/document-route.tsx"),
+      {
+        exportName: "DocumentRoute",
+        packageJson: path.join(exampleRoot, "package.json"),
+      },
     );
-    const inspection = inspectFlow("workspace.documents", { registryPath });
     assert.deepEqual(
-      inspection.cases.map((flowCase) => flowCase.result.actionLabels),
+      ["empty", "ready"].map(
+        (request) =>
+          compileStack(
+            path.join(exampleRoot, "grammar.json"),
+            path.join(exampleRoot, `requests/${request}.json`),
+          ).actionLabels,
+      ),
       [["Create document"], ["Create document", "Open Guide"]],
     );
     assert.ok(
-      inspection.bootstrap.nodes.some(
+      bootstrap.nodes.some(
         (node) =>
           node.root === "DocumentRoute" && node.component === "DocumentScreen",
       ),
     );
   } finally {
     rmSync(adopterRoot, { force: true, recursive: true });
-  }
-});
-
-test("accepts absent evidence and a non-capture evidence adapter", async () => {
-  const directory = mkdtempSync(path.join(tmpdir(), "ui-grammar-registry-"));
-  try {
-    const typeScriptOwner = findTypeScriptOwner(
-      findRepositoryRoot(scriptDirectory),
-    );
-    const packageJson = path.join(directory, "package.json");
-    writeJson(packageJson, { name: "evidence-adopter", private: true });
-    const { checkFlowRegistry, formatInspection, inspectFlow } =
-      await copyPortableSkill(directory, typeScriptOwner);
-    const flow = createGenericFixture(directory, packageJson);
-    const registryPath = path.join(directory, "registry.json");
-    writeJson(registryPath, {
-      flows: [flow],
-      repositoryRoot: ".",
-      version: 1,
-    });
-    assert.equal(checkFlowRegistry(registryPath).passed, true);
-
-    writeFileSync(
-      path.join(directory, "src/default-panel.tsx"),
-      "export default function DefaultPanel() { return <section />; }\n",
-    );
-    flow.entry = {
-      export: "default",
-      file: "src/default-panel.tsx",
-      packageJson,
-    };
-    writeJson(registryPath, {
-      flows: [flow],
-      repositoryRoot: ".",
-      version: 1,
-    });
-    assert.equal(checkFlowRegistry(registryPath).passed, true);
-    flow.entry = {
-      export: "Panel",
-      file: "src/panel.tsx",
-      packageJson,
-    };
-
-    flow.entry.export = "MissingPanel";
-    writeJson(registryPath, {
-      flows: [flow],
-      repositoryRoot: ".",
-      version: 1,
-    });
-    const staleExport = checkFlowRegistry(registryPath);
-    assert.equal(staleExport.passed, false);
-    assert.ok(
-      staleExport.checks.some(
-        (check) =>
-          check.label === "account.profile entry export" && !check.pass,
-      ),
-    );
-    flow.entry.export = "Panel";
-
-    flow.entry.export = "";
-    writeJson(registryPath, {
-      flows: [flow],
-      repositoryRoot: ".",
-      version: 1,
-    });
-    const missingExport = checkFlowRegistry(registryPath);
-    assert.equal(missingExport.passed, false);
-    assert.ok(
-      missingExport.checks.some(
-        (check) =>
-          check.label === "account.profile entry export" &&
-          check.detail === "missing export",
-      ),
-    );
-    flow.entry.export = "Panel";
-
-    writeFileSync(
-      path.join(directory, "catalog-ids.mjs"),
-      'process.stdout.write(JSON.stringify({ version: 1, ids: ["profile.complete"] }));\n',
-    );
-
-    flow.renderEvidence = {
-      ownerId: "profile",
-      target: "visual-catalog",
-    };
-    writeJson(registryPath, {
-      evidenceTargets: {
-        "visual-catalog": {
-          ownerAnchorTemplate: 'id: "{{id}}"',
-          ownerCommandTemplate: "node catalog.mjs --entry {{id}}",
-          caseCommandTemplate: "node catalog.mjs --only {{id}}",
-          source: "catalog.ts",
-          evidenceIdsCommand: [process.execPath, "catalog-ids.mjs"],
-        },
-      },
-      flows: [flow],
-      repositoryRoot: ".",
-      version: 1,
-    });
-    assert.equal(checkFlowRegistry(registryPath).passed, true);
-    assert.equal(
-      inspectFlow("account.profile", { registryPath }).renderEvidence
-        .registered,
-      true,
-    );
-
-    flow.cases[0].renderEvidenceIds = ["profile.missing"];
-    writeJson(registryPath, {
-      evidenceTargets: {
-        "visual-catalog": {
-          evidenceIdsCommand: [process.execPath, "catalog-ids.mjs"],
-          ownerAnchorTemplate: 'id: "{{id}}"',
-          ownerCommandTemplate: "node catalog.mjs --entry {{id}}",
-          caseCommandTemplate: "node catalog.mjs --only {{id}}",
-          source: "catalog.ts",
-        },
-      },
-      flows: [flow],
-      repositoryRoot: ".",
-      version: 1,
-    });
-    const staleEvidenceId = checkFlowRegistry(registryPath);
-    assert.equal(staleEvidenceId.passed, false);
-    assert.ok(
-      staleEvidenceId.checks.some(
-        (check) =>
-          check.label === "account.profile/complete rendered evidence ids" &&
-          check.detail === "unknown ids: profile.missing",
-      ),
-    );
-    flow.cases[0].renderEvidenceIds = ["profile.complete"];
-    writeJson(registryPath, {
-      evidenceTargets: {
-        "visual-catalog": {
-          evidenceIdsCommand: [process.execPath, "catalog-ids.mjs"],
-          ownerAnchorTemplate: 'id: "{{id}}"',
-          ownerCommandTemplate: "node catalog.mjs --entry {{id}}",
-          caseCommandTemplate: "node catalog.mjs --only {{id}}",
-          source: "catalog.ts",
-        },
-      },
-      flows: [flow],
-      repositoryRoot: ".",
-      version: 1,
-    });
-
-    writeFileSync(
-      path.join(directory, "catalog-ids.mjs"),
-      'process.stdout.write("not-json");\n',
-    );
-    const malformedAdapter = checkFlowRegistry(registryPath);
-    assert.equal(malformedAdapter.passed, false);
-    assert.ok(
-      malformedAdapter.checks.some(
-        (check) =>
-          check.label === "account.profile/complete evidence id adapter" &&
-          !check.pass,
-      ),
-    );
-    writeFileSync(
-      path.join(directory, "catalog-ids.mjs"),
-      "process.exit(1);\n",
-    );
-    const failingAdapter = checkFlowRegistry(registryPath);
-    assert.equal(failingAdapter.passed, false);
-    assert.ok(
-      failingAdapter.checks.some(
-        (check) =>
-          check.label === "account.profile/complete evidence id adapter" &&
-          !check.pass &&
-          check.detail.startsWith("adapter failed:"),
-      ),
-    );
-    writeFileSync(
-      path.join(directory, "catalog-ids.mjs"),
-      'process.stdout.write(JSON.stringify({ version: 1, ids: ["profile.complete"] }));\n',
-    );
-    const orientation = inspectFlow("src/orientation.tsx", { registryPath });
-    assert.equal(orientation.configured, false);
-    assert.equal(orientation.bootstrap.root.name, "Orientation");
-    assert.equal(orientation.exportName, "Orientation");
-    assert.match(formatInspection(orientation), observedRootPattern);
-
-    const copiedRegistryCli = path.join(
-      directory,
-      "tools/ui-grammar/scripts/ui-grammar-registry.mjs",
-    );
-    const orientationCli = spawnSync(
-      process.execPath,
-      [copiedRegistryCli, "inspect", registryPath, "src/orientation.tsx"],
-      { encoding: "utf8" },
-    );
-    assert.equal(orientationCli.status, 0, orientationCli.stderr);
-    assert.match(orientationCli.stdout, observedRootPattern);
-
-    flow.cases = undefined;
-    writeJson(registryPath, {
-      evidenceTargets: {
-        "visual-catalog": {
-          evidenceIdsCommand: [process.execPath, "catalog-ids.mjs"],
-          ownerAnchorTemplate: 'id: "{{id}}"',
-          ownerCommandTemplate: "node catalog.mjs --entry {{id}}",
-          source: "catalog.ts",
-        },
-      },
-      flows: [flow],
-      repositoryRoot: ".",
-      version: 1,
-    });
-    const invalidCases = checkFlowRegistry(registryPath);
-    assert.equal(invalidCases.passed, false);
-    assert.ok(
-      invalidCases.checks.some(
-        (check) =>
-          check.label === "account.profile cases" &&
-          check.detail ===
-            "executable grammars require a non-empty cases array",
-      ),
-    );
-
-    const observationalGrammar = JSON.parse(
-      readFileSync(path.join(directory, "grammar.json"), "utf8"),
-    );
-    writeJson(path.join(directory, "grammar.json"), {
-      ...observationalGrammar,
-      actionMatrix: [],
-      stackTemplate: [],
-    });
-    const invalidImplicitExecutable = checkFlowRegistry(registryPath);
-    assert.equal(invalidImplicitExecutable.passed, false);
-    assert.ok(
-      invalidImplicitExecutable.checks.some(
-        (check) => check.label === "account.profile grammar" && !check.pass,
-      ),
-    );
-    assert.ok(
-      invalidImplicitExecutable.checks.some(
-        (check) =>
-          check.label === "account.profile cases" &&
-          check.detail ===
-            "executable grammars require a non-empty cases array",
-      ),
-    );
-    writeJson(path.join(directory, "grammar.json"), {
-      ...observationalGrammar,
-      actionMatrix: [],
-      executable: false,
-      stackTemplate: [],
-    });
-    const observationalRegistry = checkFlowRegistry(registryPath);
-    assert.equal(observationalRegistry.passed, true);
-    assert.ok(
-      observationalRegistry.checks.some(
-        (check) =>
-          check.label === "account.profile cases" &&
-          check.detail === "not required for a non-executable grammar",
-      ),
-    );
-
-    writeFileSync(
-      path.join(directory, "system-reference.md"),
-      "# System reference\n",
-    );
-    writeJson(path.join(directory, "grammar.json"), {
-      version: 2,
-      mode: "system",
-      visualReference: "system-reference.md",
-      surface: {
-        id: "account.profile",
-        renderRoot: "Panel",
-        compositionOwner: "Panel",
-      },
-      vocabulary: {
-        name: "Test system",
-        components: [{ name: "Panel", owner: "system", props: {}, slots: [] }],
-        slots: [],
-      },
-      composition: {
-        owner: "Panel",
-        root: "Panel",
-        relations: [],
-        forbidden: [],
-      },
-      specimens: [
-        {
-          id: "panel-default",
-          component: "Panel",
-          status: "declared",
-          path: "system-specimen.tsx",
-        },
-      ],
-      evidence: {
-        kind: "specimen",
-        target: "panel-default",
-        owner: "ui-grammar",
-      },
-    });
-    const systemRegistry = checkFlowRegistry(registryPath);
-    assert.equal(systemRegistry.passed, true, JSON.stringify(systemRegistry));
-    assert.ok(
-      systemRegistry.checks.some(
-        (check) =>
-          check.label === "account.profile cases" &&
-          check.detail === "not required for a non-executable grammar",
-      ),
-    );
-  } finally {
-    rmSync(directory, { force: true, recursive: true });
   }
 });
 
