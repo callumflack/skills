@@ -45,6 +45,10 @@ For UI work, start with `ui-grammar`. Use `code-stacks` only when the implementa
   ```sh
   npx skills@latest add callumflack/skills/ralph-iteration
   ```
+- **`roughdraft`**. Install and use the Roughdraft app for Markdown plans, review, and comments without copying its setup manual into global agent instructions.
+  ```sh
+  npx skills@latest add callumflack/skills/roughdraft
+  ```
 
 ## Code quality
 
@@ -110,6 +114,7 @@ For UI work, start with `ui-grammar`. Use `code-stacks` only when the implementa
 - [`ralph-iteration`](ralph-iteration/SKILL.md)
 - [`react-build-lens`](react-build-lens/SKILL.md)
 - [`react-feature-composition`](react-feature-composition/SKILL.md)
+- [`roughdraft`](roughdraft/SKILL.md)
 - [`ui-grammar`](ui-grammar/SKILL.md)
 
 ## Archive
