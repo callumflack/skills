@@ -1,6 +1,6 @@
 # Agent instructions
 
-Operational notes for work in this repo. For personalization defaults, see [`AGENTS-SEED.md`](AGENTS-SEED.md).
+Operational notes for work in this repo.
 
 ## Markdown prose
 

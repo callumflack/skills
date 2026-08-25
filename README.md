@@ -8,10 +8,6 @@ Install all active public skills:
 npx skills@latest add callumflack/skills
 ```
 
-## Agent defaults
-
-- [`AGENTS-SEED.md`](AGENTS-SEED.md) is the portable personalization block: owner surface, allowed writes, forbidden surfaces, done gate, nearest oracle, source pressure, and friction-as-signal.
-
 ## Specification
 
 These skills specify different layers of a change before implementation.
