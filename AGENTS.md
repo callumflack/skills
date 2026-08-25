@@ -1,49 +1,33 @@
 # Agent instructions
 
-Operational notes for work in this repo.
+This repo publishes portable agent skills. The work is markdown skill bodies, not application code.
 
-## Markdown prose
+## Surfaces
 
-Do not manually wrap markdown prose. One paragraph or list item = one source line.
+- **Public skill:** top-level `<name>/SKILL.md`. Directory name matches frontmatter `name`. List it in the root `README.md` in the same change.
+- **Retired:** move to `archive/`. See `archive/README.md`. Keep the `SKILL.md` shape; promote only by moving it back to top-level, rewriting it as a current public skill, and adding it to README.
+- **Uncertain scratch:** `archive-unsure/`. Not a public skill. Do not add installable skills here.
+- **Research notes:** `docs/`. Not a skill.
 
-Bad:
+README is the catalog. A top-level skill directory that is missing from README is unpublished by accident, not a draft.
 
-<!-- prettier-ignore-start -->
+Do not copy a skill's workflow into this file. Load the skill.
 
-```md
-Do not turn this into architecture theater. Every planned type, function, or
-call frame should point at a live repo surface or an explicit new surface.
+## Authoring
+
+- Frontmatter requires `name` and `description`. Description is third person, WHAT + WHEN, with trigger terms. Installers and agents use that string to decide whether to load the skill.
+- Procedure lives in `SKILL.md`. Bulky reference goes in `references/` and is linked one level deep.
+- Adapted third-party skills need a `NOTICE.md` plus a README license line. See `cognitive-load/`.
+- Optional Codex UI: `agents/openai.yaml`. See `ui-grammar/agents/openai.yaml`.
+
+## Format
+
+Prettier owns markdown shape (`.prettierrc`: `proseWrap: "never"`). After markdown edits:
+
+```sh
+npm run format -- <path>
 ```
 
-<!-- prettier-ignore-end -->
+`npm run format:check` is the done gate. Pre-commit formats staged `*.md`.
 
-Good:
-
-```md
-Do not turn this into architecture theater. Every planned type, function, or call frame should point at a live repo surface or an explicit new surface.
-```
-
-Editors and viewers soft-wrap. Prettier owns source shape.
-
-## Formatting
-
-- Config: `.prettierrc` sets `proseWrap: "never"`.
-- Format touched markdown: `npm run format -- <path>`
-- Check all markdown: `npm run format:check`
-
-Pre-commit runs Prettier on staged `*.md` via lint-staged. Fix locally before pushing if hooks are skipped.
-
-## Fenced examples
-
-Keep intentional line breaks inside copy-paste templates. Wrap those blocks with `<!-- prettier-ignore-start -->` and `<!-- prettier-ignore-end -->`. See `code-stacks/SKILL.md` for a working example.
-
-Do not add soft returns to normal prose outside ignored template blocks.
-
-## Done gate for markdown edits
-
-After editing markdown in this repo, run the narrowest check:
-
-1. `npm run format -- <touched-paths>`
-2. `npm run format:check` when multiple files changed
-
-Treat a format failure as a blocking lint error.
+Wrap copy-paste templates that need intentional line breaks with `<!-- prettier-ignore-start -->` / `<!-- prettier-ignore-end -->`. See `code-stacks/SKILL.md`.
