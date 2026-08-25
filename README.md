@@ -45,10 +45,6 @@ For UI work, start with `ui-grammar`. Use `code-stacks` only when the implementa
   ```sh
   npx skills@latest add callumflack/skills/ralph-iteration
   ```
-- **`roughdraft`**. Install and use the Roughdraft app for Markdown plans, review, and comments without copying its setup manual into global agent instructions.
-  ```sh
-  npx skills@latest add callumflack/skills/roughdraft
-  ```
 
 ## Code quality
 
@@ -94,6 +90,15 @@ For UI work, start with `ui-grammar`. Use `code-stacks` only when the implementa
 - **`friction-to-proof`**. Convert high-friction objections into visible proof objects and decision-change asks.
   ```sh
   npx skills@latest add callumflack/skills/friction-to-proof
+  ```
+
+## Local tools
+
+These are not planning methods. They install or drive a local binary.
+
+- **`roughdraft`**. If `roughdraft` is missing, `npm i -g roughdraft`. Then open Markdown in the app, wait for **Done Reviewing**, and reply with CriticMarkup. Do not copy Roughdraft's setup into `AGENTS.md`.
+  ```sh
+  npx skills@latest add callumflack/skills/roughdraft
   ```
 
 ## Skills
