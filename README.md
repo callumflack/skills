@@ -8,10 +8,6 @@ Install all active public skills:
 npx skills@latest add callumflack/skills
 ```
 
-## Agent defaults
-
-- [`AGENTS-SEED.md`](AGENTS-SEED.md) is the portable personalization block: owner surface, allowed writes, forbidden surfaces, done gate, nearest oracle, source pressure, and friction-as-signal.
-
 ## Specification
 
 These skills specify different layers of a change before implementation.
@@ -96,6 +92,15 @@ For UI work, start with `ui-grammar`. Use `code-stacks` only when the implementa
   npx skills@latest add callumflack/skills/friction-to-proof
   ```
 
+## Local tools
+
+These are not planning methods. They install or drive a local binary.
+
+- **`roughdraft`**. If `roughdraft` is missing, `npm i -g roughdraft`. Then open Markdown in the app, wait for **Done Reviewing**, and reply with CriticMarkup. Do not copy Roughdraft's setup into `AGENTS.md`.
+  ```sh
+  npx skills@latest add callumflack/skills/roughdraft
+  ```
+
 ## Skills
 
 - [`atomic-commit-slicing`](atomic-commit-slicing/SKILL.md)
@@ -114,6 +119,7 @@ For UI work, start with `ui-grammar`. Use `code-stacks` only when the implementa
 - [`ralph-iteration`](ralph-iteration/SKILL.md)
 - [`react-build-lens`](react-build-lens/SKILL.md)
 - [`react-feature-composition`](react-feature-composition/SKILL.md)
+- [`roughdraft`](roughdraft/SKILL.md)
 - [`ui-grammar`](ui-grammar/SKILL.md)
 
 ## Archive

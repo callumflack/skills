@@ -1,11 +1,15 @@
 ---
 name: code-stacks
-description: "Draft code-shaped planning notes as stacks made of types, interfaces, boundaries, composition, and call stacks. Use after owner, scope, and proof oracle are selected, when live code work needs executable structure before edits; not for PRD-to-local-plan conversion."
+description: "Draft code-shaped plans from a selected owner, seam, scope, and proof oracle using concrete types, interfaces, call flow, composition, and implementation steps. Use when live code work needs executable structure before edits; not for PRD-to-local-plan conversion."
 ---
 
 # Code Stacks
 
 Use this when a code-shaped plan needs to be concrete enough to implement, but not yet code.
+
+## Relationship
+
+`code-stacks` and `ui-grammar` are independent lenses. Code Stacks shapes implementation structure; UI Grammar describes user-visible composition and meaning. Use either alone. When both are relevant, share named product constraints and owners without treating one as required input to the other.
 
 ## Rule
 
@@ -18,7 +22,7 @@ Plan in the shape of the system:
 - data and control flow;
 - exact oracles.
 
-Do not turn this into architecture theater. Every planned type, function, or call frame should point at a live repo surface or an explicit new surface.
+Do not turn this into architecture theater. Every planned type, contract, function, or call frame must resolve to an existing path or symbol, or an explicitly named new path or symbol. Otherwise record an open question instead of inventing the frame.
 
 ## Boundary
 
@@ -26,6 +30,7 @@ This skill does not select scope, create execution state, or define done.
 
 - Use the host repo instructions for owner, allowed writes, and forbidden surfaces.
 - Use the selected proof oracle or done gate. Copy it into the plan; do not invent a replacement.
+- Start only after the implementation seam is selected. When materially different seam placements or call-stack designs remain viable, resolve the architecture first.
 - For PRD-to-local-plan conversion, use `build-loop-plan` or the host repo's equivalent planning workflow.
 - If no artifact owner is selected, keep the stack plan in chat.
 
@@ -39,9 +44,10 @@ This skill does not select scope, create execution state, or define done.
    - interfaces second;
    - call stack third;
    - implementation steps last.
-5. Mark new names as `new` and existing names as `existing`.
-6. Attach the selected oracle beside the stack frame it proves.
-7. Before coding, re-read the touched files. The plan is a guide, not source truth.
+5. For changed behavior, show current and proposed stacks. Add failure, retry or cancellation, and observability stacks only when those paths are reachable and owned by the change.
+6. Mark new names as `new`, existing names as `existing`, and unresolved facts as `open`.
+7. Attach the selected oracle beside the stack frame it proves.
+8. Before coding, re-read the touched files. The plan is a guide, not source truth.
 
 ## Format
 
@@ -58,6 +64,7 @@ Done gate: `<selected proof oracle>`
 
 - existing: `<symbol/path>` - <why it matters>
 - new: `<symbol/path>` - <why it belongs here>
+- open: `<question>` - <frame or decision it blocks>
 
 ## Shapes
 
