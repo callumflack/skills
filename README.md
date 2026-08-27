@@ -2,7 +2,7 @@
 
 Portable agent skills I actually use.
 
-Install all active public skills:
+[![skills.sh](https://skills.sh/b/callumflack/skills)](https://skills.sh/callumflack/skills)
 
 ```sh
 npx skills@latest add callumflack/skills
