@@ -1,0 +1,51 @@
+{
+  "$schema": "https://skills.sh/schemas/skills.sh.schema.json",
+  "notGrouped": "bottom",
+  "groupings": [
+    {
+      "title": "Specification",
+      "description": "Define product meaning and implementation shape before editing code.",
+      "skills": ["ui-grammar", "code-stacks"]
+    },
+    {
+      "title": "Planning and execution",
+      "description": "Turn work into bounded plans, tasks, iterations, and commits.",
+      "skills": [
+        "thread-homebase",
+        "plan-optimizer",
+        "build-loop-plan",
+        "ralph-iteration",
+        "human-first-linear",
+        "atomic-commit-slicing"
+      ]
+    },
+    {
+      "title": "Code design and quality",
+      "description": "Shape code boundaries, prevent regressions, and reduce reader load.",
+      "skills": [
+        "codebase-design-axes",
+        "bug-repro-test-first",
+        "cognitive-load",
+        "react-feature-composition",
+        "react-build-lens"
+      ]
+    },
+    {
+      "title": "Knowledge workflow",
+      "description": "Interrogate claims, strengthen notes, and preserve durable knowledge.",
+      "skills": [
+        "interrogate-claim",
+        "interrogate-idiom",
+        "claim-rubric",
+        "claim-diagram-card",
+        "knowledge-handoff",
+        "friction-to-proof"
+      ]
+    },
+    {
+      "title": "Local tools",
+      "description": "Install or operate a dedicated local tool.",
+      "skills": ["roughdraft"]
+    }
+  ]
+}

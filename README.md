@@ -107,25 +107,40 @@ These are not planning methods. They install or drive a local binary.
 
 ## Skills
 
-- [`atomic-commit-slicing`](atomic-commit-slicing/SKILL.md)
-- [`bug-repro-test-first`](bug-repro-test-first/SKILL.md)
-- [`build-loop-plan`](build-loop-plan/SKILL.md)
-- [`claim-diagram-card`](claim-diagram-card/SKILL.md)
-- [`claim-rubric`](claim-rubric/SKILL.md)
+### Specification
+
+- [`ui-grammar`](ui-grammar/SKILL.md)
 - [`code-stacks`](code-stacks/SKILL.md)
-- [`cognitive-load`](cognitive-load/SKILL.md)
-- [`friction-to-proof`](friction-to-proof/SKILL.md)
+
+### Planning and execution
+
+- [`thread-homebase`](thread-homebase/SKILL.md)
+- [`plan-optimizer`](plan-optimizer/SKILL.md)
+- [`build-loop-plan`](build-loop-plan/SKILL.md)
+- [`ralph-iteration`](ralph-iteration/SKILL.md)
 - [`human-first-linear`](human-first-linear/SKILL.md)
+- [`atomic-commit-slicing`](atomic-commit-slicing/SKILL.md)
+
+### Code design and quality
+
+- [`codebase-design-axes`](codebase-design-axes/SKILL.md)
+- [`bug-repro-test-first`](bug-repro-test-first/SKILL.md)
+- [`cognitive-load`](cognitive-load/SKILL.md)
+- [`react-feature-composition`](react-feature-composition/SKILL.md)
+- [`react-build-lens`](react-build-lens/SKILL.md)
+
+### Knowledge workflow
+
 - [`interrogate-claim`](interrogate-claim/SKILL.md)
 - [`interrogate-idiom`](interrogate-idiom/SKILL.md)
+- [`claim-rubric`](claim-rubric/SKILL.md)
+- [`claim-diagram-card`](claim-diagram-card/SKILL.md)
 - [`knowledge-handoff`](knowledge-handoff/SKILL.md)
-- [`plan-optimizer`](plan-optimizer/SKILL.md)
-- [`ralph-iteration`](ralph-iteration/SKILL.md)
-- [`react-build-lens`](react-build-lens/SKILL.md)
-- [`react-feature-composition`](react-feature-composition/SKILL.md)
+- [`friction-to-proof`](friction-to-proof/SKILL.md)
+
+### Local tools
+
 - [`roughdraft`](roughdraft/SKILL.md)
-- [`thread-homebase`](thread-homebase/SKILL.md)
-- [`ui-grammar`](ui-grammar/SKILL.md)
 
 ## Archive
 
