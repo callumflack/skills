@@ -25,6 +25,10 @@ For UI work, start with `ui-grammar`. Use `code-stacks` only when the implementa
 
 ## Planning and execution
 
+- **`thread-homebase`**. Review and prioritise recent Codex work from one homebase thread without mistaking idle tasks for finished work.
+  ```sh
+  npx skills@latest add callumflack/skills/thread-homebase
+  ```
 - **`atomic-commit-slicing`**. Isolate one approved change from a dirty Git worktree without absorbing unrelated staged, unstaged, or untracked work.
   ```sh
   npx skills@latest add callumflack/skills/atomic-commit-slicing
@@ -120,6 +124,7 @@ These are not planning methods. They install or drive a local binary.
 - [`react-build-lens`](react-build-lens/SKILL.md)
 - [`react-feature-composition`](react-feature-composition/SKILL.md)
 - [`roughdraft`](roughdraft/SKILL.md)
+- [`thread-homebase`](thread-homebase/SKILL.md)
 - [`ui-grammar`](ui-grammar/SKILL.md)
 
 ## Archive
