@@ -10,7 +10,7 @@ Use the Codex task registry as the source of truth. This is a work-triage report
 ## Report
 
 - Include active tasks and the 6–12 most recently updated non-archived Codex tasks. Do not list every old task unless the user asks.
-- Put active work first. For each task, link its exact thread ID as `codex://threads/<thread-id>`, then give the parent project from its working directory, current WIP or purpose, and registry status.
+- Put active work first. Make the project explicit in every task line: `[Task title](codex://threads/<thread-id>) — Project: <repo> — <current WIP or purpose> — <status>`. Derive `<repo>` from the working directory. Use `Project: homebase` only for the coordination task itself.
 - Keep each row or line short enough to scan. The title is not a substitute for the purpose.
 - Do not infer that `idle` or `not loaded` means completed. Say only what the registry or the task's recent content proves.
 - End with a proposed 1–3 priorities only when the user is deciding what to do next.
