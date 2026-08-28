@@ -52,6 +52,10 @@ For UI work, start with [`ui-grammar`](ui-grammar/SKILL.md). Use [`code-stacks`]
 
 ## Code quality
 
+- **[`testing`](testing/SKILL.md)**. Choose, write, keep, or delete tests using the smallest real oracle instead of ceremony coverage.
+  ```sh
+  npx skills@latest add callumflack/skills/testing
+  ```
 - **[`bug-repro-test-first`](bug-repro-test-first/SKILL.md)**. Start bug work by writing a failing regression test before changing production code.
   ```sh
   npx skills@latest add callumflack/skills/bug-repro-test-first
@@ -124,6 +128,7 @@ These are not planning methods. They install or drive a local binary.
 ### Code design and quality
 
 - [`codebase-design-axes`](codebase-design-axes/SKILL.md)
+- [`testing`](testing/SKILL.md)
 - [`bug-repro-test-first`](bug-repro-test-first/SKILL.md)
 - [`cognitive-load`](cognitive-load/SKILL.md)
 - [`react-feature-composition`](react-feature-composition/SKILL.md)

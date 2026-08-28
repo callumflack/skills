@@ -29,7 +29,7 @@ Do not turn this into architecture theater. Every planned type, contract, functi
 This skill does not select scope, create execution state, or define done.
 
 - Use the host repo instructions for owner, allowed writes, and forbidden surfaces.
-- Use the selected proof oracle or done gate. Copy it into the plan; do not invent a replacement.
+- Use the selected proof oracle or done gate. Copy it into the plan; do not invent a replacement. If none is selected, use `testing` to choose one.
 - Start only after the implementation seam is selected. When materially different seam placements or call-stack designs remain viable, resolve the architecture first.
 - For PRD-to-local-plan conversion, use `build-loop-plan` or the host repo's equivalent planning workflow.
 - If no artifact owner is selected, keep the stack plan in chat.

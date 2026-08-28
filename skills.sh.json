@@ -24,6 +24,7 @@
       "description": "Shape code boundaries, prevent regressions, and reduce reader load.",
       "skills": [
         "codebase-design-axes",
+        "testing",
         "bug-repro-test-first",
         "cognitive-load",
         "react-feature-composition",
