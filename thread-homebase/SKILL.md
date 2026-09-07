@@ -1,26 +1,34 @@
 ---
 name: thread-homebase
-description: Review and prioritise Codex tasks from one homebase thread. Use when the user wants to inspect active work, recover forgotten tasks, or renegotiate priorities across projects.
+description: Reviews and prioritises Codex tasks when recovering forgotten work or deciding what to do next across projects.
 ---
 
 # Thread homebase
 
-Use the Codex task registry as the source of truth. This is a work-triage report, not a project-status reconstruction.
+Use the Codex task registry and recent task content to identify current work and unresolved commitments. Do not reconstruct repository delivery status from a coordination task.
+
+## Find the work
+
+Include active tasks and the 6–12 most recently updated non-archived Codex tasks. Broaden the search when the user asks for older or forgotten work.
+
+Start with registry titles and summaries. Read recent turns when ownership, completion, or the next action is unclear. Prefer the latest user steer and unfinished assistant commitment over the original task premise. `idle` or `not loaded` does not mean completed; report only what the evidence supports.
+
+Identify the smallest owner of the current decision or deliverable. For ordinary repository work, use the working directory as a starting point. A routing workspace such as Workspaces is not itself the project: infer the owner from task content. Preserve cross-project or unresolved ownership when a single repository would be misleading. Distinguish the owner from other repositories merely discussed or affected.
 
 ## Report
 
-- Include active tasks and the 6–12 most recently updated non-archived Codex tasks. Do not list every old task unless the user asks.
-- Put active work first. Make the project explicit in every task line: `[Task title](codex://threads/<thread-id>) — Project: <repo> — <current WIP or purpose> — <status>`. Derive `<repo>` from the working directory. Use `Project: homebase` only for the coordination task itself.
-- Keep each row or line short enough to scan. The title is not a substitute for the purpose.
-- Do not infer that `idle` or `not loaded` means completed. Say only what the registry or the task's recent content proves.
-- End with a proposed 1–3 priorities only when the user is deciding what to do next.
+Put active work first and group by owner. Use short lines:
 
-## Outliers
+`[Exact task title](codex://threads/<thread-id>) — Owner: <project or scope> — <current work or open question> — <status>`
 
-When asked, or on an alternating-day review, add an `Outliers` section. Include only tasks that appear stale, abandoned, blocked, or without a discernible outcome. Give one concrete reason for each. Do not pad the section when none qualify.
+Preserve registry titles verbatim, including symbols. The title does not replace the current purpose. Add scope or other touched surfaces only when they resolve ambiguity.
+
+Flag stale, blocked, or apparently abandoned work when relevant to the requested review, with one concrete reason for each. Age alone does not establish abandonment. Omit an empty outliers section.
+
+Propose 1–3 priorities only when the user is deciding what to do next.
 
 ## Automation and continuity
 
-Keep schedule and notification settings in a heartbeat automation, not in this skill. Copy this report contract into the heartbeat prompt so it works even if skills are not loaded automatically.
+Schedules and notification settings belong to the automation. Its prompt should tell the agent to load this skill from its installed path, rather than copy the report instructions.
 
-Treat the homebase task as a short-lived coordination space. When old decisions and check-ins obscure current work, start a fresh homebase task and archive the old one. The skill carries the method forward.
+Create a replacement homebase task or archive an existing one only when the user explicitly requests it. A triage report does not authorize task lifecycle changes.
