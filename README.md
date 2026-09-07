@@ -25,6 +25,10 @@ For UI work, start with [`ui-grammar`](ui-grammar/SKILL.md). Use [`code-stacks`]
 
 ## Planning and execution
 
+- **[`orchestrate-astra`](orchestrate-astra/SKILL.md)**. Use Astra to orchestrate work and delegate to whichever model fits the assignment.
+  ```sh
+  npx skills@latest add callumflack/skills/orchestrate-astra
+  ```
 - **[`thread-homebase`](thread-homebase/SKILL.md)**. Review and prioritise recent Codex work from one homebase thread without mistaking idle tasks for finished work.
   ```sh
   npx skills@latest add callumflack/skills/thread-homebase
