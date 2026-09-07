@@ -33,6 +33,10 @@ For UI work, start with [`ui-grammar`](ui-grammar/SKILL.md). Use [`code-stacks`]
   ```sh
   npx skills@latest add callumflack/skills/ask-astra
   ```
+- **[`pstack-codex`](pstack-codex/SKILL.md)**. Run pstack skills in Codex without applying Cursor model slugs or Task-tool instructions literally.
+  ```sh
+  npx skills@latest add callumflack/skills/pstack-codex
+  ```
 - **[`thread-homebase`](thread-homebase/SKILL.md)**. Review and prioritise recent Codex work from one homebase thread without mistaking idle tasks for finished work.
   ```sh
   npx skills@latest add callumflack/skills/thread-homebase
@@ -126,6 +130,7 @@ These are not planning methods. They install or drive a local binary.
 
 ### Planning and execution
 
+- [`pstack-codex`](pstack-codex/SKILL.md)
 - [`thread-homebase`](thread-homebase/SKILL.md)
 - [`plan-optimizer`](plan-optimizer/SKILL.md)
 - [`build-loop-plan`](build-loop-plan/SKILL.md)
