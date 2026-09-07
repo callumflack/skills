@@ -29,6 +29,10 @@ For UI work, start with [`ui-grammar`](ui-grammar/SKILL.md). Use [`code-stacks`]
   ```sh
   npx skills@latest add callumflack/skills/orchestrate-astra
   ```
+- **[`ask-astra`](ask-astra/SKILL.md)**. Consult Astra as a read-only advisor while the calling agent retains task ownership.
+  ```sh
+  npx skills@latest add callumflack/skills/ask-astra
+  ```
 - **[`thread-homebase`](thread-homebase/SKILL.md)**. Review and prioritise recent Codex work from one homebase thread without mistaking idle tasks for finished work.
   ```sh
   npx skills@latest add callumflack/skills/thread-homebase
