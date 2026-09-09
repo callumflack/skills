@@ -24,6 +24,8 @@ Do not copy a skill's workflow into this file. Load the skill.
 
 This checkout is the canonical source for Callum-authored skills. On Callum's machine, `scripts/link-skills.sh` links them into the global registry and agent runtimes. Do not install or update this repository with `npx skills`; use `npx skills` only for external skills.
 
+Its canonical Workspace entry point is `Personal/repos/skills/AGENTS.md`; resolve the real repository root before running its scripts or Git commands.
+
 Edits to an existing skill are live through the links; start a new agent task to reload them. After adding, renaming, or retiring a skill, run `scripts/link-skills.sh`. Use `scripts/check-links.sh` to verify the installed topology without changing it.
 
 ## Format
