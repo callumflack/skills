@@ -12,6 +12,8 @@
 
 - **Resolved:** the skill and provenance now live here, with a README entry. The documented linker passed its topology check for Codex, Claude, and Cursor. The former source path is now the registry symlink, not a duplicate.
 - **Decision:** Callum requested moving `orchestrate-astra`, including its provenance, from the agents registry into this canonical skills repo and making it globally available using the documented linker. This supersedes the earlier local-source exception. Next: move, catalogue, format, and link.
+- **Resolved:** `ask-astra` is created, catalogued, and linked into Codex, Claude, and Cursor. Structural validation, repository formatting, and link checks passed. No additional workflow or commit introduced.
+- **Decision:** add `ask-astra` as a separate, small advisor skill. Sol retains ownership; Astra gets a bounded read-only question with fresh context. Keep the approved draft without fixed effort, mandatory review loops, or extra scaffolding. Next: validate and link the canonical authored source.
 
 ## 2026-09-04
 
