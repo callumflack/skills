@@ -13,6 +13,11 @@
 - **Resolved:** the skill and provenance now live here, with a README entry. The documented linker passed its topology check for Codex, Claude, and Cursor. The former source path is now the registry symlink, not a duplicate.
 - **Decision:** Callum requested moving `orchestrate-astra`, including its provenance, from the agents registry into this canonical skills repo and making it globally available using the documented linker. This supersedes the earlier local-source exception. Next: move, catalogue, format, and link.
 
+## 2026-09-04
+
+- Completed correction: `friction-to-proof` had been over-triggering on any angry technical or product complaint. Its public description, body, and README catalogue entry now limit it to anger at teammates or interpersonal workplace conflict and explicitly exclude coding, debugging, repository/tool failures, agent-process failures, and ordinary technical/product critique.
+- Verification: full Prettier and the skill validator passed. Agents, Codex, Cursor, and Claude all resolve `friction-to-proof` to this exact canonical source. Repo-wide `check-links.sh` still stops on an unrelated pre-existing `narrow-react-prop-types` runtime target; this change left it untouched.
+
 ## 2026-09-02
 
 - Added `knowledge-promotion-review`, a read-only evidence classifier for deciding whether cross-repository learning stays local or becomes a domain or cross-domain candidate. In blinded isolated replays, it matched the baseline on an easy deterministic-fix case and materially improved a harder cross-domain case by requiring guided/unguided behavioral testing, a counterexample, and artifact inspection before promotion.

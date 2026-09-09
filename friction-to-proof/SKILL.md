@@ -1,6 +1,6 @@
 ---
 name: friction-to-proof
-description: Run an interactive protocol that channels anger-state tacit knowledge into a visible proof object and a decision-change ask. Use when the user names friction-to-proof, says they are pissed off or frustrated, says "they don't get it", or dumps irritated team/product/code/work objections that need conversion into an artifact, check, prototype, example, diagram card, or team-usable message.
+description: Turns anger at teammates or interpersonal workplace conflict into a concrete decision challenge and team-usable message. Use when the user is pissed off at a teammate, manager, communication failure, trust or respect problem, or group dynamic. Do not use for coding, debugging, repository or tool failures, agent-process problems, or ordinary technical and product criticism.
 ---
 
 # Friction To Proof
@@ -8,6 +8,8 @@ description: Run an interactive protocol that channels anger-state tacit knowled
 Anger is the sensor. Proof is the actuator. Decision change is the output.
 
 ## Rule
+
+**Scope boundary.** This is a personal interpersonal-processing skill. Use it when the anger is about people: a teammate or manager, conflict, communication, trust, respect, power, or a group dynamic. Do not load it merely because the user sounds angry while correcting an agent, debugging code, reviewing a repository, handling a tool failure, or criticizing technical or product work. Handle those tasks directly. Technical artifacts may be evidence only when an interpersonal conflict is clearly the actual subject.
 
 Do not soothe, moralize, diagnose, litigate tone, or ask angry-you to be articulate.
 

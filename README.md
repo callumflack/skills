@@ -115,7 +115,7 @@ For UI work, start with [`ui-grammar`](ui-grammar/SKILL.md). Use [`code-stacks`]
   ```sh
   npx skills@latest add callumflack/skills/obsidian-vault
   ```
-- **[`friction-to-proof`](friction-to-proof/SKILL.md)**. Convert high-friction objections into visible proof objects and decision-change asks.
+- **[`friction-to-proof`](friction-to-proof/SKILL.md)**. Turn anger at teammates or interpersonal work conflict into a decision challenge and team-usable message; not for coding or tool frustration.
   ```sh
   npx skills@latest add callumflack/skills/friction-to-proof
   ```
