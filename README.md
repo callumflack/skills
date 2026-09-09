@@ -12,7 +12,7 @@ npx skills@latest add callumflack/skills
 
 These skills specify different layers of a change before implementation.
 
-- **[`ui-grammar`](ui-grammar/SKILL.md)**. Specify which React compositions are valid for product meaning, semantic state, and capability.
+- **[`ui-grammar`](ui-grammar/SKILL.md)**. Specify which React compositions are valid for product meaning, semantic state, and capability. See [prompt examples](ui-grammar/README.md) for turning a visual correction into a reusable design-system relationship.
   ```sh
   npx skills@latest add callumflack/skills/ui-grammar
   ```

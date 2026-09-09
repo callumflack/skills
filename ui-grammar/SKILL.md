@@ -120,6 +120,17 @@ Translate the visual reference into reusable React building blocks without inven
 
 Every visible delta should have one named cause. Content may derive internal geometry; containers own placement; components own their internal rendering. Avoid generic `className`, size, density, or variant escape hatches unless the owning design system deliberately exposes that semantic choice.
 
+## Systematise a visual relationship
+
+When a visual mismatch across states suggests missing design-system ownership:
+
+1. Freeze the accepted state as the baseline.
+2. Compare variants and name the only allowed cause of each visible delta.
+3. Find the missing relationship owner.
+4. Promote the relationship, not merely the observed CSS value.
+5. Remove consumer-owned geometry that reconstructs the relationship.
+6. Prove both unchanged and changed states in the rendered product.
+
 ## Persist the law, not the map
 
 Persist only a rule that is durable, non-derivable from current code, future-constraining, owned, witnessed, and useful for rejecting a real mistake. Prefer encoding it in the nearest living owner:
