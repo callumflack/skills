@@ -107,6 +107,10 @@ For UI work, start with [`ui-grammar`](ui-grammar/SKILL.md). Use [`code-stacks`]
   ```sh
   npx skills@latest add callumflack/skills/knowledge-handoff
   ```
+- **[`knowledge-promotion-review`](knowledge-promotion-review/SKILL.md)**. Review cross-repository evidence and decide whether it should stay local, become a domain candidate, or become a cross-domain candidate.
+  ```sh
+  npx skills@latest add callumflack/skills/knowledge-promotion-review
+  ```
 - **[`friction-to-proof`](friction-to-proof/SKILL.md)**. Convert high-friction objections into visible proof objects and decision-change asks.
   ```sh
   npx skills@latest add callumflack/skills/friction-to-proof
@@ -154,6 +158,7 @@ These are not planning methods. They install or drive a local binary.
 - [`claim-rubric`](claim-rubric/SKILL.md)
 - [`claim-diagram-card`](claim-diagram-card/SKILL.md)
 - [`knowledge-handoff`](knowledge-handoff/SKILL.md)
+- [`knowledge-promotion-review`](knowledge-promotion-review/SKILL.md)
 - [`friction-to-proof`](friction-to-proof/SKILL.md)
 
 ### Local tools

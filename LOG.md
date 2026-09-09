@@ -13,6 +13,10 @@
 - **Resolved:** the skill and provenance now live here, with a README entry. The documented linker passed its topology check for Codex, Claude, and Cursor. The former source path is now the registry symlink, not a duplicate.
 - **Decision:** Callum requested moving `orchestrate-astra`, including its provenance, from the agents registry into this canonical skills repo and making it globally available using the documented linker. This supersedes the earlier local-source exception. Next: move, catalogue, format, and link.
 
+## 2026-09-02
+
+- Added `knowledge-promotion-review`, a read-only evidence classifier for deciding whether cross-repository learning stays local or becomes a domain or cross-domain candidate. In blinded isolated replays, it matched the baseline on an easy deterministic-fix case and materially improved a harder cross-domain case by requiring guided/unguided behavioral testing, a counterexample, and artifact inspection before promotion.
+
 ## 2026-08-31
 
 - Added a Codex-only compatibility layer for pstack model routing and collaboration-agent calls. Cursor continues to own its generated `~/.cursor/rules/pstack-models.mdc`; third-party pstack bodies and installations remain untouched. A fresh isolated Codex `/how` request automatically loaded both `pstack-codex` and `how`, then selected `gpt-5.6-luna` at `high` for the hypothetical explorer without spawning agents or changing the fixture.
