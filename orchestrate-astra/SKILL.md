@@ -13,4 +13,4 @@ Use the available tools to select models and coordinate work. Prevent duplicate 
 
 Integrate returned evidence and resolve gaps. Carry the authorized task through implementation, inspection, and fixing change-related failures when those are part of the requested outcome. For exploration, define the question and stopping point.
 
-For sources, rationale, and the conditional harness-audit method, consult [provenance](references/provenance.md) when tracing or revising this skill.
+For sources, rationale, and the conditional agent-harness method, consult [provenance](references/provenance.md) when tracing or revising this skill.

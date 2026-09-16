@@ -24,7 +24,7 @@ We chose to extend the existing `orchestrate-astra` skill:
 - Workers receive an outcome, owned scope, relevant context, allowed actions, and completion evidence. Astra constructs these for the task.
 - Model selection starts with Luna for explicit narrow work, Terra for bounded implementation, and Sol for broader or consequential work. This mapping is our starting policy, not a benchmark result or a claim from Eric's article.
 - Delegation needs a concrete benefit. Small tasks can stay with Astra.
-- The wiki retains the source and interpretation. The skill owns invocation. The [harness-audit playbook](/Users/callumflack/Workspaces/Playbooks/playbooks/audit-agent-harness.md) owns the conditional audit method. Repositories retain their constraints, permissions, and completion checks.
+- The wiki retains the source and interpretation. The skill owns invocation. The [agent-harness playbook](/Users/callumflack/Workspaces/Playbooks/playbooks/maintain-agent-harness.md) owns the conditional maintenance method. Repositories retain their constraints, permissions, and completion checks.
 
 ## Correction after use, 2026-09-07
 
@@ -34,6 +34,6 @@ Rereading [Eric Provencher's Mind note](</Users/callumflack/Workspaces/Personal/
 
 ## Evidence and open limits
 
-The skill passed structural validation; its runtime link and added local references were checked. These checks do not prove better orchestration or optimal model allocation. The audit remains a Candidate awaiting organic baseline and guided comparisons, including a worker handoff and a case where the audit should not run.
+The skill passed structural validation; its runtime link and added local references were checked. These checks do not prove better orchestration or optimal model allocation. The harness method remains a Candidate awaiting organic baseline and guided comparisons, including a worker handoff and a case where the method should not run.
 
 The skill initially lived under the Git-ignored `agents/.agents/skills` registry. On 2026-09-07, Callum requested moving it and this provenance into the canonical `callumflack/skills` repository. Its `scripts/link-skills.sh` registers the authored source through `~/.agents/skills` and links Codex, Claude, and Cursor. This replaces the earlier local-source exception. Local wiki and Playbooks links above are provenance on Callum's Mac, not portable runtime dependencies.
