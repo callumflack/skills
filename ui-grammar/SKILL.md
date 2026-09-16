@@ -124,12 +124,16 @@ Every visible delta should have one named cause. Content may derive internal geo
 
 When a visual mismatch across states suggests missing design-system ownership:
 
+For disputed action, feedback, recovery, or inline-control grouping, read [The gap was not spacing](references/action-owned-feedback-case-study.md).
+
 1. Freeze the accepted state as the baseline.
 2. Compare variants and name the only allowed cause of each visible delta.
 3. Find the missing relationship owner.
 4. Promote the relationship, not merely the observed CSS value.
 5. Remove consumer-owned geometry that reconstructs the relationship.
 6. Prove both unchanged and changed states in the rendered product.
+
+Use **capture → compare → accept → encode → recheck** as the learning loop. Contact sheets are disposable evidence for comparing relevant rendered states; do not build a screenshot catalogue or new capture product. Keep human visual acceptance separate from automated checks. Encode accepted rules in component contracts, implementation, or consequential tests, then re-render the affected states. General reasoning belongs in skill guidance. `LOG.md` records chronological decisions and unresolved context; it is not durable teaching.
 
 ## Persist the law, not the map
 

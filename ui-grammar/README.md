@@ -2,6 +2,8 @@
 
 Use the ordinary skill invocation when you need a source-grounded UI description. Use these prompts when a visual correction should become a reusable design-system relationship instead of a call-site patch.
 
+Worked case: [The gap was not spacing](references/action-owned-feedback-case-study.md) shows how action-owned feedback exposed both the correct Login composition and a missing inline Button size.
+
 ## Short ask
 
 > Use `$ui-grammar` in Recover → Design mode to systematise this relationship in the nearest design-system owner. Preserve accepted pixels; no consumer-owned geometry.
