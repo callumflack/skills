@@ -1,5 +1,12 @@
 # Worklog
 
+## 2026-09-17
+
+- **Correction:** `react-build-lens` treated Next bundled docs as a substitute for `react-feature-composition`, and listed composition in a "do not substitute / do not load" pair with `next-best-practices`. Agents collapsed that into "composition is barred in Next apps." The skill's own composition skill is for React or Next.js.
+- **Decision:** Give each owner a positive job. Next docs own runtime (`use client`, RSC, routing, data fetching, metadata, rendering). Composition owns feature folders, controllers, models, views, services, selectors, including in Next. "Read Next docs first" means order. Delete every "do not load composition" / "non-Next React only" line rather than adding a ban-of-the-ban.
+- **Resolved:** Description, Rule, cold-agent, Framework Check, selector, and workflow step 2 now pair runtime then ownership. No remaining "do not load composition" line. Prettier check passed. Reload a new agent task to pick up the linked skill.
+- **Resolved follow-up:** Pruned the redundant pairing in `react-build-lens`. `react-feature-composition` now selects related skills by observed concern and treats `next-best-practices` as an explicitly requested optional checklist using the current source. The runtime/ownership split and existing skill edits remain intact.
+
 ## 2026-09-07
 
 - **Resolved:** published `pstack-codex` from this authored-skills repo while the agents repo retains only the external Pstack reference. The adapter, session-mode hook, and six tests passed structural validation and runtime link checks. Python bytecode remains ignored. No follow-up remains for this slice.

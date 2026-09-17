@@ -1,6 +1,6 @@
 ---
 name: react-build-lens
-description: "Meta skill for React build work when multiple React/framework/data skills or evidence oracles could apply. For Next.js, read the installed version's bundled docs before selecting any additional lens. Use to classify diff-scoped findings as PR risk/follow-up/noise and choose the proof oracle. Do not use for obvious single-oracle React tasks, React Native, or Expo."
+description: "Meta skill for React build work when multiple React/framework/data skills or evidence oracles could apply. For Next.js, read the installed bundled docs first for runtime claims, then still select ownership and other lenses that apply. Use to classify diff-scoped findings as PR risk/follow-up/noise and choose the proof oracle. Do not use for obvious single-oracle React tasks, React Native, or Expo."
 ---
 
 # React Build Lens
@@ -11,14 +11,14 @@ Choose the smallest useful React build lens for the current task.
 
 Pick the smallest lens set that fits the touched React surface. Do not run every React skill by default. Do not fix all warnings by default.
 
-Framework knowledge comes from the installed framework, not a generic skill. When the installed Next.js package includes `node_modules/next/dist/docs/`, read the relevant guide there before choosing any additional lens. Resolve the package from the owning app when working in a monorepo. Use Next DevTools MCP when the repo configures it.
+Framework knowledge comes from the installed framework, not a generic skill. When the installed Next.js package includes `node_modules/next/dist/docs/`, read the relevant guide there first for runtime claims, then choose any additional lens whose smell still applies. Resolve the package from the owning app when working in a monorepo. Use Next DevTools MCP when the repo configures it.
 
 Use this only when more than one React skill or evidence oracle could apply. For obvious single-skill work, use that skill directly. Do not use this for React Native or Expo.
 
 Cold-agent guardrails:
 
 - Name the owner surface before choosing lenses.
-- If the owner is a Next.js app, resolve its installed `next` package and read the relevant bundled docs first. Do not substitute `next-best-practices`, `react-feature-composition`, or training knowledge for those docs.
+- If the owner is a Next.js app, resolve its installed `next` package and read the relevant bundled docs first for runtime claims: `use client`, RSC, routing, data fetching, metadata, rendering. `react-feature-composition` is the ownership lens in any React app, including Next: feature folders, controllers, models, views, services, selectors. Load both when both apply, Next docs first. `next-best-practices` and training knowledge are not the Next runtime owner.
 - Before loading a lens, name the touched file or observed smell that makes it relevant.
 - If only one lens applies, use that skill directly and stop.
 - If no React surface changed, do not use this skill.
@@ -40,17 +40,16 @@ Definitions:
 
 Before selecting a lens, inspect the owning package.
 
-- If `next/package.json` resolves and its `dist/docs/` directory exists, read the relevant bundled guide and heed the repo's Next-managed `AGENTS.md` block. For Next framework conventions, route boundaries, feature structure, metadata, data fetching, rendering, and runtime behavior, stop there unless an observed problem requires a narrower non-framework lens.
+- If `next/package.json` resolves and its `dist/docs/` directory exists, read the relevant bundled guide and heed the repo's Next-managed `AGENTS.md` block. Next docs own the framework runtime: `use client`, RSC, route files, data fetching, metadata, rendering. Stop there for those claims. Keep going when the smell is feature ownership, file naming, controller/model/view boundaries, or a large UI surface: that is `react-feature-composition`, including in Next apps.
 - `next-best-practices` is an optional review checklist, not the normal Next.js setup path or a substitute for version-matched bundled docs. Do not install or load it by default for framework knowledge.
 - The former `vercel-labs/next-skills` install route is deprecated. If the user explicitly asks for the optional skill, use the current OpenReview route listed under Related Skills.
-- Do not load `react-feature-composition` for a Next.js app. Use the bundled docs plus the app's existing ownership patterns.
 
 ## Lens Selector
 
 This is a selector, not a sequence. Pick only lenses with an observed trigger, then stop.
 
-1. `react-feature-composition` (non-Next React only)
-   - Use for ownership, file naming, controller/model/view boundaries, effects, selectors, services, and large UI surfaces.
+1. `react-feature-composition` (React and Next.js)
+   - Use for ownership, file naming, controller/model/view boundaries, effects, selectors, services, and large UI surfaces. This is the ownership lens in Next apps too; Next runtime docs answer a different question.
    - Read `LANGUAGE.md` from that skill when naming ownership is part of the task.
 
 2. `vercel-react-best-practices`
@@ -130,7 +129,7 @@ Add `--project <workspace-or-app>` only after inspecting the repo's package or w
 ## Workflow
 
 1. Inspect the touched files or diff and name the owner surface.
-2. Run the framework check. For Next.js, read the installed bundled docs before making framework claims or choosing another lens.
+2. Run the framework check. For Next.js, read the installed bundled docs before making framework runtime claims. Then choose any additional lens whose smell still applies, including `react-feature-composition` for ownership.
 3. If only one lens or oracle applies, use it directly and exit this skill.
 4. Choose the relevant lenses and say why each applies.
 5. Read only the focused skill refs needed for the observed smells. Skip lens docs when file inspection already answers the question.

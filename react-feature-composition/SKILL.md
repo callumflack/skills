@@ -25,7 +25,7 @@ Load focused refs by need:
 
 ## Related Skills
 
-Invoke these upstream skills. If one is missing, ask the user before running the exact install command shown. Do not search for substitutes.
+Select a related skill when its concern appears in the task. If a selected skill is missing, ask the user before running its install command.
 
 - `vercel-react-best-practices`
   ```sh
@@ -35,9 +35,9 @@ Invoke these upstream skills. If one is missing, ask the user before running the
   ```sh
   npx skills add https://github.com/vercel-labs/agent-skills --skill vercel-composition-patterns
   ```
-- `next-best-practices`
+- `next-best-practices` (optional review checklist; install only when explicitly requested)
   ```sh
-  npx skills add https://github.com/vercel-labs/next-skills --skill next-best-practices
+  npx skills add https://github.com/vercel-labs/openreview --skill next-best-practices
   ```
 - `web-design-guidelines`
   ```sh
