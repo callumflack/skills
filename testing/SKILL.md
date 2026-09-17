@@ -5,6 +5,8 @@ description: "Choose, write, keep, or delete tests using the smallest real oracl
 
 # Testing
 
+Never undo an intentional user change to satisfy a test. If the test only freezes presentation or implementation, delete that assertion; do not update its expected value.
+
 ## Relationship
 
 This skill selects the oracle and what earns a test.
@@ -65,7 +67,7 @@ Do not assert ceremony:
 - copied object literals or adjacent model spelling
 - static render snapshots whose only signal is text or layout spelling
 
-Keep the assertion only when that exact surface is the public contract under change: a spec, design source, legal/accessibility requirement, protocol surface, external reference, or known harmful failure mode beyond aesthetics. Absence-of-old-copy assertions are useful only while an explicit migration is in flight; delete them after the sweep is settled.
+Keep the assertion only when that exact surface protects a concrete functional, accessibility, legal, security, or protocol requirement. Name the consequence of breaking it. A spec or design reference alone does not justify freezing spacing, colours, or copy in a unit test. Assert the required behavior at the layer that can prove it. Absence-of-old-copy assertions are useful only while an explicit migration is in flight; delete them after the sweep is settled.
 
 Screenshot or browser proof of workflow-breaking presentation is not ceremony.
 
