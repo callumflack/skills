@@ -25,7 +25,16 @@ For UI work, start with [`ui-grammar`](ui-grammar/SKILL.md). Use [`code-stacks`]
 
 ## Planning and execution
 
+The plan lifecycle keeps one file per outcome. All seven operations read [`plan-spec`](plan-spec/SKILL.md) first; each repository's `plans/README.md` supplies its local checks and delivery conventions.
+
 - **[`plan-spec`](plan-spec/SKILL.md)**. Shared plan format, states and completion evidence.
+- **[`plan-init`](plan-init/SKILL.md)**. Set up a repository's plan folders and local profile without replacing existing work.
+- **[`plan-add`](plan-add/SKILL.md)**. Capture an idea or feedback and find an existing plan for the same outcome.
+- **[`plan-write`](plan-write/SKILL.md)**. Turn a draft into the first executable slice with real owners and checks.
+- **[`plan-dispatch`](plan-dispatch/SKILL.md)**. Execute authorized ready work and follow its result.
+- **[`plan-status`](plan-status/SKILL.md)**. Report next actions, dependency waits and proof gaps without changing anything.
+- **[`plan-sync`](plan-sync/SKILL.md)**. Reconcile the intended outcome with actual work before moving its status.
+- **[`plan-retro`](plan-retro/SKILL.md)**. Propose a small process correction from repeated or costly misses.
 
 - **[`orchestrate-astra`](orchestrate-astra/SKILL.md)**. Use Astra to orchestrate work and delegate to whichever model fits the assignment.
   ```sh
