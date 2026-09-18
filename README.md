@@ -25,6 +25,8 @@ For UI work, start with [`ui-grammar`](ui-grammar/SKILL.md). Use [`code-stacks`]
 
 ## Planning and execution
 
+- **[`plan-spec`](plan-spec/SKILL.md)**. Shared plan format, states and completion evidence.
+
 - **[`orchestrate-astra`](orchestrate-astra/SKILL.md)**. Use Astra to orchestrate work and delegate to whichever model fits the assignment.
   ```sh
   npx skills@latest add callumflack/skills/orchestrate-astra
@@ -186,5 +188,7 @@ Retired or uncertain bodies live in [`archive`](archive/README.md). They are ret
 ## License
 
 Original skills are MIT licensed unless a skill says otherwise.
+
+The plan skills retain Arslan's original recap prompt as attributed source material; see [`plan-spec/NOTICE.md`](plan-spec/NOTICE.md) for its exclusion from the MIT license grant.
 
 [`cognitive-load`](cognitive-load/SKILL.md) is adapted from Artem Zakirullin's [`cognitive-load`](https://github.com/zakirullin/cognitive-load) prompt and is published with CC-BY-4.0 attribution.
