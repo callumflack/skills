@@ -2,6 +2,14 @@
 
 ## 2026-09-18
 
+- **Post-merge commit authorised:** Callum requested a local commit of `plan-spec`, `plan-sync`, README and this log, superseding the earlier no-commit boundary for those files. The separate agents-repo routing change remains uncommitted; no push requested.
+
+- **Acceptance correction:** Callum approved aligning closure with the original prompt: satisfy the agreed scope and Done when, without a universal extra user sign-off. Preserve any explicitly required review and deferred review follow-up. Next: tighten `plan-spec` and `plan-sync`, then format and validate; no commits or pushes.
+- **Acceptance correction resolved:** both skills now use the agreed completion check; required acceptance remains explicit, while satisfied merged-delivery plans close without another sign-off. Deferred follow-up review stays recorded. Structural validation and runtime-link checks pass; no staging, commits or pushes.
+
+- **Post-merge reconciliation:** fix the shared plan trigger after the reported PR #26 merge left its plan stale. Own `plan-spec`, `plan-sync`, catalog discovery and a narrow global route in agents; Vana is read-only context. Preserve unfinished outcomes and the user's deferred visual review. No automation, CI gate, installed external-skill edits, commits or pushes. Next: validate the lifecycle cases, format, and verify runtime links and global instruction parity.
+- **Post-merge resolved:** canonical sources and global routing updated; formatting, structural validation, runtime links and instruction parity pass. Static walkthrough covers accepted merged scope, partial delivery, independent future outcomes, deferred visual acceptance and read-only reports. Fresh-agent behavior on a real merge remains unproved. Vana and installed external skill bodies were not edited; changes remain unstaged and uncommitted.
+
 - **Plan provenance steer:** Callum requested Arslan's recap prompt verbatim as the primary reference for deriving and revising the plan skills. Keep it beside `plan-spec`, clearly attributed and linked from the skill. Preserve the distinction between the quoted source and the current operating rules; LL remains outside this plan system. This slice does not authorize commits or a new history review.
 - **Plan provenance resolved:** the reference preserves the supplied prompt and links the initial derivation evidence, with its Unity/Vana sampling limits explicit. `plan-spec` routes skill creation, revision and assessment to it. Formatting and installed runtime-link checks passed; no staging or commit.
 - **Plan provenance commit:** Callum subsequently authorized a local commit of this update, including the untracked shared `plan-spec` prerequisite, its reference, attribution and catalog entry. The seven operational skills and their pending catalog/worklog entries remain outside this commit; no push requested.

@@ -33,7 +33,7 @@ The plan lifecycle keeps one file per outcome. All seven operations read [`plan-
 - **[`plan-write`](plan-write/SKILL.md)**. Turn a draft into the first executable slice with real owners and checks.
 - **[`plan-dispatch`](plan-dispatch/SKILL.md)**. Execute authorized ready work and follow its result.
 - **[`plan-status`](plan-status/SKILL.md)**. Report next actions, dependency waits and proof gaps without changing anything.
-- **[`plan-sync`](plan-sync/SKILL.md)**. Reconcile the intended outcome with actual work before moving its status.
+- **[`plan-sync`](plan-sync/SKILL.md)**. Reconcile actual delivery when a relevant PR merge is reported or observed; preserve unfinished scope and deferred review.
 - **[`plan-retro`](plan-retro/SKILL.md)**. Propose a small process correction from repeated or costly misses.
 
 - **[`orchestrate-astra`](orchestrate-astra/SKILL.md)**. Use Astra to orchestrate work and delegate to whichever model fits the assignment.
