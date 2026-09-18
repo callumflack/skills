@@ -1,5 +1,11 @@
 # Worklog
 
+## 2026-09-18
+
+- **LL objective:** Callum requested global `learning-loop` (LL), backed by a Playbooks assessment method. Earlier proposals confused the learning's local destination with the reusable procedure's owner. Preserve the existing plan-skills work; LL does not change those skills or global policy.
+- **LL goal steer:** Callum identified the success measure as a subsequent agent finding and correctly applying the decision without him repeating it: better work with fewer interventions. Make that the opening goal and judge later work against it. The original eight Stake findings need owner-by-owner assessment, not automatic duplication as new rules.
+- **LL resolved:** skill and assessment playbook are authored; structural validation, repository formatting and installed runtime/reference links pass. The Stake retro task read the installed skill and followed its companion link, confirmed the ownership split and usability, and found no blocking correction. Independent behavioral improvement remains unproved; the Playbooks queue owns the next organic check. Callum authorized scoped local commits for LL in skills and Playbooks; no push requested.
+
 ## 2026-09-17
 
 - **Correction:** `react-build-lens` treated Next bundled docs as a substitute for `react-feature-composition`, and listed composition in a "do not substitute / do not load" pair with `next-best-practices`. Agents collapsed that into "composition is barred in Next apps." The skill's own composition skill is for React or Next.js.

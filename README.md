@@ -87,6 +87,10 @@ For UI work, start with [`ui-grammar`](ui-grammar/SKILL.md). Use [`code-stacks`]
 
 ## Knowledge workflow
 
+- **[`learning-loop`](learning-loop/SKILL.md)**. Run LL: carry lessons from worklogs, commits and successful work into their owning decisions and checks, then inspect whether they help subsequent work.
+  ```sh
+  npx skills@latest add callumflack/skills/learning-loop
+  ```
 - **[`interrogate-claim`](interrogate-claim/SKILL.md)**. Pressure-test a strategy note by locating its claim, level, burden, objection, and next question before responding.
   ```sh
   npx skills@latest add callumflack/skills/interrogate-claim
@@ -157,6 +161,7 @@ These are not planning methods. They install or drive a local binary.
 
 ### Knowledge workflow
 
+- [`learning-loop`](learning-loop/SKILL.md)
 - [`interrogate-claim`](interrogate-claim/SKILL.md)
 - [`interrogate-idiom`](interrogate-idiom/SKILL.md)
 - [`claim-rubric`](claim-rubric/SKILL.md)

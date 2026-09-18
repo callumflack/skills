@@ -1,0 +1,4 @@
+interface:
+  display_name: "Learning Loop · LL"
+  short_description: "Carry work learnings into future agent decisions"
+  default_prompt: "Use $learning-loop to review the recent work, apply authorized improvements at their owners, and report what would demonstrate successful reuse."
