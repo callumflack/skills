@@ -1,5 +1,9 @@
 # Worklog
 
+## 2026-09-30
+
+- **Poteto linked opt-out resolved:** linked `Poteto Mode` invocations followed by `off` now persist inactive state. The regression failed for both linked forms before the fix; all seven focused hook tests pass afterward, including existing activation and exact-command behavior. Repository formatting passes. No IDE diagnostics or Python formatter/linter surface is available. Unrelated dirty work is preserved; Callum subsequently authorized committing and pushing this slice.
+
 ## 2026-09-18
 
 - **Post-merge commit authorised:** Callum requested a local commit of `plan-spec`, `plan-sync`, README and this log, superseding the earlier no-commit boundary for those files. The separate agents-repo routing change remains uncommitted; no push requested.

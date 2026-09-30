@@ -39,6 +39,7 @@ SKILL_INVOCATION = re.compile(r"(?i)(?<![\w-])\$poteto-mode(?:\s|$)")
 SKILL_LINK_INVOCATION = re.compile(
     r"(?i)\[(?:\$pstack:|\$)?poteto mode\]\([^\n)]*/poteto-mode/SKILL\.md\)"
 )
+SKILL_LINK_DEACTIVATION = re.compile(SKILL_LINK_INVOCATION.pattern + r"\s+off\b")
 DEACTIVATION = re.compile(
     r"(?im)^\s*(?:/poteto-mode|\$poteto-mode)\s+(?:off|disable|stop|exit)\b"
 )
@@ -59,7 +60,7 @@ def parse_session_id(raw: Any) -> str | None:
 
 
 def requested_state(prompt: str) -> ModeState | None:
-    if DEACTIVATION.search(prompt):
+    if DEACTIVATION.search(prompt) or SKILL_LINK_DEACTIVATION.search(prompt):
         return "inactive"
     if (
         SLASH_INVOCATION.search(prompt)

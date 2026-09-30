@@ -63,6 +63,18 @@ class PotetoSessionModeTests(unittest.TestCase):
             with self.subTest(prompt=prompt):
                 self.assertIn("is active", self.context(self.run_hook(str(uuid.uuid4()), prompt)))
 
+    def test_linked_off_deactivates_and_persists(self) -> None:
+        for link in (
+            "[$Poteto Mode](/tmp/poteto-mode/SKILL.md)",
+            "[$pstack:Poteto Mode](/tmp/poteto-mode/SKILL.md)",
+        ):
+            with self.subTest(link=link):
+                session_id = str(uuid.uuid4())
+                self.run_hook(session_id, link)
+                self.assertIn("is inactive", self.context(self.run_hook(session_id, f"{link} off")))
+                self.assertEqual(MODE.read_state(MODE.state_path(session_id)), "inactive")
+                self.assertIn("is inactive", self.context(self.run_hook(session_id, "continue")))
+
     def test_active_context_names_plugin_skill_and_rejects_flat_registry(self) -> None:
         context = self.context(self.run_hook(str(uuid.uuid4()), "/poteto-mode"))
 
