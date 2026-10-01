@@ -1,8 +1,14 @@
 # Worklog
 
+## 2026-10-01
+
+- **Delivery authorized:** Callum requested reconciling and pushing the local Homebase entry-point commit with the remote Poteto opt-out fix. Preserve both histories and the pending runtime-topology record; format the worklog, run the narrow Poteto test and repository completion checks, then push the reconciled branch.
+
 ## 2026-09-30
 
 - **Poteto linked opt-out resolved:** linked `Poteto Mode` invocations followed by `off` now persist inactive state. The regression failed for both linked forms before the fix; all seven focused hook tests pass afterward, including existing activation and exact-command behavior. Repository formatting passes. No IDE diagnostics or Python formatter/linter surface is available. Unrelated dirty work is preserved; Callum subsequently authorized committing and pushing this slice.
+
+- **Runtime topology repaired:** the authored linker was blocked before writing because four regular Claude Plannotator directories occupied managed names. Preserved those stale copies at `~/.claude/skills-backup-20260930-plannotator`, then reran the repository-owned linker. All 35 authored skills, including the eight missing plan/learning skills, now register through `~/.agents/skills`; the 152-skill Claude, Codex, and Cursor topology check passes. No skill sources changed and no commit or push was requested.
 
 ## 2026-09-18
 
