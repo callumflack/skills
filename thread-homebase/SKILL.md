@@ -17,11 +17,13 @@ Identify the smallest owner of the current decision or deliverable. For ordinary
 
 ## Report
 
-Put active work first and group by owner. Use short lines:
+Put active work first, then group tasks by project or owner. Give each group a `## <project or owner>` header, with a blank line between groups. Do not repeat the project on every task line.
 
-`[Exact task title](codex://threads/<thread-id>) — Owner: <project or scope> — <current work or open question> — <status>`
+Use short lines:
 
-Preserve registry titles verbatim, including symbols. The title does not replace the current purpose. Add scope or other touched surfaces only when they resolve ambiguity.
+`[Exact task title](codex://threads/<thread-id>) — <current work or open question; explicit PR # or Linear code when available> — <status>`
+
+Preserve registry titles verbatim, including symbols. The title does not replace the current purpose. Include an explicit PR number or Linear task code from the title, summary, or recent task turns in the purpose; do not invent one. Add scope or other touched surfaces only when they resolve ambiguity.
 
 Flag stale, blocked, or apparently abandoned work when relevant to the requested review, with one concrete reason for each. Age alone does not establish abandonment. Omit an empty outliers section.
 
