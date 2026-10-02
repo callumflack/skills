@@ -82,4 +82,6 @@ Keep candidate, promoted, and governing status distinct.
 
 Only mutate a destination when the user explicitly authorizes that write. Before editing, read the nearest owner's instructions and name allowed writes, forbidden surfaces, and the done gate.
 
+This skill owns one promotion verdict. The central [promotion playbook](../../playbooks/playbooks/promote-reusable-knowledge.md) owns candidate testing, deliberate promotion, revalidation, and the evidence-packet contract. If that owner is unavailable, report the missing lifecycle guidance rather than recreating it here.
+
 For durable capture, hand the accepted verdict and evidence packet to `knowledge-handoff`; do not reproduce its capture workflow here. Do not invoke or imitate an external continual-learning system, auto-edit policy, or scatter the same lesson across repositories.
