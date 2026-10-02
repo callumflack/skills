@@ -29,20 +29,20 @@ Use the current Codex collaboration tool's declared model and reasoning-effort v
 
 | Pstack role | Codex model | Reasoning effort |
 | --- | --- | --- |
-| feature, refactoring | `gpt-5.6-luna` | `high` |
+| feature, refactoring | `gpt-6-luna` | `high` |
 | bug-fix, perf-issue, hillclimb | `gpt-5.6-sol` | `max` |
 | judgment and prose, hardest tasks | `gpt-5.6-sol` | `max` |
-| how explorer, why investigators, swarm workers | `gpt-5.6-luna` | `high` |
+| how explorer, why investigators, swarm workers | `gpt-6-luna` | `high` |
 | how explainer, why synthesizer | `gpt-5.6-terra` | `high` |
 | reflect tooling | `gpt-5.6-sol` | `high` |
-| reflect judgment, divergent, synthesizer | `gpt-5.5` | `xhigh` |
+| reflect judgment, divergent, synthesizer | `gpt-6-astra` | `xhigh` |
 
 For how critics, arena runners, architect runners, interrogate reviewers, and other pstack panels, preserve the requested logical panel length using this ordered pool:
 
 1. `gpt-5.6-sol` at `max`
 2. `gpt-5.6-terra` at `max`
 3. `gpt-5.5` at `xhigh`
-4. `gpt-5.6-luna` at `high`
+4. `gpt-6-luna` at `high`
 
 Respect the collaboration tool's live concurrency limit. If the panel is larger than the available child slots, run rolling waves without shrinking the panel. For an arena cross-judge, prefer an available model from the pool that differs from the parent and the winning candidate's model.
 

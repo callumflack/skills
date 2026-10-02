@@ -10,6 +10,10 @@
 
 - **Runtime topology repaired:** the authored linker was blocked before writing because four regular Claude Plannotator directories occupied managed names. Preserved those stale copies at `~/.claude/skills-backup-20260930-plannotator`, then reran the repository-owned linker. All 35 authored skills, including the eight missing plan/learning skills, now register through `~/.agents/skills`; the 152-skill Claude, Codex, and Cursor topology check passes. No skill sources changed and no commit or push was requested.
 
+## 2026-09-25
+
+- **Pstack Codex routing:** Callum rejected GPT-6 Sol after poor real-world results. `reflect judgment, divergent, synthesizer` uses `gpt-6-astra` at `xhigh`; upgrade the existing Luna tier to `gpt-6-luna` at `high` for feature/refactor, exploration/investigation/swarm, and the fourth panel lane. Retain every other route. No staging, commit, or push requested.
+
 ## 2026-09-20
 
 - **Homebase report shape:** group current tasks under one project/owner header rather than repeating the project on each line. Preserve exact linked titles and statuses; include an explicit PR number or Linear code in the terse work description when the registry or recent turns provides one. No lifecycle changes.
