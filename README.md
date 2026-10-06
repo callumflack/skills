@@ -98,6 +98,8 @@ The plan lifecycle keeps one file per outcome. All seven operations read [`plan-
 
 ## Knowledge workflow
 
+- **[`so-what`](so-what/SKILL.md)**. Answer "so what?" with the main point, what it means, and the concrete next action.
+
 - **[`learning-loop`](learning-loop/SKILL.md)**. Run LL: carry lessons from worklogs, commits and successful work into their owning decisions and checks, then inspect whether they help subsequent work.
   ```sh
   npx skills@latest add callumflack/skills/learning-loop
