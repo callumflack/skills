@@ -5,6 +5,8 @@ description: "Choose, write, keep, or delete tests using the smallest real oracl
 
 # Testing
 
+Archived: superseded by OpenClaw’s [test-audit](https://www.skills.sh/openclaw/openclaw/test-audit) skill. Use `test-audit` for current testing guidance.
+
 Never undo an intentional user change to satisfy a test. If the test only freezes presentation or implementation, delete that assertion; do not update its expected value.
 
 ## Relationship

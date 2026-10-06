@@ -6,7 +6,7 @@ This repo publishes portable agent skills. The work is markdown skill bodies, no
 
 - **Public skill:** top-level `<name>/SKILL.md`. Directory name matches frontmatter `name`. List it in the root `README.md` in the same change.
 - **Retired:** move to `archive/`. See `archive/README.md`. Keep the `SKILL.md` shape; promote only by moving it back to top-level, rewriting it as a current public skill, and adding it to README.
-- **Uncertain scratch:** `archive-unsure/`. Not a public skill. Do not add installable skills here.
+- **Uncertain scratch:** keep it in `archive/` alongside retired material. It is not a public skill.
 - **Research notes:** `docs/`. Not a skill.
 
 README is the catalog. A top-level skill directory that is missing from README is unpublished by accident, not a draft.

@@ -1,5 +1,9 @@
 # Worklog
 
+## 2026-10-07 — Catalogue cleanup
+
+- **Resolved:** Callum requested deleting the eight plan lifecycle skills and their published entries. Callum subsequently retired unused plan-optimizer and roughdraft to archive; build-loop-plan and ralph-iteration remain. One README catalogue now owns descriptions and installation commands; testing is archived as superseded by test-audit, with that note at the archived owner and neither skill mentioned in README. Merged archive-unsure into archive and reduced installer-grouping research to a plain docs note, removing its public catalogue section.
+
 ## 2026-10-02
 
 - **Resolved:** Adopted the agreed GPT-6.1 Sol, GPT-6 Astra and GPT-6 Luna role split in the Codex compatibility table. Reserve max effort for unresolved difficult work or explicitly exhaustive review. Cursor preferences and upstream Pstack retain their existing owners. This routing supersedes the overlapping remote table amendment.
