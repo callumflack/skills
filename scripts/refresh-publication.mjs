@@ -91,7 +91,7 @@ try {
   );
   for (const skill of publication.skills) {
     const installed = readFileSync(
-      join(temporaryDirectory, ".codex", "skills", skill, "SKILL.md"),
+      join(temporaryDirectory, ".agents", "skills", skill, "SKILL.md"),
       "utf8",
     );
     const source = run("git", [
