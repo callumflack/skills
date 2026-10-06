@@ -120,7 +120,7 @@ The plan lifecycle keeps one file per outcome. All seven operations read [`plan-
   ```sh
   npx skills@latest add callumflack/skills/claim-diagram-card
   ```
-- **[`knowledge-handoff`](knowledge-handoff/SKILL.md)**. Capture durable knowledge from long chats, sources, and knowledge-work threads into its owning durable-knowledge surface.
+- **[`knowledge-handoff`](knowledge-handoff/SKILL.md)**. Capture durable knowledge from long chats, sources, and knowledge-work threads directly into the user's established KB, or ask for a local folder when it is unavailable.
   ```sh
   npx skills@latest add callumflack/skills/knowledge-handoff
   ```

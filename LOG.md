@@ -76,3 +76,7 @@
 
 - Added a Codex-only compatibility layer for pstack model routing and collaboration-agent calls. Cursor continues to own its generated `~/.cursor/rules/pstack-models.mdc`; third-party pstack bodies and installations remain untouched. A fresh isolated Codex `/how` request automatically loaded both `pstack-codex` and `how`, then selected `gpt-5.6-luna` at `high` for the hypothetical explorer without spawning agents or changing the fixture.
 - Added thread-scoped Poteto persistence for Codex through an idempotently installed `UserPromptSubmit` hook. State is keyed by Codex session and records `active` or `inactive`; the inactive tombstone overrides earlier injected context. Separate threads remain untouched.
+
+## 2026-10-07
+
+- **Resolved:** Callum chose one global `knowledge-handoff`, defaulting to the established local KB even from repository chats, with a folder question when unavailable. Preserved the KB copy's current AGENTS/completion wording; removed its duplicate and local Claude link. Existing project contracts retain their owners; the KB preserves the knowledge and pointers.

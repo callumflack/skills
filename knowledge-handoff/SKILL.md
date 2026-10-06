@@ -1,6 +1,6 @@
 ---
 name: knowledge-handoff
-description: Capture durable knowledge from a Codex chat, conversation, source, rough note, synthesis session, or long-running thread into its owning durable-knowledge surface. Use when the user wants to roll up, archive, unpin, distill, preserve, route, or make context retrievable. Do not use for ordinary code or workflow handoff.
+description: Capture durable knowledge from a Codex chat, conversation, source, rough note, synthesis session, or long-running thread into the user's established knowledge base or an explicitly named destination. Use when the user wants to roll up, archive, unpin, distill, preserve, route, or make context retrievable. Do not use for ordinary code or workflow handoff.
 ---
 
 # Knowledge Handoff
@@ -22,11 +22,17 @@ Before writing, name:
 
 Ask only when the owner surface or write authorization cannot be inferred safely. Otherwise state one concrete routing assumption and proceed.
 
+## Destination
+
+Default to the user's established local knowledge base, even when the chat starts in a code repository. Resolve its path from a user-supplied location, personal instructions, or workspace routing; do not assume a universal filesystem path. When that KB is available, hand off directly without asking the user to choose the destination again.
+
+If no KB is established or it is unavailable, ask the user to select a local folder before writing. Do not silently substitute a project repository or temporary directory.
+
 ## Route
 
-Read the owner's local instructions, router, schema, and completion gate before writing. Prefer an existing artifact that already owns the idea. Otherwise create the smallest durable artifact the owner accepts.
+Read the owner's local instructions, applicable `AGENTS.md`, schema, and completion checks before writing. Prefer an existing artifact that already owns the idea. Otherwise create the smallest durable artifact the owner accepts.
 
-Use an external surface only when the user explicitly names it or the active workspace establishes it as owner. Do not make a temporary file the final capture.
+Use another destination when the user explicitly names it. Preserve existing project contracts at their owners and link them from the KB rather than copying their authority. Do not make a temporary file the final capture.
 
 ## Preserve
 
@@ -94,7 +100,7 @@ When the user wants to archive, unpin, or stop relying on a long chat, capture d
 
 ## Completion
 
-Before calling done, run the owner's required gate and inspect the written artifact.
+Before calling done, run the owner's required checks and inspect the written artifact.
 
 Report:
 
