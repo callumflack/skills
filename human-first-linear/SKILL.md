@@ -46,6 +46,8 @@ Every fact has one owner. Prefer reading or deriving owned facts over maintainin
 
 Use short sentences and concrete examples. Introduce technical terms only after the human problem is clear.
 
+Never insert manual soft returns or hard-wrap prose in Linear issues or documents. Keep each paragraph and list item on one physical line and let the app wrap it. Separate paragraphs with a blank line; preserve structural newlines for headings, tables, list items, and code blocks. Unwrap prose copied from repo Markdown before publishing, then re-read the saved content to check that paragraphs have no internal line breaks.
+
 For example, prefer:
 
 > The Starter accepts scope names typed by hand, so a typo fails later with a confusing error. Install the public catalog and validate the name immediately.
