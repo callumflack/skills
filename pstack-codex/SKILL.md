@@ -29,20 +29,22 @@ Use the current Codex collaboration tool's declared model and reasoning-effort v
 
 | Pstack role | Codex model | Reasoning effort |
 | --- | --- | --- |
-| feature, refactoring | `gpt-6-luna` | `high` |
-| bug-fix, perf-issue, hillclimb | `gpt-5.6-sol` | `max` |
-| judgment and prose, hardest tasks | `gpt-5.6-sol` | `max` |
+| feature, refactoring | `gpt-6.1-sol` | `high` |
+| bug-fix, perf-issue, hillclimb | `gpt-6.1-sol` | `high` |
+| hardest tasks | `gpt-6.1-sol` | `xhigh` |
+| judgment, architecture review | `gpt-6-astra` | `high` |
+| prose, how explainer, why synthesizer | `gpt-6.1-sol` | `high` |
 | how explorer, why investigators, swarm workers | `gpt-6-luna` | `high` |
-| how explainer, why synthesizer | `gpt-5.6-terra` | `high` |
-| reflect tooling | `gpt-5.6-sol` | `high` |
-| reflect judgment, divergent, synthesizer | `gpt-6-astra` | `xhigh` |
+| reflect tooling | `gpt-6.1-sol` | `high` |
+| reflect judgment, divergent, synthesizer | `gpt-6-astra` | `high` |
 
-For how critics, arena runners, architect runners, interrogate reviewers, and other pstack panels, preserve the requested logical panel length using this ordered pool:
+Use the hardest-tasks row for subtle concurrency or cross-cutting implementation. Reserve `max` for a difficult unresolved problem or an explicitly exhaustive review.
 
-1. `gpt-5.6-sol` at `max`
-2. `gpt-5.6-terra` at `max`
-3. `gpt-5.5` at `xhigh`
-4. `gpt-6-luna` at `high`
+For how critics, arena runners, architect runners, interrogate reviewers, and other pstack panels, preserve the requested logical panel length using this ordered pool. Cycle through it when more seats are requested:
+
+1. `gpt-6.1-sol` at `high`
+2. `gpt-6-astra` at `high`
+3. `gpt-6-luna` at `high`
 
 Respect the collaboration tool's live concurrency limit. If the panel is larger than the available child slots, run rolling waves without shrinking the panel. For an arena cross-judge, prefer an available model from the pool that differs from the parent and the winning candidate's model.
 

@@ -1,5 +1,9 @@
 # Worklog
 
+## 2026-10-02
+
+- **Resolved:** Adopted the agreed GPT-6.1 Sol, GPT-6 Astra and GPT-6 Luna role split in the Codex compatibility table. Reserve max effort for unresolved difficult work or explicitly exhaustive review. Cursor preferences and upstream Pstack retain their existing owners. This routing supersedes the overlapping remote table amendment.
+
 ## 2026-10-01
 
 - **Delivery authorized:** Callum requested reconciling and pushing the local Homebase entry-point commit with the remote Poteto opt-out fix. Preserve both histories and the pending runtime-topology record; format the worklog, run the narrow Poteto test and repository completion checks, then push the reconciled branch.
