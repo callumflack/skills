@@ -1,5 +1,9 @@
 # Worklog
 
+## 2026-10-07 — Publication boundary
+
+- **Resolved:** Callum approved a repository-owned publication procedure after README cleanup missed website configuration and refresh. AGENTS points to scripts/README; catalogue checking owns agreement between active skills, install commands and website groups. Local proof and pushed-source proof remain distinct from cached public-page verification; historical install listings are not assumed removable through grouping. Follow-up adds a staged-snapshot commit gate and one isolated refresh command with cleanup and an explicit verification-pending report.
+
 ## 2026-10-07 — Catalogue cleanup
 
 - **Resolved:** Callum requested deleting the eight plan lifecycle skills and their published entries. Callum subsequently retired unused plan-optimizer and roughdraft to archive; build-loop-plan and ralph-iteration remain. One README catalogue now owns descriptions and installation commands; testing is archived as superseded by test-audit, with that note at the archived owner and neither skill mentioned in README. Merged archive-unsure into archive and reduced installer-grouping research to a plain docs note, removing its public catalogue section.

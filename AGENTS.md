@@ -15,6 +15,8 @@ Do not copy a skill's workflow into this file. Load the skill.
 
 ## Authoring
 
+When adding, updating, renaming, retiring, or verifying publication of a skill, follow [Skill publication](scripts/README.md#skill-publication). Keep README, `skills.sh.json`, and runtime links aligned; `npm run verify` is the completion gate. A push alone does not verify skills.sh publication.
+
 - Frontmatter requires `name` and `description`. Description is third person, WHAT + WHEN, with trigger terms. Installers and agents use that string to decide whether to load the skill.
 - Procedure lives in `SKILL.md`. Bulky reference goes in `references/` and is linked one level deep.
 - Adapted third-party skills need a `NOTICE.md` plus a README license line. See `cognitive-load/`.
@@ -36,6 +38,6 @@ Prettier owns markdown shape (`.prettierrc`: `proseWrap: "never"`). After markdo
 npm run format -- <path>
 ```
 
-`npm run format:check` is the done gate. Pre-commit formats staged `*.md`.
+`npm run verify` checks formatting and catalogue consistency. Pre-commit formats staged `*.md`.
 
 Wrap copy-paste templates that need intentional line breaks with `<!-- prettier-ignore-start -->` / `<!-- prettier-ignore-end -->`. See `code-stacks/SKILL.md`.

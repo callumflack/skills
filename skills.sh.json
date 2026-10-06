@@ -11,20 +11,21 @@
       "title": "Planning and execution",
       "description": "Turn work into bounded plans, tasks, iterations, and commits.",
       "skills": [
+        "orchestrate-astra",
+        "ask-astra",
+        "pstack-codex",
         "thread-homebase",
-        "plan-optimizer",
-        "build-loop-plan",
-        "ralph-iteration",
+        "atomic-commit-slicing",
         "human-first-linear",
-        "atomic-commit-slicing"
+        "build-loop-plan",
+        "ralph-iteration"
       ]
     },
     {
-      "title": "Code design and quality",
+      "title": "Code quality",
       "description": "Shape code boundaries, prevent regressions, and reduce reader load.",
       "skills": [
         "codebase-design-axes",
-        "testing",
         "bug-repro-test-first",
         "cognitive-load",
         "react-feature-composition",
@@ -35,18 +36,17 @@
       "title": "Knowledge workflow",
       "description": "Interrogate claims, strengthen notes, and preserve durable knowledge.",
       "skills": [
+        "so-what",
+        "learning-loop",
         "interrogate-claim",
         "interrogate-idiom",
         "claim-rubric",
         "claim-diagram-card",
         "knowledge-handoff",
+        "knowledge-promotion-review",
+        "obsidian-vault",
         "friction-to-proof"
       ]
-    },
-    {
-      "title": "Local tools",
-      "description": "Install or operate a dedicated local tool.",
-      "skills": ["roughdraft"]
     }
   ]
 }

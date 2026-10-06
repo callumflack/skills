@@ -4,7 +4,10 @@
   "scripts": {
     "format": "prettier --write",
     "format:check": "prettier --check \"**/*.{md,mdc,yml,yaml}\"",
-    "prepare": "husky"
+    "prepare": "husky",
+    "catalogue:check": "node scripts/check-catalogue.mjs",
+    "publication:refresh": "node scripts/refresh-publication.mjs",
+    "verify": "npm run format:check && prettier --check scripts/check-catalogue.mjs scripts/refresh-publication.mjs package.json skills.sh.json && npm run catalogue:check"
   },
   "devDependencies": {
     "husky": "^9.1.7",
