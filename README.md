@@ -62,6 +62,14 @@ For UI work, start with [`ui-grammar`](ui-grammar/SKILL.md). Use [`code-stacks`]
 
 ## Code quality
 
+- **[`react-feature-composition`](react-feature-composition/SKILL.md)**. Guide React/Next feature composition before implementation and during reshaping: route/runtime boundaries, services, selectors, controller hooks, presentation models, layout/view ownership, and focused effects.
+  ```sh
+  npx skills@latest add callumflack/skills --skill react-feature-composition
+  ```
+- **[`react-build-lens`](react-build-lens/SKILL.md)**. Select the smallest React lens when multiple React/framework/data skills or oracles could apply; classify diff-scoped findings as PR risk/follow-up/noise, use React Doctor as high-signal evidence, and skip React Native/Expo.
+  ```sh
+  npx skills@latest add callumflack/skills --skill react-build-lens
+  ```
 - **[`codebase-design-axes`](codebase-design-axes/SKILL.md)**. Give each variant axis one owner when adding a second state, mode, provider, or other sibling. Companion to `codebase-design`.
   ```sh
   npx skills@latest add callumflack/skills --skill codebase-design-axes
@@ -74,13 +82,14 @@ For UI work, start with [`ui-grammar`](ui-grammar/SKILL.md). Use [`code-stacks`]
   ```sh
   npx skills@latest add callumflack/skills --skill cognitive-load
   ```
-- **[`react-feature-composition`](react-feature-composition/SKILL.md)**. Guide React/Next feature composition before implementation and during reshaping: route/runtime boundaries, services, selectors, controller hooks, presentation models, layout/view ownership, and focused effects.
+
+## Sensemaking
+
+Work through experience and friction to understand what is happening before deciding what to do.
+
+- **[`friction-inquiry`](friction-inquiry/SKILL.md)**. Work through a spoken account or rough note about friction to understand the underlying issue, test your interpretation, and decide what needs further inquiry or action.
   ```sh
-  npx skills@latest add callumflack/skills --skill react-feature-composition
-  ```
-- **[`react-build-lens`](react-build-lens/SKILL.md)**. Select the smallest React lens when multiple React/framework/data skills or oracles could apply; classify diff-scoped findings as PR risk/follow-up/noise, use React Doctor as high-signal evidence, and skip React Native/Expo.
-  ```sh
-  npx skills@latest add callumflack/skills --skill react-build-lens
+  npx skills@latest add callumflack/skills --skill friction-inquiry
   ```
 
 ## Knowledge workflow
@@ -94,6 +103,10 @@ For UI work, start with [`ui-grammar`](ui-grammar/SKILL.md). Use [`code-stacks`]
 - **[`learning-loop`](learning-loop/SKILL.md)**. Run LL: carry lessons from worklogs, commits and successful work into their owning decisions and checks, then inspect whether they help subsequent work.
   ```sh
   npx skills@latest add callumflack/skills --skill learning-loop
+  ```
+- **[`knowledge-handoff`](knowledge-handoff/SKILL.md)**. Capture durable knowledge from long chats, sources, and knowledge-work threads directly into the user's established KB, or ask for a local folder when it is unavailable.
+  ```sh
+  npx skills@latest add callumflack/skills --skill knowledge-handoff
   ```
 - **[`interrogate-claim`](interrogate-claim/SKILL.md)**. Pressure-test a strategy note by locating its claim, level, burden, objection, and next question before responding.
   ```sh
@@ -111,10 +124,6 @@ For UI work, start with [`ui-grammar`](ui-grammar/SKILL.md). Use [`code-stacks`]
   ```sh
   npx skills@latest add callumflack/skills --skill claim-diagram-card
   ```
-- **[`knowledge-handoff`](knowledge-handoff/SKILL.md)**. Capture durable knowledge from long chats, sources, and knowledge-work threads directly into the user's established KB, or ask for a local folder when it is unavailable.
-  ```sh
-  npx skills@latest add callumflack/skills --skill knowledge-handoff
-  ```
 - **[`knowledge-promotion-review`](knowledge-promotion-review/SKILL.md)**. Review cross-repository evidence and decide whether it should stay local, become a domain candidate, or become a cross-domain candidate.
   ```sh
   npx skills@latest add callumflack/skills --skill knowledge-promotion-review
@@ -122,10 +131,6 @@ For UI work, start with [`ui-grammar`](ui-grammar/SKILL.md). Use [`code-stacks`]
 - **[`obsidian-vault`](obsidian-vault/SKILL.md)**. Route Obsidian and knowledge-base work into the live vault's own instructions without assuming a fixed path or generic structure.
   ```sh
   npx skills@latest add callumflack/skills --skill obsidian-vault
-  ```
-- **[`friction-to-proof`](friction-to-proof/SKILL.md)**. Turn anger at teammates or interpersonal work conflict into a decision challenge and team-usable message; not for coding or tool frustration.
-  ```sh
-  npx skills@latest add callumflack/skills --skill friction-to-proof
   ```
 
 ## Archive

@@ -25,12 +25,17 @@
       "title": "Code quality",
       "description": "Shape code boundaries, prevent regressions, and reduce reader load.",
       "skills": [
+        "react-feature-composition",
+        "react-build-lens",
         "codebase-design-axes",
         "bug-repro-test-first",
-        "cognitive-load",
-        "react-feature-composition",
-        "react-build-lens"
+        "cognitive-load"
       ]
+    },
+    {
+      "title": "Sensemaking",
+      "description": "Work through experience and friction to understand what is happening before deciding what to do.",
+      "skills": ["friction-inquiry"]
     },
     {
       "title": "Knowledge workflow",
@@ -38,14 +43,13 @@
       "skills": [
         "so-what",
         "learning-loop",
+        "knowledge-handoff",
         "interrogate-claim",
         "interrogate-idiom",
         "claim-rubric",
         "claim-diagram-card",
-        "knowledge-handoff",
         "knowledge-promotion-review",
-        "obsidian-vault",
-        "friction-to-proof"
+        "obsidian-vault"
       ]
     }
   ]

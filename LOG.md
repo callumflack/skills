@@ -1,5 +1,9 @@
 # Worklog
 
+## 2026-10-07 — Catalogue order
+
+- **Resolved locally:** README and website configuration now agree on groups and ordered active entries. Code quality starts with react-feature-composition and react-build-lens; knowledge-handoff follows so-what and learning-loop. Public skills.sh visibly sorts within groups by install counts and exposes no manual-order field; historical entries remain separate. The completed review in chat 01a113a5-aaa9-72e3-af8f-dfca50113da0 renamed friction-to-proof to friction-inquiry, revised it around understanding spoken or rough accounts, and placed it in a separate Sensemaking group at Callum’s request.
+
 ## 2026-10-07 — Publication boundary
 
 - **Resolved:** Callum approved a repository-owned publication procedure after README cleanup missed website configuration and refresh. AGENTS points to scripts/README; catalogue checking owns agreement between active skills, install commands and website groups. Local proof and pushed-source proof remain distinct from cached public-page verification; historical install listings are not assumed removable through grouping. Follow-up adds a staged-snapshot commit gate and one isolated refresh command with cleanup and an explicit verification-pending report.
