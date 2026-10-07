@@ -33,12 +33,34 @@ const skills = snapshot.paths
 const read = snapshot.read;
 const catalogue = read("README.md");
 const entries = [...catalogue.matchAll(/^- \*\*\[`([^`]+)`\]\(([^)]+)\)/gm)];
+const catalogueGroups = catalogue
+  .split(/^## /m)
+  .slice(1)
+  .map((section) => {
+    const [title, ...body] = section.split(/\r?\n/);
+    return {
+      title,
+      skills: [
+        ...body.join("\n").matchAll(/^- \*\*\[`([^`]+)`\]\([^)]+\)/gm),
+      ].map((entry) => entry[1]),
+    };
+  })
+  .filter((group) => group.skills.length);
 const commands = [
   ...catalogue.matchAll(
     /npx skills@latest add callumflack\/skills --skill (\S+)/g,
   ),
 ].map((match) => match[1]);
 const config = JSON.parse(read("skills.sh.json"));
+if (
+  JSON.stringify(catalogueGroups) !==
+  JSON.stringify(
+    (config.groupings ?? []).map(({ title, skills }) => ({ title, skills })),
+  )
+)
+  failures.push(
+    "README sections and website groups must have the same titles, membership, and order",
+  );
 const grouped = [];
 for (const group of config.groupings ?? []) {
   if (
