@@ -33,11 +33,6 @@
       ]
     },
     {
-      "title": "Sensemaking",
-      "description": "Work through experience and friction to understand what is happening before deciding what to do.",
-      "skills": ["friction-inquiry"]
-    },
-    {
       "title": "Knowledge workflow",
       "description": "Interrogate claims, strengthen notes, and preserve durable knowledge.",
       "skills": [
@@ -51,6 +46,11 @@
         "knowledge-promotion-review",
         "obsidian-vault"
       ]
+    },
+    {
+      "title": "Sensemaking",
+      "description": "Work through experience and friction to understand what is happening before deciding what to do.",
+      "skills": ["friction-inquiry"]
     }
   ]
 }

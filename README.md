@@ -83,15 +83,6 @@ For UI work, start with [`ui-grammar`](ui-grammar/SKILL.md). Use [`code-stacks`]
   npx skills@latest add callumflack/skills --skill cognitive-load
   ```
 
-## Sensemaking
-
-Work through experience and friction to understand what is happening before deciding what to do.
-
-- **[`friction-inquiry`](friction-inquiry/SKILL.md)**. Work through a spoken account or rough note about friction to understand the underlying issue, test your interpretation, and decide what needs further inquiry or action.
-  ```sh
-  npx skills@latest add callumflack/skills --skill friction-inquiry
-  ```
-
 ## Knowledge workflow
 
 - **[`so-what`](so-what/SKILL.md)**. Answer "so what?" with the main point, what it means, and the concrete next action.
@@ -131,6 +122,15 @@ Work through experience and friction to understand what is happening before deci
 - **[`obsidian-vault`](obsidian-vault/SKILL.md)**. Route Obsidian and knowledge-base work into the live vault's own instructions without assuming a fixed path or generic structure.
   ```sh
   npx skills@latest add callumflack/skills --skill obsidian-vault
+  ```
+
+## Sensemaking
+
+Work through experience and friction to understand what is happening before deciding what to do.
+
+- **[`friction-inquiry`](friction-inquiry/SKILL.md)**. Work through a spoken account or rough note about friction to understand the underlying issue, test your interpretation, and decide what needs further inquiry or action.
+  ```sh
+  npx skills@latest add callumflack/skills --skill friction-inquiry
   ```
 
 ## Archive
