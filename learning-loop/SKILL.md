@@ -11,6 +11,12 @@ What did we learn? Why was it not already carried forward? What smallest change 
 
 Run this global procedure in the current work's scope. The working project owns its decisions; the skill's global availability grants no authority to edit other repositories or global policy. Follow the user's existing authorization: assessment requests stay read-only; requests to apply improvements proceed through the authorized repairs.
 
+## Place in the learning workflow
+
+Use `/learning-loop` to turn evidence from actual work into the smallest authorized repair at its owner, then inspect whether later comparable work benefits. Start with the source task, accepted decision and existing artifacts; a KB capture is useful input, not a prerequisite.
+
+Use `/learning-save` when the pass produces reusable research or synthesis worth preserving in the KB and that write is authorized. Use `/learning-playbook` when a proposed lesson extends beyond its project or becomes new behavioral guidance. Required reading belongs in a short task-triggered pointer in the narrowest applicable `AGENTS.md`; the detailed learning stays at its owner. Later comparable work supplies the next observation, without a new schedule or registry.
+
 ## 1. Bound the evidence
 
 Resolve the working owner and its instructions. Use the requested date, commit range or task; state the boundary when inferred. Read the relevant worklog entries, actual diffs, source evidence and current code, standards and checks. Distinguish committed, staged and unstaged work. Reconcile superseded steers against explicit acceptance and current implementation.
@@ -40,7 +46,11 @@ Choose the owner by the lesson's subject. Put enforceable invariants in code, ty
 
 Read the destination's instructions and current contract, then make the authorized change. Prefer clarifying or replacing the owning rule over adding another copy. Existing code and checks may already be sufficient. Keep unresolved tasks separate from governing decisions.
 
-Recording an explicitly accepted local decision is ordinary maintenance. For broader promotion or newly proposed behavioral guidance, use `knowledge-promotion-review` when available and the destination's promotion rules; retain unproved generalizations as candidates. Complete authorized local work even when broader promotion remains open.
+For a settled, repeated or costly correction, decide whether the forbidden condition can be identified mechanically. If it can, make that condition fail in the nearest existing type, lint, test, schema or runtime check, and verify a valid case still passes. For example, a forbidden import belongs at the package boundary; a duplicate foundation needs a check against its actual owner. Run the check through the normal local completion path so the next agent encounters it. Do not replace precise enforcement with another explanation. If the distinction requires judgment, retain its acceptance criteria and verify the real surface instead of inventing a brittle mechanical rule.
+
+Finish the repair at the owner's real use boundary. Include dependent caller, catalogue, installation or rendered-surface updates when they are required by the requested result and authorized. Compare the final artifact to the actual request as well as running checks: renamed labels passing validation do not satisfy a request to rename invocation names.
+
+Recording an explicitly accepted local decision is ordinary maintenance. For broader promotion or newly proposed behavioral guidance, use `learning-playbook` when available and the destination's promotion rules; retain unproved generalizations as candidates. Complete authorized local work even when broader promotion remains open.
 
 ## 4. Check the repair and its next encounter
 

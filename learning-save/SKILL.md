@@ -1,13 +1,19 @@
 ---
-name: knowledge-handoff
-description: Capture durable knowledge from a Codex chat, conversation, source, rough note, synthesis session, or long-running thread into the user's established knowledge base or an explicitly named destination. Use when the user wants to roll up, archive, unpin, distill, preserve, route, or make context retrievable. Do not use for ordinary code or workflow handoff.
+name: learning-save
+description: Saves durable knowledge from a Codex chat, conversation, source, rough note, synthesis session, or long-running thread into the user's established knowledge base or an explicitly named destination. Use when the user wants to roll up, archive, unpin, distill, preserve, route, or make context retrievable. Do not use for ordinary code or workflow handoff.
 ---
 
-# Knowledge Handoff
+# Learning Save
 
 Long chats are caches. Durable artifacts are memory.
 
 Use this skill to compress what should survive, route it to its owning surface, and reduce dependence on conversation history.
+
+## Place in the learning workflow
+
+Use `/learning-save` to preserve useful research or conversation knowledge while it is fresh. The user's global research-capture rule may invoke it automatically; the destination's standing permission determines which writes are allowed. Its output is a sourced, retrievable KB artifact or a justified skip when there is nothing new worth keeping.
+
+Saving a finding does not make it govern future work. When an accepted lesson needs to change a project's decisions or checks, use `/learning-loop`. When evidence supports reuse beyond that project, use `/learning-playbook` to assess the candidate before promotion. Keep substantive project decisions at their owners and point to them from the KB.
 
 ## Owner And Oracle
 
@@ -29,6 +35,8 @@ Default to the user's established local knowledge base, even when the chat start
 If no KB is established or it is unavailable, ask the user to select a local folder before writing. Do not silently substitute a project repository or temporary directory.
 
 ## Route
+
+For an Obsidian KB, resolve the live content root from its owner instructions before choosing note paths. A tooling repository may contain the vault in a nested folder; the checkout root is not necessarily the vault root. Follow the owner's retrieval and internal-link conventions.
 
 Read the owner's local instructions, applicable `AGENTS.md`, schema, and completion checks before writing. Prefer an existing artifact that already owns the idea. Otherwise create the smallest durable artifact the owner accepts.
 

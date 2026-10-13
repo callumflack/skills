@@ -85,6 +85,19 @@ For UI work, start with [`ui-grammar`](ui-grammar/SKILL.md). Use [`code-stacks`]
 
 ## Knowledge workflow
 
+Ordinary work is completed by the always-on outcome rule and the destination's real completion check. Include the dependent updates needed to make the requested result usable. `/so-what` makes the practical result, consequence and next action clear; it does not substitute for execution. When a settled correction can be checked mechanically, `/learning-loop` puts a rejection check at its local owner.
+
+Use `/learning-save` to preserve findings, `/learning-loop` to carry lessons into subsequent work, and `/learning-playbook` to assess broader reuse. Choose by the finding and its next use. These are conditional phases; a saved research note need not become governing guidance.
+
+| Phase | Use | Result and owner |
+| --- | --- | --- |
+| Learning save | `learning-save` when useful research or conversation knowledge should survive | A sourced note in the established KB, linking adequate project owners; automatic invocation requires the user's standing capture rule and destination permission |
+| Learning loop | `learning-loop` when accepted decisions, successful work or costly misses need to carry forward | The smallest authorized repair at the project's document, code or check, followed by observation in subsequent comparable work |
+| Task-triggered reading | The instruction-placement rule when future work needs that reading | A short trigger and pointer in the narrowest applicable `AGENTS.md`; details stay at their owner |
+| Learning playbook | `learning-playbook` before extending a lesson across projects | A read-only verdict about reach and artifact type; Playbooks, skills, checks and governing rules follow their own adoption authority |
+
+Saving preserves evidence; promotion decides whether broader guidance is warranted. A valid document or pointer is an intermediate result. Subsequent work must establish encounter, correct application and benefit. Keep pending evidence at its existing owner.
+
 - **[`so-what`](so-what/SKILL.md)**. Answer "so what?" with the main point, what it means, and the concrete next action.
 
   ```sh
@@ -95,9 +108,9 @@ For UI work, start with [`ui-grammar`](ui-grammar/SKILL.md). Use [`code-stacks`]
   ```sh
   npx skills@latest add callumflack/skills --skill learning-loop
   ```
-- **[`knowledge-handoff`](knowledge-handoff/SKILL.md)**. Capture durable knowledge from long chats, sources, and knowledge-work threads directly into the user's established KB, or ask for a local folder when it is unavailable.
+- **[`learning-save`](learning-save/SKILL.md)**. Capture durable knowledge from long chats, sources, and knowledge-work threads directly into the user's established KB, or ask for a local folder when it is unavailable.
   ```sh
-  npx skills@latest add callumflack/skills --skill knowledge-handoff
+  npx skills@latest add callumflack/skills --skill learning-save
   ```
 - **[`interrogate-claim`](interrogate-claim/SKILL.md)**. Pressure-test a strategy note by locating its claim, level, burden, objection, and next question before responding.
   ```sh
@@ -115,16 +128,17 @@ For UI work, start with [`ui-grammar`](ui-grammar/SKILL.md). Use [`code-stacks`]
   ```sh
   npx skills@latest add callumflack/skills --skill claim-diagram-card
   ```
-- **[`knowledge-promotion-review`](knowledge-promotion-review/SKILL.md)**. Review cross-repository evidence and decide whether it should stay local, become a domain candidate, or become a cross-domain candidate.
+- **[`learning-playbook`](learning-playbook/SKILL.md)**. Review cross-repository evidence and decide whether it should stay local, become a domain candidate, or become a cross-domain candidate.
   ```sh
-  npx skills@latest add callumflack/skills --skill knowledge-promotion-review
-  ```
-- **[`obsidian-vault`](obsidian-vault/SKILL.md)**. Route Obsidian and knowledge-base work into the live vault's own instructions without assuming a fixed path or generic structure.
-  ```sh
-  npx skills@latest add callumflack/skills --skill obsidian-vault
+  npx skills@latest add callumflack/skills --skill learning-playbook
   ```
 
 ## Sensemaking
+
+- **[`curious`](curious/SKILL.md)**. Follow an idea through attentive particulars and imaginative possibilities; return what the exploration reveals.
+  ```sh
+  npx skills@latest add callumflack/skills --skill curious
+  ```
 
 Work through experience and friction to understand what is happening before deciding what to do.
 

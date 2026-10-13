@@ -38,19 +38,18 @@
       "skills": [
         "so-what",
         "learning-loop",
-        "knowledge-handoff",
+        "learning-save",
         "interrogate-claim",
         "interrogate-idiom",
         "claim-rubric",
         "claim-diagram-card",
-        "knowledge-promotion-review",
-        "obsidian-vault"
+        "learning-playbook"
       ]
     },
     {
       "title": "Sensemaking",
       "description": "Work through experience and friction to understand what is happening before deciding what to do.",
-      "skills": ["friction-inquiry"]
+      "skills": ["curious", "friction-inquiry"]
     }
   ]
 }

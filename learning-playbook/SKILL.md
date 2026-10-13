@@ -1,13 +1,19 @@
 ---
-name: knowledge-promotion-review
-description: Review evidence from project work, documentation, or repeated agent friction and decide whether it should stay local, become a domain candidate, or become a cross-domain candidate. Use before promoting reusable knowledge, playbooks, skills, checks, or agent guidance across repositories.
+name: learning-playbook
+description: Reviews learning from project work, research, or repeated agent friction, proposes its appropriate reusable owner and reach, and applies explicitly approved changes. Use before promoting findings into playbooks, skills, checks, or agent guidance across repositories.
 ---
 
-# Knowledge Promotion Review
+# Learning Playbook
 
 Treat observations as evidence until an owner deliberately promotes them. This skill reviews promotion candidates; it does not capture them or make them govern future work.
 
 Remain read-only by default. A request to review evidence does not authorize edits to repositories, knowledge bases, skills, policy, or agent configuration.
+
+## Place in the learning workflow
+
+Use `/learning-playbook` to assess whether learning from saved findings and real project work should become a reusable Playbook or another durable owner. Its first output is a promotion verdict with the proposed destination, concrete change, evidence and applicability boundary. A lesson can remain local; the name does not require a Playbook for every finding.
+
+Review stays read-only until the user approves the proposed write or an explicit applicable grant covers it. After approval, apply the accepted change at its named owner using that owner's promotion and completion rules. Candidate status and required behavioral proof remain explicit; approval to record a candidate does not establish general effectiveness. Use `/learning-save` for an authorized KB record of the accepted verdict and provenance. Use `/learning-loop` to inspect later application and return evidence to the owner.
 
 ## Establish The Evidence Boundary
 
@@ -82,6 +88,6 @@ Keep candidate, promoted, and governing status distinct.
 
 Only mutate a destination when the user explicitly authorizes that write. Before editing, read the nearest owner's instructions and name allowed writes, forbidden surfaces, and the done gate.
 
-This skill owns one promotion verdict. The central [promotion playbook](../../playbooks/playbooks/promote-reusable-knowledge.md) owns candidate testing, deliberate promotion, revalidation, and the evidence-packet contract. If that owner is unavailable, report the missing lifecycle guidance rather than recreating it here.
+This skill owns one promotion verdict and its explicitly approved application. The central [promotion playbook](../../playbooks/playbooks/promote-reusable-knowledge.md) owns candidate testing, deliberate promotion, revalidation, and the evidence-packet contract. If that owner is unavailable, report the missing lifecycle guidance rather than recreating it here.
 
-For durable capture, hand the accepted verdict and evidence packet to `knowledge-handoff`; do not reproduce its capture workflow here. Do not invoke or imitate an external continual-learning system, auto-edit policy, or scatter the same lesson across repositories.
+For durable capture, hand the accepted verdict and evidence packet to `learning-save`; do not reproduce its capture workflow here. Do not invoke or imitate an external continual-learning system, auto-edit policy, or scatter the same lesson across repositories.

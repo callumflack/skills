@@ -11,4 +11,6 @@ A gap is not a next step. If proof is missing, say what to test and what result 
 
 Use plain words and one short paragraph or up to three short bullets. Keep only details that change the conclusion or next action. No preamble, recap, vague "investigate further", or "I can do that if you want" ending.
 
-Recommend the next action within the user's goal. Carry it out only when already authorized.
+Recommend the next action within the user's goal. Complete necessary, already-authorized work before returning rather than presenting it as a follow-up suggestion. A discussion or assessment request stays within its write boundary.
+
+For an action task, state what is usable now and distinguish it from work still required or a decision needing the user. The always-on outcome rule and the destination's completion check own execution and proof; this skill owns explaining their practical result.

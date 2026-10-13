@@ -1,5 +1,20 @@
 # Worklog
 
+## 2026-10-07 — Finish and rejection-check ownership
+
+- **Resolved locally:** Callum requested connecting real completion and settled-correction enforcement to the learning workflow. The always-on outcome rule owns completing the requested result across dependent use boundaries; `/so-what` explains that result and carries necessary already-authorized work through rather than offering it back. `/learning-loop` puts mechanically decidable settled corrections into the nearest existing rejection check and verifies valid cases, while judgment-dependent decisions retain real acceptance criteria.
+- **Boundary:** improve existing owners rather than add another finish skill or workflow. Structural checks are not proof of matching the request or behavioral improvement. The KB distillation owns the practical map and the next organic observation; no Vana implementation or speculative check was added.
+
+## 2026-10-07 — Learning skill command names
+
+- **Resolved locally:** Callum explicitly confirmed actual learning-family invocation names. Rename `knowledge-handoff` to `learning-save` and `knowledge-promotion-review` to `learning-playbook`; keep `learning-loop`. Update directory/frontmatter names, catalogues, owned callers and registry/runtime links together. Preserve the existing review and approval boundary: `/learning-playbook` assesses reusable candidates and does not automatically publish governing material.
+- **Carry forward:** the existing KB distillation owns the phase assessment and pending next organic research-capture observation. This rename supersedes the earlier label-only decision; it does not add another workflow or claim unprompted capture works.
+
+## 2026-10-07 — Learning roles and vault-wrapper retirement
+
+- **Resolved locally:** Callum approved retiring `obsidian-vault` and consolidating its remaining capture-routing responsibility into global `knowledge-handoff`. Preserve the retired body in archive per repository convention; remove active catalogue/grouping entries and only the four confirmed owned runtime/registry links. Handoff now explicitly resolves a live Obsidian content root, including a vault nested inside a tooling checkout.
+- **Superseded naming decision:** catalogue labels alone missed Callum's request for memorable invocation names. Callum confirmed the actual `/learning-save`, `/learning-loop`, `/learning-playbook` family; the rename below supersedes keeping the previous names.
+
 ## 2026-10-07 — Catalogue order
 
 - **Resolved locally:** README and website configuration now agree on groups and ordered active entries. Code quality starts with react-feature-composition and react-build-lens; knowledge-handoff follows so-what and learning-loop. Public skills.sh visibly sorts within groups by install counts and exposes no manual-order field; historical entries remain separate. The completed review in chat 01a113a5-aaa9-72e3-af8f-dfca50113da0 renamed friction-to-proof to friction-inquiry, revised it around understanding spoken or rough accounts, and placed it in a separate Sensemaking group at Callum’s request.
