@@ -15,6 +15,22 @@ fail() {
   exit 1
 }
 
+# Resolve the parent, not the skill itself: authored runtime links must still
+# pass through the registry even when the source resolves to the same directory.
+points_to_registry_entry() {
+  local link="$1" expected="$2" target parent expected_parent
+  [ -e "$link" ] || return 1
+  target="$(readlink "$link")"
+  [ "$target" = "$expected" ] && return 0
+  case "$target" in
+    /*) ;;
+    *) target="$(dirname "$link")/$target" ;;
+  esac
+  parent="$(cd "$(dirname "$target")" 2>/dev/null && pwd -P)" || return 1
+  expected_parent="$(cd "$(dirname "$expected")" 2>/dev/null && pwd -P)" || return 1
+  [ "$parent/$(basename "$target")" = "$expected_parent/$(basename "$expected")" ]
+}
+
 owned_names=()
 while IFS= read -r -d '' skill_md; do
   owned_names+=("$(basename "$(dirname "$skill_md")")")
@@ -74,7 +90,7 @@ for destination in "${DESTS[@]}"; do
     expected_target="$REGISTRY/$registry_name"
 
     [ -L "$runtime_entry" ] || fail "runtime skill is not a symlink: $runtime_entry"
-    [ "$(readlink "$runtime_entry")" = "$expected_target" ] || fail "wrong runtime skill target: $runtime_entry"
+    points_to_registry_entry "$runtime_entry" "$expected_target" || fail "wrong runtime skill target: $runtime_entry"
   done
 done
 

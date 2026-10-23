@@ -1,5 +1,11 @@
 # Worklog
 
+## 2026-10-24 — Scrawl runtime links
+
+- **Scope:** Correct Scrawl's link-check warning without changing skill content; commit and push only the checker repair and dependent Agents distribution records. Preserve existing dirty work in both repositories.
+- **Decision:** The relative Claude link resolves correctly, but the checker compares literal path strings. Compare the resolved parent directory and entry name, keeping the canonical-registry boundary; add only the missing Scrawl links in the other three runtimes. Publish the checker through the Agents Skills pin and retain Scrawl's existing recorded tree.
+- **Resolved decision:** Keep the valid relative Claude link and the skill body intact, fill only the missing runtime links, and make equivalent registry paths valid without permitting direct authored-source bypasses. The portable pin carries the checker fix; unrelated Pi integration and skill edits remain outside this delivery.
+
 ## 2026-10-07 — Finish and rejection-check ownership
 
 - **Resolved locally:** Callum requested connecting real completion and settled-correction enforcement to the learning workflow. The always-on outcome rule owns completing the requested result across dependent use boundaries; `/so-what` explains that result and carries necessary already-authorized work through rather than offering it back. `/learning-loop` puts mechanically decidable settled corrections into the nearest existing rejection check and verifies valid cases, while judgment-dependent decisions retain real acceptance criteria.
