@@ -135,6 +135,12 @@ Saving preserves evidence; promotion decides whether broader guidance is warrant
 
 ## Sensemaking
 
+- **[`reframe`](reframe/SKILL.md)**. Develop a useful reframe from Callum’s prompt-framing collection and fitting experience; select and work through a perspective with the agent, the human or both, including what has become worth building.
+
+  ```sh
+  npx skills@latest add callumflack/skills --skill reframe
+  ```
+
 - **[`curious`](curious/SKILL.md)**. Follow an idea through attentive particulars and imaginative possibilities; return what the exploration reveals.
   ```sh
   npx skills@latest add callumflack/skills --skill curious

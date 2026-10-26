@@ -1,0 +1,4 @@
+interface:
+  display_name: "Reframe"
+  short_description: "Find a useful perspective from the prompt collection"
+  default_prompt: "Use $reframe to reconsider this situation through the prompt-framing collection and develop the useful possibility it reveals."
