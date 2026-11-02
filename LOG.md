@@ -1,10 +1,55 @@
 # Worklog
 
+## 2026-11-02 — Complete accumulated Skills changes
+
+- **Authorized delivery:** Callum requested reconciling the remaining local work, committing it in coherent groups and pushing it, with a clean Skills checkout. The groups are Markdown paragraph guidance and its checker; Pi runtime links and documentation; Homebase Playbooks references; deliberate learning capture and its catalogue entries; and goal-aware next-action guidance in `so-what`.
+- **Current state:** Breadboard and the verbatim product-description import were published in `79047e1` and `417155a`. Both passed the isolated installer refresh and visible skills.sh checks. The imported product-description files retain all nine pinned checksums. The paragraph skill and its Python checker are being delivered together; neither was included in those earlier commits.
+- **Learning boundaries:** The daily trial closed on 27 October 2026; capture now states that closure. Per-turn capture, injection, hooks and their checker remain retired. Deliberate capture, named-chat backfill and optional capture within task authority remain available. This publication adds no schedule or activation.
+- **History and remaining boundary:** The dated entries below describe their original local delivery and proof limits. This entry supersedes their local-only status for the Skills files included in this delivery. Other repositories, historical runtime experiments and KB content are unchanged. Advancing the separate Agents Skills pin is outside this Skills-only delivery; other computers using that pin still need its normal update before receiving these versions.
+
+## 2026-11-02 — Verbatim product-description import
+
+- **Scope:** Callum requested verbatim global placement of Steve Ruiz's skill from the KB note and cross-computer management outside `.skill-lock.json`. Preserve the original skill and all eight support files at the note's pinned gist revision; no host adaptation or workflow rewrite. Local installation only; preserve unrelated dirty work and the index.
+- **Owner:** `product-description/` in Skills carries the exact original files; its separate notice owns source revision, checksums and the existing pinned-setup distribution route. The repository formatter excludes imported source. Catalogue entries follow the existing local-only addition convention. No external-lock entry, upstream installer execution, commit, push or Agents pin change.
+- **Resolved local result:** All nine files match the pinned originals byte for byte, including through Codex, Claude, Cursor and Pi links. `npm run verify`, the metadata paragraph check, the Skills link checker, Agents `skills:check` and `runtime:check` pass. The external lock is unchanged. Skills publication completed on 2 November 2026 in `417155a`; the separate Agents Skills pin remains unchanged. The original local installation checks above remain historical evidence.
+
+## 2026-10-31 — Breadboard skill
+
+- **Scope:** Callum authorized a portable breadboard skill, reuse of Unity #1957's viewer, a new workflow and subsequent-change trial, and local delivery only. Added `breadboard/`, its catalog entry and runtime links without committing or publishing. Preserve the checkout's existing unrelated dirty work.
+- **Shape:** Keep one editable graph with selectable stories and requirements, code/intent/proof references on its blocks, and a dependency-free render/check command. The exact viewer assets are pinned to `6e7d27377e98184629a54f4c779a7ed9d266e51e`. An explicit generator adaptation supports local source links and bounded byte checks. A loopback helper displays code as text. The original reuse was local. Callum later authorized repository publication on 2 November 2026; `breadboard/NOTICE.md` records provenance and distribution terms.
+- **Proof:** Independent agents mapped Stake migration entry at `c7c5b82` and maintained it after the real `4c25f8b` source change in isolated snapshots. A cold reader found a missing surviving ordinary-form connection path; the map now includes it in both views while retaining original identities and unresolved code/intent discrepancies. The updated bundle has 53 matching source references. Thirteen public CLI cases pass; disabling root confinement in a disposable copy makes both relevant controls fail. The derived renderer produces exact matching HTML for both original Unity boards. Product/wallet/deployment behavior was not exercised.
+- **Local result:** Canonical source is `breadboard/`, linked through the existing registry into Codex, Claude, Cursor and Pi. The build bundle under `~/.codex/visualizations/2026/10/31/01a18f41-96f5-77e3-85d2-eaf63f27b39f/breadboard-build/` owns maps, screenshots and proof reports. Its `RESULT.md` records completion checks. The built-in Python skill validator lacks PyYAML here; installed YAML parsing, reference checks and the repository verifier supply structural validation. The initial build made no product or Unity #1957 source changes. Skills publication later completed on 2 November 2026 in `79047e1`, followed by the distribution metadata in `417155a`.
+
+## 2026-10-26 — Reframe and the prompt collection
+
+- **Local scope:** Keep one general `reframe` skill. The existing KB prompt collection owns exact wording and sources; the skill selects and develops a fitting perspective, with its existing families as optional supporting material. Preserve unrelated dirty work and the public website’s separate owner.
+- **Resolved wording:** Astra’s read sharpened the Luu lens from options already ruled out to possibilities that never occur to us, assessed against present capabilities and present worth. The labelled adaptation lives in the canonical collection; application context stays in the skill. No publication requested.
+
 ## 2026-10-24 — Scrawl runtime links
 
 - **Scope:** Correct Scrawl's link-check warning without changing skill content; commit and push only the checker repair and dependent Agents distribution records. Preserve existing dirty work in both repositories.
 - **Decision:** The relative Claude link resolves correctly, but the checker compares literal path strings. Compare the resolved parent directory and entry name, keeping the canonical-registry boundary; add only the missing Scrawl links in the other three runtimes. Publish the checker through the Agents Skills pin and retain Scrawl's existing recorded tree.
 - **Resolved decision:** Keep the valid relative Claude link and the skill body intact, fill only the missing runtime links, and make equivalent registry paths valid without permitting direct authored-source bypasses. The portable pin carries the checker fix; unrelated Pi integration and skill edits remain outside this delivery.
+
+## 2026-10-19 — Gwern and the canonical prompt list
+
+- **Resolved local scope:** Callum approved linking the KB prompt list from Learning and adding Gwern to `reframe`. `agentification-5` routes to the KB entry that owns the original and tightened wording; the skill owns selection and application. Consider arrangements that make delegation worthwhile, while keeping the free-human counterfactual distinct from execution proof. No duplicate collection or new Playbook; this change remains local.
+
+## 2026-10-16 — Quiet capture integration
+
+- **Resolved local integration scope:** After Callum's one setup restart, an ordinary existing-chat correction automatically reached the existing importer and readable case page. A separately authorized ordinary source-check request in another existing chat received that case before its answer. The capture skill retains evidence and interpretation ownership. Delegated requests remain distinct from human acceptance. The original no-tool delegated reply received no fresh case context, so every-turn retrieval remains unproved; the Learning evaluation retains that failure. The retired visible prompt remains disabled, and this work remains local.
+
+## 2026-10-15 — KB-owned Playbooks
+
+- **Resolved migration scope:** `learning-loop` and `learning-playbook` resolve their assessment owners through configured Homebase at `Learning/Playbooks`, retaining missing-owner reporting and the existing approval boundary. The KB owns the library; these skills remain the executable procedures. This migration is local only and preserves unrelated skill work.
+
+## 2026-10-15 — Reframe first version
+
+- **Resolved scope:** `reframe` owns a sourced question collection and a procedure for the agent, human or dialogue to develop a different approach. Felix’s four distinctions, deeper without bigger and creative exploration remain distinct. The existing Homebase cases and capture workflow retain their owners and record shape; question IDs and wording fit existing case cues. The KB Skill record and Learning entrance provide discovery. Source-derived questions remain candidates; no replacement corpus, classifier activation or publication is implied.
+
+## 2026-10-14 — Shared learning capture
+
+- **Resolved scope:** The global `capture-learning` skill owns explicit interpretation and readable-page completion; the existing Agents helper owns source preservation, schema validation and append history. The KB retains the shared corpus through `Homebase/Learning`. The independent Unity chat trial produced a reviewed candidate case with historical acceptance and a valid runtime exception. Unity remains read-only evidence. Hook activation, classifier inference and publication remain separate work. Existing catalogue and instruction edits are preserved.
 
 ## 2026-10-07 — Finish and rejection-check ownership
 

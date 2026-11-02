@@ -97,6 +97,11 @@ For UI work, start with [`ui-grammar`](ui-grammar/SKILL.md). Use [`code-stacks`]
 
 ## Knowledge workflow
 
+- **[`capture-learning`](capture-learning/SKILL.md)**. Record a work iteration, correction or successful approach as candidate cases in the shared Homebase Learning corpus, with exact source evidence and a readable account.
+  ```sh
+  npx skills@latest add callumflack/skills --skill capture-learning
+  ```
+
 Ordinary work is completed by the always-on outcome rule and the destination's real completion check. Include the dependent updates needed to make the requested result usable. `/so-what` makes the practical result, consequence and next action clear; it does not substitute for execution. When a settled correction can be checked mechanically, `/learning-loop` puts a rejection check at its local owner.
 
 Use `/learning-save` to preserve findings, `/learning-loop` to carry lessons into subsequent work, and `/learning-playbook` to assess broader reuse. Choose by the finding and its next use. These are conditional phases; a saved research note need not become governing guidance.

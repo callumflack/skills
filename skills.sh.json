@@ -41,6 +41,7 @@
       "title": "Knowledge workflow",
       "description": "Interrogate claims, strengthen notes, and preserve durable knowledge.",
       "skills": [
+        "capture-learning",
         "so-what",
         "learning-loop",
         "learning-save",
