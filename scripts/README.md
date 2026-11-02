@@ -15,10 +15,13 @@ this repo/<authored-skill>
           ↓
           ├─ ~/.claude/skills/<skill>
           ├─ ~/.codex/skills/<skill>
-          └─ ~/.cursor/skills/<skill>
+          ├─ ~/.cursor/skills/<skill>
+          └─ ~/.pi/agent/skills/<skill>
 ```
 
-The script first links this repository's skills into `~/.agents/skills`. It then links every skill in that registry—including external skills—into Claude Code, Codex, and Cursor. If a same-name real file or directory would be replaced, it stops before changing links and preserves that entry.
+The script first links this repository's skills into `~/.agents/skills`. It then links every skill in that registry—including external skills—into Claude Code, Codex, Cursor, and Pi. If a same-name real file or directory would be replaced, it stops before changing links and preserves that entry.
+
+Pi needs these individual links because its shared-directory discovery respects the registry’s ignore rules. Runtime-only entries such as Pi-only skills are preserved; a same-name real entry remains a conflict requiring an ownership decision.
 
 It finishes by checking that the structure is correct. A successful run ends with one `ok` line. Run `scripts/check-links.sh` directly whenever you only want to check it.
 

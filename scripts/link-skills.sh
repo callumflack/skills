@@ -4,7 +4,7 @@ set -euo pipefail
 # Maintainer-only local skill setup.
 #
 # This repository owns authored skill bodies. ~/.agents/skills is the canonical
-# local registry for authored and external skills. Claude, Codex, and Cursor
+# local registry for authored and external skills. Claude, Codex, Cursor, and Pi
 # receive per-skill links to that registry.
 
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
@@ -13,6 +13,7 @@ DESTS=(
   "$HOME/.claude/skills"
   "$HOME/.codex/skills"
   "$HOME/.cursor/skills"
+  "$HOME/.pi/agent/skills"
 )
 
 names=()

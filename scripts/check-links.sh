@@ -8,6 +8,7 @@ DESTS=(
   "$HOME/.claude/skills"
   "$HOME/.codex/skills"
   "$HOME/.cursor/skills"
+  "$HOME/.pi/agent/skills"
 )
 
 fail() {
@@ -100,4 +101,4 @@ if [ -f "$LOCKFILE" ]; then
   fi
 fi
 
-echo "ok: ${#owned_names[@]} authored skills; ${#registry_names[@]} registry skills; Claude, Codex, and Cursor link through ~/.agents/skills"
+echo "ok: ${#owned_names[@]} authored skills; ${#registry_names[@]} registry skills; Claude, Codex, Cursor, and Pi link through ~/.agents/skills"
