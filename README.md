@@ -14,9 +14,13 @@ npx skills@latest add callumflack/skills
 
 These skills specify different layers of a change before implementation.
 
-- **[`breadboard`](breadboard/SKILL.md)**. Create and maintain interactive product workflow maps with selectable stories, requirements, runtime wiring, code references and proof boundaries. It loads [`product-description`](product-description/SKILL.md) before investigating behavior, so invoke breadboard alone for the complete mapping workflow. The current version is local only. Its bundled Unity viewer has a separate [source and distribution notice](breadboard/NOTICE.md).
+- **[`product-description`](product-description/SKILL.md)**. Steve Ruiz's verbatim skill for describing a product's behavior from the outside in, feature by feature, then verifying and triaging it. Imported verbatim with its original reference files; [provenance and cross-computer management](product-description/NOTICE.md) are recorded separately.
 
-  Publication command for a later release, not an available public installation yet:
+  ```sh
+  npx skills@latest add callumflack/skills --skill product-description
+  ```
+
+- **[`breadboard`](breadboard/SKILL.md)**. Create and maintain interactive product workflow maps with selectable stories, requirements, runtime wiring, code references and proof boundaries. It loads [`product-description`](product-description/SKILL.md) before investigating behavior, so invoke breadboard alone for the complete mapping workflow. Its bundled Unity viewer has a separate [source and distribution notice](breadboard/NOTICE.md).
 
   ```sh
   npx skills@latest add callumflack/skills --skill breadboard
@@ -171,4 +175,6 @@ Original skills are MIT licensed unless a skill says otherwise.
 
 [`cognitive-load`](cognitive-load/SKILL.md) is adapted from Artem Zakirullin's [`cognitive-load`](https://github.com/zakirullin/cognitive-load) prompt and is published with CC-BY-4.0 attribution.
 
-[`breadboard`](breadboard/SKILL.md) contains locally reused Unity Surfaces viewer material. [Its notice](breadboard/NOTICE.md) records provenance and the local distribution boundary.
+[`breadboard`](breadboard/SKILL.md) contains reused Unity Surfaces viewer material. [Its notice](breadboard/NOTICE.md) records provenance and distribution terms.
+
+[`product-description`](product-description/SKILL.md) is an unmodified import by Steve Ruiz. [Its notice](product-description/NOTICE.md) records the pinned gist, exact file checksums and upstream license status; the default MIT license does not cover this import.

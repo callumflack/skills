@@ -5,7 +5,12 @@
     {
       "title": "Specification",
       "description": "Define product meaning and implementation shape before editing code.",
-      "skills": ["breadboard", "ui-grammar", "code-stacks"]
+      "skills": [
+        "product-description",
+        "breadboard",
+        "ui-grammar",
+        "code-stacks"
+      ]
     },
     {
       "title": "Planning and execution",
