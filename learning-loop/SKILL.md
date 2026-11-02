@@ -68,7 +68,7 @@ At the next LL invocation, inspect relevant earlier repairs for recurrence, succ
 
 ## Assessing the loop itself
 
-When repairs repeatedly fail to carry forward, or the user asks to evaluate or change the learning method, read the [LL assessment playbook](../../playbooks/playbooks/learning-loop.md). If the sibling checkout is absent, locate `playbooks/learning-loop.md` through workspace routing or the configured Playbooks library. The execution steps above are self-contained; report unavailable assessment guidance when that branch needs it.
+When repairs repeatedly fail to carry forward, or the user asks to evaluate or change the learning method, resolve Homebase through `CALLUM_HOMEBASE` or `~/Repos/callumflack/homebase` and read `Learning/Playbooks/playbooks/learning-loop.md`. This KB-owned library holds the assessment playbook. The execution steps above are self-contained; report unavailable assessment guidance when that branch needs it.
 
 The playbook owns diagnosis across repeated uses and criteria for revising the loop. This skill owns one run. A repo's standards, code and checks own its learned decisions.
 
