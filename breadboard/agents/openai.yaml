@@ -1,0 +1,4 @@
+interface:
+  display_name: "Breadboard"
+  short_description: "Map product workflows, stories and requirements"
+  default_prompt: "Use $breadboard to create or maintain an interactive map of this workflow. Connect stories and requirements to the working parts, owning code and proof, and distinguish implemented behavior from intent."

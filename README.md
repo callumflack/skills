@@ -14,6 +14,14 @@ npx skills@latest add callumflack/skills
 
 These skills specify different layers of a change before implementation.
 
+- **[`breadboard`](breadboard/SKILL.md)**. Create and maintain interactive product workflow maps with selectable stories, requirements, runtime wiring, code references and proof boundaries. It loads [`product-description`](product-description/SKILL.md) before investigating behavior, so invoke breadboard alone for the complete mapping workflow. The current version is local only. Its bundled Unity viewer has a separate [source and distribution notice](breadboard/NOTICE.md).
+
+  Publication command for a later release, not an available public installation yet:
+
+  ```sh
+  npx skills@latest add callumflack/skills --skill breadboard
+  ```
+
 - **[`ui-grammar`](ui-grammar/SKILL.md)**. Describe or design a React UI through its visual vocabulary, JSX tree, ownership, constraints, states, actions, effects, and proof. See [prompt examples](ui-grammar/README.md) for turning a visual correction into a reusable design-system relationship.
   ```sh
   npx skills@latest add callumflack/skills --skill ui-grammar
@@ -162,3 +170,5 @@ Retired or uncertain bodies live in [`archive`](archive/README.md). They are ret
 Original skills are MIT licensed unless a skill says otherwise.
 
 [`cognitive-load`](cognitive-load/SKILL.md) is adapted from Artem Zakirullin's [`cognitive-load`](https://github.com/zakirullin/cognitive-load) prompt and is published with CC-BY-4.0 attribution.
+
+[`breadboard`](breadboard/SKILL.md) contains locally reused Unity Surfaces viewer material. [Its notice](breadboard/NOTICE.md) records provenance and the local distribution boundary.

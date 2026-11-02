@@ -1,0 +1,36 @@
+{
+  "repository": "vana-com/unity-surfaces",
+  "revision": "6e7d27377e98184629a54f4c779a7ed9d266e51e",
+  "branch": "callum/data-connectors-breadboard-legibility",
+  "pullRequest": "https://github.com/vana-com/unity-surfaces/pull/1957",
+  "captured": "2026-10-31",
+  "files": [
+    {
+      "path": "assets/unity/viewer.template.html",
+      "upstreamPath": "docs/system/breadboards/viewer.template.html",
+      "sha256": "a468d9b3f717a20ce347084b8cdd37d888f4287d3616318695d9f1522420a3a9",
+      "localAdaptation": "Render story steps, labeled handoffs and direct check links; toggle story details on repeated heading activation while retaining highlighted wiring.",
+      "upstreamSha256": "06935d5a66cd8452cffb42b1e43d7591c6827f77065636b3989a78ec7061f409"
+    },
+    {
+      "path": "assets/unity/interactions.mjs",
+      "upstreamPath": "docs/system/breadboards/interactions.mjs",
+      "sha256": "7700558d4ffceb94358c38bf19475f679db0cab744d95ca488276a45bf70edac"
+    },
+    {
+      "path": "assets/unity/DESIGN_SYSTEM.md",
+      "upstreamPath": "docs/system/breadboards/DESIGN_SYSTEM.md",
+      "sha256": "aca2d1eb8178eaa093d35f63958eb19ea9cd95c04713d2496cb9221a749b8162"
+    }
+  ],
+  "generator": {
+    "upstreamPath": "scripts/breadboards.mjs",
+    "upstreamSha256": "a6f427f12ebeb59ffcac7ebaff0f54e9dae5390d637115bbb3445aec5942b6d3",
+    "adaptations": [
+      "Extract validation and rendering without Unity registry, Git scans or repository synchronization.",
+      "Resolve interactions from the bundled assets.",
+      "Allow safe relative source links with repository-root checks in the portable entry point."
+    ]
+  },
+  "distribution": "Local reuse authorized in this chat. Public distribution and licensing of the copied Unity assets have not been established."
+}
