@@ -41,3 +41,5 @@ npm run format -- <path>
 `npm run verify` checks formatting and catalogue consistency. Pre-commit formats staged `*.md`.
 
 Wrap copy-paste templates that need intentional line breaks with `<!-- prettier-ignore-start -->` / `<!-- prettier-ignore-end -->`. See `code-stacks/SKILL.md`.
+
+When authoring, editing or verifying Markdown prose for human reading or Notion export, load [markdown-paragraphs](markdown-paragraphs/SKILL.md) and run its paragraph checker on the changed prose files.

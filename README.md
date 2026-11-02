@@ -141,8 +141,15 @@ Saving preserves evidence; promotion decides whether broader guidance is warrant
   npx skills@latest add callumflack/skills --skill claim-diagram-card
   ```
 - **[`learning-playbook`](learning-playbook/SKILL.md)**. Review cross-repository evidence and decide whether it should stay local, become a domain candidate, or become a cross-domain candidate.
+
   ```sh
   npx skills@latest add callumflack/skills --skill learning-playbook
+  ```
+
+- **[`markdown-paragraphs`](markdown-paragraphs/SKILL.md)**. Write and export Markdown with one source line per prose paragraph; check for accidental wrapping before Notion delivery.
+
+  ```sh
+  npx skills@latest add callumflack/skills --skill markdown-paragraphs
   ```
 
 ## Sensemaking
