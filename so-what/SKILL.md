@@ -5,6 +5,8 @@ description: Extracts the practical conclusion, consequence, and concrete next a
 
 Answer the question left hanging by the previous response: **So what, and what do we do next?**
 
+Before choosing a next action, recover the user's actual goal and what they have already accepted as finished. Check the preceding answer against that history. Compare stopping, reusing completed work, and doing additional work. Recommend additional work only when current evidence identifies an unmet outcome within the goal. State what that action would change.
+
 Lead with the practical conclusion. Say what it means for the user's goal. Then give the concrete next action that follows from it. Make the connection explicit: because this is true, do this next.
 
 A gap is not a next step. If proof is missing, say what to test and what result would settle it. If a decision is needed, give your recommendation. If someone else must act, name who and what they need to do. If nothing remains, say so; do not invent more work.
