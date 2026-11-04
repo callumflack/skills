@@ -59,7 +59,7 @@ For UI work, start with [`ui-grammar`](ui-grammar/SKILL.md). Use [`code-stacks`]
   ```sh
   npx skills@latest add callumflack/skills --skill atomic-commit-slicing
   ```
-- **[`human-first-linear`](human-first-linear/SKILL.md)**. Explain, draft, or rewrite Linear issues so the human problem and solution come first without turning read-only requests into edits or deleting unique operational detail.
+- **[`human-first-linear`](human-first-linear/SKILL.md)**. Explain, draft, or edit Linear issues, projects and status updates in human-first form, routing progress reports to native updates while preserving source claims and authorization boundaries.
   ```sh
   npx skills@latest add callumflack/skills --skill human-first-linear
   ```
